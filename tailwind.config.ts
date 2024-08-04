@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         'background-secondary': '#F5F5F5',
-        'brand-color': '#4D88B8'
+        'brand-color': '#4D88B8',
       }
     }, 
     screens: {
@@ -19,8 +19,8 @@ const config: Config = {
       'l-md': '900px',
       'lg': '1024px',
       'xl': '1280px',
-      '2xl': '1536px'
-    }
+      '2xl': '1536px',
+    },
   },
   plugins: [],
 };
