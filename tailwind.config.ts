@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        'brand-dark': '#1E1E1E',
         'background-secondary': '#F5F5F5',
         'brand-color': '#4D88B8',
       }
     }, 
     screens: {
+      'xs': '440px',
       'sm': '640px',
       'md': '835px',
       'l-md': '900px',

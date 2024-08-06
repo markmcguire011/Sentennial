@@ -65,7 +65,7 @@ const Navbar = () => {
     } 
 
     return (
-        <nav className="p-4 border-b-2">
+        <nav className="py-4 px-[calc(12vw)] border-b-2">
             <div className="container mx-auto flex justify-between items-center">
                 <LogoButton />
                 <div className="hidden md:flex space-x-4">
