@@ -1,9 +1,10 @@
-import Image from "next/image";
-import { useState } from 'react';
-import Articles from "@/components/articles_header"
+import Articles from "@/components/articles"
+import { getAllArticles } from "@/lib/api";
 
-export default function Page() {
-    return (
-      <Articles />
-    )
-  }
+export default async function Page() {
+  const articles = getAllArticles()
+
+  return (
+    <Articles articles ={ articles }/>
+  )
+}
