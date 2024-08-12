@@ -22,7 +22,7 @@ export default async function Article({ params }: Params) {
             <div className="flex gap-6 items-center p-2">
                 <h1 className="text-l opacity-50 color-brand-dark">{article.date}</h1>
                 {article.categories.map((category) => (
-                    <Category name = {category} />
+                    <Category key = {article.slug + category} name = {category} />
                 ))}
             </div>
             <div className='text-xl'

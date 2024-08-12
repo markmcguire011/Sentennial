@@ -1,4 +1,4 @@
-export default function Category({ name } : { name: string}){
+export default function Category({ name } : { name: string }){
     const colorList = {
         'psychology': '#bccce6',
         'computer-science': '#dfd1e6',
