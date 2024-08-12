@@ -12,6 +12,11 @@ const config: Config = {
         'brand-dark': '#1E1E1E',
         'background-secondary': '#F5F5F5',
         'brand-color': '#4D88B8',
+        'psychology': '#bccce6',
+        'computer-science': '#dfd1e6',
+        'history': '#e6d1d6',
+        'architecture': '#e6d7d1',
+        'politics': '#d1e3e6'
       }
     }, 
     screens: {

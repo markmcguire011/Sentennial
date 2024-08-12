@@ -74,7 +74,7 @@ export default function Page() {
         <div className="flex justify-center gap-5 md:gap-10">
           <div className="flex flex-col gap-10 w-2/5">
             {articles.map((article) => (
-              <ArticleButton key = {article.slug} slug = {article.slug} title = {article.title} subtitle= {article.subtitle} date = {article.date}/>
+              <ArticleButton key = {article.slug + "-landing"} data = {article}/>
             ))}
           </div>
           <div className="h-auto w-[3px] rounded bg-slate-200"></div>

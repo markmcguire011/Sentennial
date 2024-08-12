@@ -3,5 +3,7 @@ export type Article = {
     title: string;
     subtitle: string;
     date: string;
+    comp_date: Date;
+    categories: string[]
     content: string;
   };

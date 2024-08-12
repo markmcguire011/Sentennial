@@ -23,6 +23,6 @@ export function getAllArticles(): Article[] {
   const posts = slugs
     .map((slug) => getArticleBySlug(slug))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1, post2) => (post1.comp_date > post2.comp_date ? -1 : 1));
   return posts;
 }

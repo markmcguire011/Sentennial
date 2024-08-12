@@ -1,6 +1,7 @@
 import { getAllArticles, getArticleBySlug } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import Category from '@/components/category'
 
 export default async function Article({ params }: Params) {
     const article = getArticleBySlug(params.slug)
@@ -20,7 +21,9 @@ export default async function Article({ params }: Params) {
             </div>
             <div className="flex gap-6 items-center p-2">
                 <h1 className="text-l opacity-50 color-brand-dark">{article.date}</h1>
-                <h1 className="text-l bg-[#e6d1d6] opacity-75 color-brand-dark border-2 rounded-full px-3 py-1">History</h1>
+                {article.categories.map((category) => (
+                    <Category name = {category} />
+                ))}
             </div>
         </div>
     )

@@ -30,11 +30,11 @@ export default function Articles({ articles }: Props) {
               </p>
               <svg className="fill-brand-dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m15 4.946-6-2-7 2.333v16.108l7-2.333 6 2 7-2.333V2.613zm-5 .442 4 1.333v11.891l-4-1.333zM4 6.721l4-1.333v11.891l-4 1.334zm16 10.558-4 1.333V6.721l4-1.334z"/></svg>
               <div className="flex flex-wrap gap-x-10 gap-y-5 pt-10">
-                <button onClick={() => handleClick(' - Pyschology')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-[#bccce6]">Pyschology</button>
-                <button onClick={() => handleClick(' - Computer Science')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-[#dfd1e6]">Computer Science</button>
-                <button onClick={() => handleClick(' - History')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-[#e6d1d6]">History</button>
-                <button onClick={() => handleClick(' - Architecture')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-[#e6d7d1]">Architecture</button>
-                <button onClick={() => handleClick(' - Politics')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-[#d1e3e6]">Politics</button>
+                <button onClick={() => handleClick(' - Pyschology')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-psychology">Psychology</button>
+                <button onClick={() => handleClick(' - Computer Science')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science">Computer Science</button>
+                <button onClick={() => handleClick(' - History')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-history">History</button>
+                <button onClick={() => handleClick(' - Architecture')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-architecture">Architecture</button>
+                <button onClick={() => handleClick(' - Politics')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-politics">Politics</button>
               </div>
             </div>
             <div>
@@ -55,7 +55,7 @@ export default function Articles({ articles }: Props) {
           <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Latest<span>{content}</span></h1>
           <div className="flex flex-col gap-7">
             {articles.map((article) => (
-                <ArticleButton key={article.slug} slug = {article.slug} title = {article.title} subtitle= {article.subtitle} date = {article.date}/>
+                <ArticleButton key={article.slug + "-article"} data = {article} />
             ))}
           </div>
         </div>
