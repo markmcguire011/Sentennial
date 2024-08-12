@@ -25,7 +25,7 @@ export default async function Article({ params }: Params) {
                     <Category name = {category} />
                 ))}
             </div>
-            <div
+            <div className='text-xl'
             dangerouslySetInnerHTML={{__html: article.content }}>
             </div>
         </div>
