@@ -25,6 +25,9 @@ export default async function Article({ params }: Params) {
                     <Category name = {category} />
                 ))}
             </div>
+            <div
+            dangerouslySetInnerHTML={{__html: article.content }}>
+            </div>
         </div>
     )
 }
