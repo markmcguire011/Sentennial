@@ -2,6 +2,7 @@ import MoackArticle from "@/components/elements"
 import Link from "next/link"
 import { getAllArticles } from "@/lib/api"
 import ArticleButton from "@/components/article_button"
+import RandomArticle from "@/components/random_article"
 
 export default function Page() {
   const articles = getAllArticles()
@@ -58,12 +59,7 @@ export default function Page() {
           <h1 className="text-4xl opacity-75 font-bold color-[#1E1E1E]">Discover</h1>
         </div>
         <div className="flex justify-center items-center gap-10">
-          <Link href={"/articles"} className="flex w-2/5 items-center">
-            <div className="group bg-white flex justify-between rounded w-full shadow-sm hover:shadow-md hover:animate-pulse p-6 border">
-              <h1 className="text-lg group-hover:underline group-hover:decoration-brand-color group-hover:text-brand-color">A random article...</h1>
-              <svg className="md:flex hidden group-hover:fill-brand-color" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M22 13v-1a10 10 0 0 0-20 0v1h9v7a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h-2v1h-1v-7zM12 4a8.013 8.013 0 0 1 7.938 7H4.062A8.013 8.013 0 0 1 12 4z"/></svg>
-            </div>
-          </Link>
+          <RandomArticle articles = {articles}/>
           <Link href={"/musings"} className="flex w-2/5 items-center">
             <div className="group bg-white flex justify-between rounded w-full shadow-sm hover:shadow-md hover:animate-pulse p-6 border">
               <h1 className="text-lg group-hover:underline group-hover:decoration-brand-color group-hover:text-brand-color">A random musing...</h1>

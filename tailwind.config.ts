@@ -17,6 +17,9 @@ const config: Config = {
         'history': '#e6d1d6',
         'architecture': '#e6d7d1',
         'politics': '#d1e3e6'
+      },
+      content: {
+        'counter': 'counter(counter, decimal-leading-zero)'
       }
     }, 
     screens: {

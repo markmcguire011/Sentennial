@@ -1,18 +1,39 @@
 .markdown {
     @apply text-lg;
-  }
-  
-  .markdown p,
-  .markdown ul,
-  .markdown ol,
-  .markdown blockquote {
+}
+
+.markdown p,
+.markdown blockquote {
     @apply my-6 text-lg;
-  }
-  
-  .markdown h2 {
+}
+
+.markdown h2 {
     @apply text-3xl font-semibold text-brand-dark opacity-90 mt-12 mb-4;
-  }
-  
-  .markdown h3 {
+}
+
+.markdown h3 {
     @apply text-2xl mt-8 mb-4 leading-snug;
-  }
+}
+
+.markdown sup a {
+    @apply rounded duration-100 p-[2px] text-brand-color hover:underline hover:bg-brand-color/25;
+}
+
+.markdown ol {
+    @apply list-none pl-8
+}
+
+.markdown #user-content-footnote-label {
+    @apply text-brand-color
+}
+
+.markdown ol li::before {
+    @apply content-counter [counter-increment:counter] text-brand-color -ml-8 float-left 
+    /* content: counter(counter, decimal-leading-zero);
+    counter-increment: counter;
+    float: left;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin-left: -2.25em;
+    color: #5873a1; */
+}
