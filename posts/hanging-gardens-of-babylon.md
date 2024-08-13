@@ -21,27 +21,25 @@ There are 5 surviving tellings of the great hanging gardens (accounts that I wil
 
 Here’s my own rendition based on these various sources and an attempt to preserve their beautiful language:
 
-<i> 
-A wife of Persian descent and possessed of a longing for the meadows of her native mountains, asked her king to imitate, through the artifice of a planted garden, the distinctive landscape of Persia.
+*A wife of Persian descent and possessed of a longing for the meadows of her native mountains, asked her king to imitate, through the artifice of a planted garden, the distinctive landscape of Persia.*
 
-And so it was that massive embankments along the Euphrates were constructed to stop flooding and a stone bridge built to span the river. And then a citadel, rising 80 feet above, on top of which the gardens were situated.
+*And so it was that massive embankments along the Euphrates were constructed to stop flooding and a stone bridge built to span the river. And then a citadel, rising 80 feet above, on top of which the gardens were situated.*
 
-The garden was square and extended 123 meters on each side. The enormous walls were almost 7 meters thick, and the passage-way between was 3 meters, so wide that four-horse chariots could easily pass one another.
+*The garden was square and extended 123 meters on each side. The enormous walls were almost 7 meters thick, and the passage-way between was 3 meters, so wide that four-horse chariots could easily pass one another.*
 
-Sloped like a hillside, large arching vaults rose from one another tier on tier, resembling that of a theatre.
+*Sloped like a hillside, large arching vaults rose from one another tier on tier, resembling that of a theatre.*
 
-These terraced galleries carried the entire weight of the planted garden and lofty trees, and rose little by little one above the other up the slope; and the uppermost gallery, which was 50 cubits high, bore the highest surface of the garden, which at 93 meters was level with the circuit wall of the battlements of the city,
+*These terraced galleries carried the entire weight of the planted garden and lofty trees, and rose little by little one above the other up the slope; and the uppermost gallery, which was 50 cubits high, bore the highest surface of the garden, which at 93 meters was level with the circuit wall of the battlements of the city,*
 
-The ascent to the uppermost terraces was made by a stairway; and alongside these stairs there were screws, through which the water from the aqueducts and the Euphrates was continually conducted up into the garden.
+*The ascent to the uppermost terraces was made by a stairway; and alongside these stairs there were screws, through which the water from the aqueducts and the Euphrates was continually conducted up into the garden.*
 
-The roofs of the galleries were covered with beams of stone 16 feet long, inclusive of the overlap, and 4 feet wide. Above these beams there was first a layer of reeds laid in great quantities of bitumen, then two courses of baked brick bonded by cement, and as a third layer a covering of lead, so that the moisture from the soil might not penetrate beneath.
+*The roofs of the galleries were covered with beams of stone 16 feet long, inclusive of the overlap, and 4 feet wide. Above these beams there was first a layer of reeds laid in great quantities of bitumen, then two courses of baked brick bonded by cement, and as a third layer a covering of lead, so that the moisture from the soil might not penetrate beneath.*
 
-Earth had been piled on top to a depth sufficient for the roots of the largest trees, some with trunks as thick as 8 cubits in size; and the leveled ground was thickly planted with trees of every kind, broad-leaved and especially garden trees of many varieties, and all kinds of flowering plants that by their great size and other charms, could give pleasure to the beholder. 
+*Earth had been piled on top to a depth sufficient for the roots of the largest trees, some with trunks as thick as 8 cubits in size; and the leveled ground was thickly planted with trees of every kind, broad-leaved and especially garden trees of many varieties, and all kinds of flowering plants that by their great size and other charms, could give pleasure to the beholder.*
 
-And since the galleries, each jutting out beyond another, all received the light, the trees could be seen towering to a height of 50 feet, and said to yield as much fruit as if they were growing in their native soil. 
+*And since the galleries, each jutting out beyond another, all received the light, the trees could be seen towering to a height of 50 feet, and said to yield as much fruit as if they were growing in their native soil.* 
 
-And although lapse of time gradually undermines and destroys, not only works made by the hand of man, but also those of Nature herself, this huge structure, although worked upon by the roots of so many trees and loaded with the weight of so great a forest, endures unchanged.
-</i>
+*And although lapse of time gradually undermines and destroys, not only works made by the hand of man, but also those of Nature herself, this huge structure, although worked upon by the roots of so many trees and loaded with the weight of so great a forest, endures unchanged.*
 
 An absolute marvel of engineering, beauty, and ambition. 
 
@@ -234,6 +232,18 @@ And a little tangent, I’m sure we’ve all had days where little nuisances, st
 One of my favorite modern examples of the blending of nature and humanity is the Bosco Verticale located in Milan. There’s a certain intangible quality that buildings like these have that continues to capture wonder and amazement.
 
 I’ll sum up this article (before I go back and revise) with my observation that although mediums often change, the human condition inevitably finds a way to express itself, there’s really not a lot we can do otherwise.
+
+---
+
+## Sources
+
+- https://sacred-texts.com/cla/af/af05.htm
+- Babylon: A City of Wonders by Irving Finkel (2008)
+- Diodorus Siculus II.10-1-10
+- https://www.youtube.com/watch?v=GogH5R5bzRg
+- The Mystery of the Hanging Gardens of Babylon by Stephanie Dalley (2013)
+- The Seven Wonders of the Ancient World: Science, Engineering, and Technology by Michael Denis Higgins (2023)
+- Engineering the Hanging Gardens of Babylon by Sean Brady (2016) (article)
 
 
 [^01]: It’s been done, but most attempts really don’t take into account some spectacular feats of modern engineering. Noticeably lacking are newer buildings which may be less culturally significant but no less impressive

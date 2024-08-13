@@ -19,21 +19,22 @@
     @apply rounded duration-100 p-[2px] text-brand-color hover:underline hover:bg-brand-color/25;
 }
 
+.markdown a {
+    @apply hover:text-brand-color
+}
+
+.markdown .footnotes {
+    background-color: black;
+}
+
+.markdown ul li {
+    @apply before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2
+}
+
 .markdown ol {
-    @apply list-none pl-8
+    @apply [counter-reset:test] pl-8
 }
 
-.markdown #user-content-footnote-label {
-    @apply text-brand-color
-}
-
-.markdown ol li::before {
-    @apply content-counter [counter-increment:counter] text-brand-color -ml-8 float-left 
-    /* content: counter(counter, decimal-leading-zero);
-    counter-increment: counter;
-    float: left;
-    font-weight: 600;
-    font-size: 0.8em;
-    margin-left: -2.25em;
-    color: #5873a1; */
+.markdown ol li::before{
+    @apply content-counter [counter-increment:test] float-left -mx-8 text-brand-color font-semibold
 }

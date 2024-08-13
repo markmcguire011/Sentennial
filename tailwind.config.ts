@@ -19,7 +19,7 @@ const config: Config = {
         'politics': '#d1e3e6'
       },
       content: {
-        'counter': 'counter(counter, decimal-leading-zero)'
+        'counter': 'counter(test, decimal-leading-zero)'
       }
     }, 
     screens: {
