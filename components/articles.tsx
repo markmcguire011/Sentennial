@@ -2,10 +2,8 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import Link from 'next/link';
 import { Article } from '@/interfaces/article';
 import ArticleButton from './article_button';
-import { title } from 'process';
 
 type Props = {
   articles: Article[]
@@ -13,10 +11,21 @@ type Props = {
 
 export default function Articles({ articles }: Props) {
   const [content, setContent] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const handleClick = (newContent: string): void  => {
-    setContent(newContent);
+  const handleClick = (category: string): void => {
+    if (selectedCategory === category) {
+      setSelectedCategory(null);
+      setContent("")
+    } else {
+      setSelectedCategory(category);
+      setContent(category)
+    }
   };
+
+  const filteredArticles = selectedCategory 
+    ? articles.filter(article => article.categories.includes(selectedCategory))
+    : articles;
 
   return (
     <div className="flex flex-col justify-center gap-[20px] px-[calc(12vw)]">
@@ -30,11 +39,11 @@ export default function Articles({ articles }: Props) {
               </p>
               <svg className="fill-brand-dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m15 4.946-6-2-7 2.333v16.108l7-2.333 6 2 7-2.333V2.613zm-5 .442 4 1.333v11.891l-4-1.333zM4 6.721l4-1.333v11.891l-4 1.334zm16 10.558-4 1.333V6.721l4-1.334z"/></svg>
               <div className="flex flex-wrap gap-x-10 gap-y-5 pt-10">
-                <button onClick={() => handleClick(' - Pyschology')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-psychology">Psychology</button>
-                <button onClick={() => handleClick(' - Computer Science')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science">Computer Science</button>
-                <button onClick={() => handleClick(' - History')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-history">History</button>
-                <button onClick={() => handleClick(' - Architecture')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-architecture">Architecture</button>
-                <button onClick={() => handleClick(' - Politics')} className="border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-politics">Politics</button>
+                <button onClick={() => handleClick('Psychology')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-psychology ${selectedCategory === 'Psychology' ? 'bg-psychology text-slate-100' : ''}`}>Psychology</button>
+                <button onClick={() => handleClick('Computer Science')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science ${selectedCategory === 'Computer Science' ? 'bg-computer-science text-slate-100' : ''}`}>Computer Science</button>
+                <button onClick={() => handleClick('History')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-history ${selectedCategory === 'History' ? 'bg-history text-slate-100' : ''}`}>History</button>
+                <button onClick={() => handleClick('Architecture')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-architecture ${selectedCategory === 'Architecture' ? 'bg-architecture text-slate-100' : ''}`}>Architecture</button>
+                <button onClick={() => handleClick('Politics')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-politics ${selectedCategory === 'Politics' ? 'bg-politics text-slate-100' : ''}`}>Politics</button>
               </div>
             </div>
             <div>
@@ -52,9 +61,9 @@ export default function Articles({ articles }: Props) {
           <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
         </div>
         <div className='flex flex-col gap-10 pb-10'>
-          <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Latest<span>{content}</span></h1>
+          <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Latest<span> {content}</span></h1>
           <div className="flex flex-col gap-7">
-            {articles.map((article) => (
+            {filteredArticles.map((article) => (
                 <ArticleButton key={article.slug + "-article"} data = {article} />
             ))}
           </div>

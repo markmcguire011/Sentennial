@@ -2,6 +2,8 @@ import { getAllArticles, getArticleBySlug } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import Category from '@/components/category'
+import markdownStyles from '@/components/markdown-styles.module.css'
+import markdownToHtml from '@/lib/markdownToHtml';
 
 export default async function Article({ params }: Params) {
     const article = getArticleBySlug(params.slug)
@@ -9,6 +11,8 @@ export default async function Article({ params }: Params) {
     if (!article) {
         return notFound()
     }
+
+    const content = await markdownToHtml(article.content || "");
 
     return (
         <div className="flex flex-col px-[calc(12vw)] py-[calc(4vh)]">
@@ -25,8 +29,8 @@ export default async function Article({ params }: Params) {
                     <Category key = {article.slug + category} name = {category} />
                 ))}
             </div>
-            <div className='text-xl'
-            dangerouslySetInnerHTML={{__html: article.content }}>
+            <div className={markdownStyles['markdown']}
+            dangerouslySetInnerHTML={{__html: content }}>
             </div>
         </div>
     )

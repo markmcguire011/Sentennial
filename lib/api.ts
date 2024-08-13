@@ -19,10 +19,18 @@ export function getArticleBySlug(slug: string) {
 }
 
 export function getAllArticles(): Article[] {
-  const slugs = getArticleSlugs();
+  const slugs = getArticleSlugs()
   const posts = slugs
     .map((slug) => getArticleBySlug(slug))
-    // sort posts by date in descending order
+    .sort((post1, post2) => (post1.comp_date > post2.comp_date ? -1 : 1));
+  return posts;
+}
+
+export function getAllArticlesByCategory(category: string): Article[] {
+  const slugs = getArticleSlugs()
+  const posts = slugs
+    .map((slug) => getArticleBySlug(slug))
+    .filter(post => post.categories.includes(category))
     .sort((post1, post2) => (post1.comp_date > post2.comp_date ? -1 : 1));
   return posts;
 }
