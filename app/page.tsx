@@ -1,11 +1,13 @@
 import MoackArticle from "@/components/elements"
-import Link from "next/link"
-import { getAllArticles } from "@/lib/api"
+import { getAll } from "@/lib/api"
+import { Article } from "@/interfaces/article"
 import ArticleButton from "@/components/article_button"
-import RandomArticle from "@/components/random_article"
+import Random from "@/components/random"
+import MusingButton from "@/components/musing_button"
 
 export default function Page() {
-  const articles = getAllArticles()
+  const articles = getAll(true)
+  const musings = getAll(false)
 
   return (
     <div className="flex flex-col">
@@ -59,34 +61,26 @@ export default function Page() {
           <h1 className="text-4xl opacity-75 font-bold color-[#1E1E1E]">Discover</h1>
         </div>
         <div className="flex justify-center items-center gap-10">
-          <RandomArticle articles = {articles}/>
-          <Link href={"/musings"} className="flex w-2/5 items-center">
+          <Random collection={articles} type="article"/>
+          <Random collection={musings} type="musing" /> 
+          {/* <Link href={"/musings"} className="flex w-2/5 items-center">
             <div className="group bg-white flex justify-between rounded w-full shadow-sm hover:shadow-md hover:animate-pulse p-6 border">
               <h1 className="text-lg group-hover:underline group-hover:decoration-brand-color group-hover:text-brand-color">A random musing...</h1>
               <svg className="md:flex hidden group-hover:fill-brand-color" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M22 13v-1a10 10 0 0 0-20 0v1h9v7a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h-2v1h-1v-7zM12 4a8.013 8.013 0 0 1 7.938 7H4.062A8.013 8.013 0 0 1 12 4z"/></svg>
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="flex justify-center gap-5 md:gap-10">
           <div className="flex flex-col gap-10 w-2/5">
             {articles.map((article) => (
-              <ArticleButton key = {article.slug + "-landing"} data = {article}/>
+              <ArticleButton key = {article.slug + "-landing"} data = {article as Article}/>
             ))}
           </div>
           <div className="h-auto w-[3px] rounded bg-slate-200"></div>
           <div className="flex flex-col gap-10 w-2/5">
-            <Link href={"/articles"} className="flex flex-col w-full items-center">
-              <div className="group bg-white flex flex-col justify-between rounded w-full shadow-sm hover:shadow-md p-6 border">
-                <div className="flex justify-between">
-                  <h1 className="text-lg group-hover:underline group-hover:decoration-brand-color group-hover:text-brand-color">What is a Chronometer?</h1>
-                  <svg className="md:flex hidden group-hover:fill-brand-color" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"/><path d="M13.293 7.293 8.586 12l4.707 4.707 1.414-1.414L11.414 12l3.293-3.293-1.414-1.414z"/></svg>
-                </div> 
-                <div className="flex flex-col md:flex-row justify-between">
-                  <h1 className="text-lg text-slate-400">i don't know</h1>
-                  <h1 className="txt-md text-slate-400">August 10th, 2024</h1>
-                </div>
-              </div>
-            </Link>
+            {musings.map((musing) => (
+              <MusingButton key = {musing.slug + "-landing"} data = {musing}/>
+            ))}
           </div>
         </div>
       </div>

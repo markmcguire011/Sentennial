@@ -1,4 +1,4 @@
-import { getAllArticles, getArticleBySlug } from '@/lib/api'
+import { getAll, getBySlug } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import Category from '@/components/category'
@@ -6,7 +6,7 @@ import markdownStyles from '@/components/markdown-styles.module.css'
 import markdownToReact from '@/lib/markdownToReact'
 
 export default async function Article({ params }: Params) {
-    const article = getArticleBySlug(params.slug)
+    const article = getBySlug(params.slug, true)
 
     if (!article) {
         return notFound()
@@ -43,7 +43,7 @@ type Params = {
 }
 
 export function generateMetadata({ params }: Params): Metadata {
-    const article = getArticleBySlug(params.slug)
+    const article = getBySlug(params.slug, true)
 
     if (!article) {
         return notFound()
@@ -60,7 +60,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-    const articles = getAllArticles()
+    const articles = getAll(true)
 
     return articles.map((article) => ({
         slug: article.slug

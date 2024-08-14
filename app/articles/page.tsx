@@ -1,10 +1,11 @@
 import Articles from "@/components/articles"
-import { getAllArticles } from "@/lib/api";
+import { Article } from "@/interfaces/article";
+import { getAll } from "@/lib/api";
 
 export default async function Page() {
-  const articles = getAllArticles()
+  const articles = getAll(true)
 
   return (
-    <Articles articles ={ articles }/>
+    <Articles articles ={ articles as Article[]}/>
   )
 }

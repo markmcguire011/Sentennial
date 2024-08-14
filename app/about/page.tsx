@@ -69,14 +69,14 @@ export default function Page() {
               />
             <Image 
                 src="/about/ornate_building.jpg"
-                width={350}
+                width={325}
                 height={600}
                 alt="Ornate building" 
                 className="rounded-md"
               />
             <Image 
                 src="/about/pod_building.jpg"
-                width={350}
+                width={325}
                 height={600}
                 alt="Pod building" 
                 className="rounded-md"
