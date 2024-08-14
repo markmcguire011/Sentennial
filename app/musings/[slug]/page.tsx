@@ -15,8 +15,8 @@ export default async function Musing({ params }: Params) {
     const content = await markdownToReact(musing.content || "");
 
     return (
-        <div className="flex flex-col px-[calc(12vw)] py-[calc(4vh)]">
-            <div className="flex flex-col gap-2 pb-12">
+        <div className="flex flex-col px-[calc(12vw)]  max-w-[1200px] mx-auto py-[calc(4vh)] text-black">
+            <div className="flex flex-col gap-2 pb-6">
                 <h1 className="text-6xl font-bold opacity-75 color-brand-dark">{musing.title}</h1>
             </div>
             <div className="flex">
@@ -28,6 +28,9 @@ export default async function Musing({ params }: Params) {
                     <Category key = {article.slug + category} name = {category} />
                 ))}
             </div> */}
+            <div className="flex gap-6 items-center p-2">
+                <h1 className="text-l opacity-50 color-brand-dark">{musing.date}</h1>
+            </div>
             <div className={markdownStyles['markdown']}>
                 {content}
             </div>

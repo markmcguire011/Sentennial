@@ -65,8 +65,8 @@ const Navbar = () => {
     } 
 
     return (
-        <nav className="py-4 px-[calc(12vw)] border-b-2">
-            <div className="container mx-auto flex justify-between items-center">
+        <nav className="py-4 border-b-2">
+            <div className="container max-w-[1200px] mx-auto flex justify-between items-center text-black">
                 <LogoButton />
                 <div className="hidden md:flex space-x-4">
                     <NavList onClick={handleLinkClick}/>

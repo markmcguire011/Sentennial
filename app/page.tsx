@@ -10,7 +10,7 @@ export default function Page() {
   const musings = getAll(false)
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col max-w-[1200px] mx-auto text-black">
       <div className="min-h-[50vh] flex flex-col items-center justify-center gap-[20px]">
         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 40 40" fill="none">
           <path d="M19.9999 36.6667C29.2047 36.6667 36.6666 29.2048 36.6666 20C36.6666 10.7953 29.2047 3.33337 19.9999 3.33337C10.7952 3.33337 3.33325 10.7953 3.33325 20C3.33325 29.2048 10.7952 36.6667 19.9999 36.6667Z" stroke="#4D88B8" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>

@@ -28,7 +28,7 @@ export default function Musings({ musings }: Props) {
 //     : articles;
 
   return (
-    <div className="flex flex-col justify-center px-[calc(12vw)]">
+    <div className="flex flex-col justify-center max-w-[1200px] px-[calc(4vw)] mx-auto text-black">
         <div className="pt-20 pb-10">
             <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
                 <div className="pr-10 max-w-[825px]">

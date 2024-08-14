@@ -15,8 +15,8 @@ export default async function Article({ params }: Params) {
     const content = await markdownToReact(article.content || "");
 
     return (
-        <div className="flex flex-col px-[calc(12vw)] py-[calc(4vh)]">
-            <div className="flex flex-col gap-2 pb-12">
+        <div className="flex flex-col px-[calc(12vw)] max-w-[1200px] mx-auto py-[calc(4vh)] text-black">
+            <div className="flex flex-col gap-2 pb-6">
                 <h1 className="text-6xl font-bold opacity-75 color-brand-dark">{article.title}</h1>
                 <h1 className="text-4xl font-semibold opacity-50 color-brand-dark">{article.subtitle}</h1>
             </div>

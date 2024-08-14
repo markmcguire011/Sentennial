@@ -23,10 +23,6 @@
     @apply hover:text-brand-color
 }
 
-.markdown .footnotes {
-    background-color: black;
-}
-
 .markdown ul li {
     @apply before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2
 }

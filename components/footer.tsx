@@ -5,8 +5,8 @@ import Link from "next/link"
 
 function Footer(){
     return (
-        <div className="border-t-2 px-[calc(12vw)]">
-            <div className="flex justify-between p-6 gap-10">
+        <div className="border-t-2">
+            <div className="flex justify-between py-6 gap-10 max-w-[1200px] mx-auto text-black">
                 <Link href={"/"}>
                     <svg className="xs:flex hidden" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <path d="M19.9999 36.6667C29.2047 36.6667 36.6666 29.2048 36.6666 20C36.6666 10.7953 29.2047 3.33337 19.9999 3.33337C10.7952 3.33337 3.33325 10.7953 3.33325 20C3.33325 29.2048 10.7952 36.6667 19.9999 36.6667Z" stroke="#1E1E1E" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
