@@ -65,7 +65,7 @@ In fact, most descriptions of the enigmatic gardens come from this first century
 
 Berossus’ account is the only surviving tie of the gardens to Babylon and then king Nebuchadnezzar II.
 
-Diodorus Siculus, an ancient Greek historian working off now-lost sources from 4th century BCE historians Cleitarchus and Ctesias of Cnidus, provided the most detailed description of the gardens (which was included in the earlier paraphrased section) but he ascribed them only to a ‘Syrian King.’ (3)
+Diodorus Siculus, an ancient Greek historian working off now-lost sources from 4th century BCE historians Cleitarchus and Ctesias of Cnidus, provided the most detailed description of the gardens (which was included in the earlier paraphrased section) but he ascribed them only to a ‘Syrian King’ (3).
 
 Not overly helpful. The other accounts come from ancient historians Quintin Curtius Rufus, Strabo, and Philo of Byzantium. Each provides a slightly different account of the gardens, however still do not include a concrete location or associated monarch.
 
@@ -73,7 +73,7 @@ Dang.
 
 ## And Now to the Archaeological Record!
 
-Okay so maybe the historical accounts of the gardens are a little muddled, and obviously with so much time and lost information (it’s amazing to think of how much knowledge has just been disintegrated by the sands of time and other natural or man made phenomena; also equally amazing is the ability to record so much knowledge on such transient mediums, the emergent properties of ink and papyrus or any pen and paper for that matter, is one of my great many joys in life. Now, it's funny to think that instead of having information become regretfully lost, it may stay with us longer than we like, how times have changed) they are bound to be flawed or inaccurate in one way or another.
+Okay so maybe the historical accounts of the gardens are a little muddled, and obviously with so much time and lost information [^03] they are bound to be flawed or inaccurate in one way or another.
 
 What isn’t muddled? The Earth.
 
@@ -249,4 +249,6 @@ I’ll sum up this article (before I go back and revise) with my observation tha
 [^01]: It’s been done, but most attempts really don’t take into account some spectacular feats of modern engineering. Noticeably lacking are newer buildings which may be less culturally significant but no less impressive
 
 [^02]: The ever present number 7 in historical antiquity, biblical retellings, and all manners of different contexts is also an extremely interesting topic in and of itself. I may write something in the future about the phenomena but for now just know that the Greeks thought that 7 was a perfect number.
+
+[^03]: It’s amazing to think of how much knowledge has just been disintegrated by the sands of time and other natural or man made phenomena; also equally amazing is the ability to record so much knowledge on such transient mediums, the emergent properties of ink and papyrus or any pen and paper for that matter, is one of my great many joys in life. Now, it's funny to think that instead of having information become regretfully lost, it may stay with us longer than we like, how times have changed.
 

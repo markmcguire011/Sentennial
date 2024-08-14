@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import Category from '@/components/category'
 import markdownStyles from '@/components/markdown-styles.module.css'
-import markdownToReact from '@/lib/markdownToHtml';
+import markdownToReact from '@/lib/markdownToReact'
 
 export default async function Article({ params }: Params) {
     const article = getArticleBySlug(params.slug)
