@@ -4,7 +4,7 @@
 
 .markdown p,
 .markdown blockquote {
-    @apply my-6 text-lg;
+    @apply my-6 text-lg text-brand-dark;
 }
 
 .markdown h2 {
@@ -16,7 +16,7 @@
 }
 
 .markdown sup a {
-    @apply rounded duration-100 p-[2px] text-brand-color hover:underline hover:bg-brand-color/25;
+    @apply rounded duration-100 p-[2px] bg-brand-color/25 hover:underline hover:bg-brand-color/35;
 }
 
 .markdown a {
@@ -36,5 +36,5 @@
 }
 
 .markdown ol li::before{
-    @apply content-counter [counter-increment:test] float-left -mx-8 text-brand-color font-semibold
+    @apply content-counter [counter-increment:test] float-left -mx-8 text-brand-color font-medium
 }

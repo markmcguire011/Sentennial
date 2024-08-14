@@ -19,7 +19,7 @@ function NavList({onClick}: {onClick: () => void}) {
             <NavItem text={"Articles"} onClick={onClick}/>
             <NavItem text={"Musings"} onClick={onClick}/>
             <NavItem text={"About"} onClick={onClick}/>
-            <NavItem text={"Newsletter"} onClick={onClick} />
+            {/* <NavItem text={"Newsletter"} onClick={onClick} /> */}
         </div>
     )
 }

@@ -32,7 +32,7 @@ export default function Articles({ articles }: Props) {
         <div className="pt-20">
           <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
             <div className="pr-10">
-              <h1 className="text-6xl pb-10 font-bold opacity-75 color-[#1E1E1E]">Articles.</h1>
+              <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">Articles.</h1>
               <p className="text-xl opacity-75 color-brand-dark pb-6">
                 <b className="font-semibold">Full length pieces with more of a coherent theme or message. </b>
                 These are usually about things I've read or things I'm interested in. More abstract.
@@ -43,12 +43,12 @@ export default function Articles({ articles }: Props) {
                 <button onClick={() => handleClick('Computer Science')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science ${selectedCategory === 'Computer Science' ? 'bg-computer-science text-slate-100' : ''}`}>Computer Science</button>
                 <button onClick={() => handleClick('History')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-history ${selectedCategory === 'History' ? 'bg-history text-slate-100' : ''}`}>History</button>
                 <button onClick={() => handleClick('Architecture')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-architecture ${selectedCategory === 'Architecture' ? 'bg-architecture text-slate-100' : ''}`}>Architecture</button>
-                <button onClick={() => handleClick('Politics')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-politics ${selectedCategory === 'Politics' ? 'bg-politics text-slate-100' : ''}`}>Politics</button>
+                {/* <button onClick={() => handleClick('Politics')} className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-politics ${selectedCategory === 'Politics' ? 'bg-politics text-slate-100' : ''}`}>Politics</button> */}
               </div>
             </div>
             <div>
               <Image 
-                src="/alien_building.jpg"
+                src="/articles/alien_building.jpg"
                 width={400}
                 height={600}
                 alt="Cool alien-looking building" 

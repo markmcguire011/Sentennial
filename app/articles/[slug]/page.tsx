@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import Category from '@/components/category'
 import markdownStyles from '@/components/markdown-styles.module.css'
-import markdownToHtml from '@/lib/markdownToHtml';
+import markdownToReact from '@/lib/markdownToHtml';
 
 export default async function Article({ params }: Params) {
     const article = getArticleBySlug(params.slug)
@@ -12,7 +12,7 @@ export default async function Article({ params }: Params) {
         return notFound()
     }
 
-    const content = await markdownToHtml(article.content || "");
+    const content = await markdownToReact(article.content || "");
 
     return (
         <div className="flex flex-col px-[calc(12vw)] py-[calc(4vh)]">
@@ -29,8 +29,8 @@ export default async function Article({ params }: Params) {
                     <Category key = {article.slug + category} name = {category} />
                 ))}
             </div>
-            <div className={markdownStyles['markdown']}
-            dangerouslySetInnerHTML={{__html: content }}>
+            <div className={markdownStyles['markdown']}>
+                {content}
             </div>
         </div>
     )
