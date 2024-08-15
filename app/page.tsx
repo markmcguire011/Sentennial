@@ -9,6 +9,9 @@ export default function Page() {
   const articles = getAll(true)
   const musings = getAll(false)
 
+  const recentArticles = articles.slice(0, 4);
+  const recentMusings = musings.slice(0, 4);
+
   return (
     <div className="flex flex-col max-w-[1200px] mx-auto text-black">
       <div className="min-h-[50vh] flex flex-col items-center justify-center gap-[20px]">
@@ -72,13 +75,13 @@ export default function Page() {
         </div>
         <div className="flex justify-center gap-5 md:gap-10">
           <div className="flex flex-col gap-10 w-2/5">
-            {articles.map((article) => (
+            {recentArticles.map((article) => (
               <ArticleButton key = {article.slug + "-landing"} data = {article as Article}/>
             ))}
           </div>
           <div className="h-auto w-[3px] rounded bg-slate-200"></div>
-          <div className="flex flex-col gap-10 w-2/5">
-            {musings.map((musing) => (
+          <div className="flex flex-col gap-16 w-2/5">
+            {recentMusings.map((musing) => (
               <MusingButton key = {musing.slug + "-landing"} data = {musing}/>
             ))}
           </div>

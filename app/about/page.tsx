@@ -48,35 +48,35 @@ export default function Page() {
           <div className="flex flex-wrap gap-10 items-center justify-center">
             <Image 
                   src="/articles/alien_building.jpg"
-                  width={325}
+                  width={300}
                   height={600}
                   alt="Alien building" 
                   className="rounded-md"
                 />
             <Image 
                 src="/about/habitat_building.jpg"
-                width={325}
+                width={300}
                 height={600}
                 alt="Habitat building" 
                 className="rounded-md"
               />
             <Image 
                 src="/about/trellis_building.jpg"
-                width={325}
+                width={300}
                 height={600}
                 alt="Trellis building" 
                 className="rounded-md"
               />
             <Image 
                 src="/about/ornate_building.jpg"
-                width={325}
+                width={300}
                 height={600}
                 alt="Ornate building" 
                 className="rounded-md"
               />
             <Image 
                 src="/about/pod_building.jpg"
-                width={325}
+                width={300}
                 height={600}
                 alt="Pod building" 
                 className="rounded-md"
