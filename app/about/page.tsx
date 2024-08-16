@@ -8,14 +8,14 @@ export default function Page() {
           <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">About.</h1>
           <p className="text-lg color-brand-dark">
           Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories 
-          about random stuff. You already knew that, but something you didn't know, the name of
+          about random stuff. You already knew that, but something you didn&apos;t know, the name of
           this project. It&apos;s a combination of <strong className="opacity-100 font-semibold text-brand-color">Sentient</strong> and <strong className="font-semibold">Centennial</strong>. Sentience: I think is super cool,
           consciousness, it&apos;s a big interesting mystery, yeah. Centennial: Relates to time, history, experience,
           celebration. Now you know. It also sounded cool, like a sentinel, an observer (of cool things obviously).
           <br />
           <br />
           Currently, I&apos;m studying computer science at Cal Poly SLO. I&apos;ve always loved learning
-          about technical topics, but "the other stuff" is equally as engaging. History
+          about technical topics, but &quot;the other stuff&quot; is equally as engaging. History
           and psychology are what I would call the engineering of the non-engineering world, so I love it.
           Daniel Khaneman and Sir David Attenborough are some of my heroes.
           <br />

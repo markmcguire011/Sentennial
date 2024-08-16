@@ -23,13 +23,13 @@ export default function Page() {
       </div>
       <div className="flex flex-col mx-auto md:flex-row gap-[40px]">
         <div className="flex flex-col md:w-1/2 w-screen gap-[20px] p-[60px]">
-          <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Articles n' Stuff</h1>
+          <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Articles n&apos; Stuff</h1>
           <div className="w-prose">
             <p className="text-xl color-[#1E1E1E">
               Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories about random stuff.
               <br />
               <br />
-              Here's some of the things that I write about:
+              Here&apos;s some of the things that I write about:
             </p>
           </div>
           <div className="flex items-center pl-[30px]">
