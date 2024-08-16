@@ -61,7 +61,7 @@ export default function Musings({ musings, page }: Props) {
                 </div>
                 <div>
                 <Image 
-                    src="static/assets/images/musings/palace_garden.jpg"
+                    src="/musings/palace_garden.jpg"
                     width={400}
                     height={600}
                     alt="Some very contemplating-looking gardens" 
