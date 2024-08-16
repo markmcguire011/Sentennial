@@ -47,35 +47,35 @@ export default function Page() {
           <p className="pb-10 font-semibold text-brand-dark text-lg">And here are some buildings I thought were really cool from when I was recently in NYC:</p>
           <div className="flex flex-wrap gap-10 items-center justify-center">
             <Image 
-                  src="/assets/images/articles/alien_building.jpg"
+                  src="static/assets/images/articles/alien_building.jpg"
                   width={300}
                   height={600}
                   alt="Alien building" 
                   className="rounded-md"
                 />
             <Image 
-                src="/assets/images/about/habitat_building.jpg"
+                src="static/assets/images/about/habitat_building.jpg"
                 width={300}
                 height={600}
                 alt="Habitat building" 
                 className="rounded-md"
               />
             <Image 
-                src="/assets/images/about/trellis_building.jpg"
+                src="static/assets/images/about/trellis_building.jpg"
                 width={300}
                 height={600}
                 alt="Trellis building" 
                 className="rounded-md"
               />
             <Image 
-                src="/assets/images/about/ornate_building.jpg"
+                src="static/assets/images/about/ornate_building.jpg"
                 width={300}
                 height={600}
                 alt="Ornate building" 
                 className="rounded-md"
               />
             <Image 
-                src="/assets/images/about/pod_building.jpg"
+                src="static/assets/images/about/pod_building.jpg"
                 width={300}
                 height={600}
                 alt="Pod building" 
