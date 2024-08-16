@@ -1,12 +1,14 @@
 import { getAll, getBySlug } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import { Musing } from '@/interfaces/musing'
 import Category from '@/components/category'
 import markdownStyles from '@/components/markdown-styles.module.css'
 import markdownToReact from '@/lib/markdownToReact'
 
-export default async function Musing({ params }: Params) {
-    const musing = getBySlug(params.slug, false)
+export default async function MusingPage({ params }: Params) {
+    
+    const musing = getBySlug<Musing>(params.slug, "musings")
 
     if (!musing) {
         return notFound()
@@ -45,7 +47,7 @@ type Params = {
 }
 
 export function generateMetadata({ params }: Params): Metadata {
-    const musing = getBySlug(params.slug, false)
+    const musing = getBySlug(params.slug, "musings")
 
     if (!musing) {
         return notFound()
@@ -62,7 +64,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-    const musings = getAll(true)
+    const musings = getAll("musings")
 
     return musings.map((musing) => ({
         slug: musing.slug

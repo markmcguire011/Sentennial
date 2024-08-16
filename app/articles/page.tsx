@@ -9,7 +9,7 @@ export default async function Page({ searchParams } : {
 }) {
 
   const currentPage = Number(searchParams?.page) || 1;
-  const articles = getAll(true)
+  const articles = getAll("articles")
 
   return (
     <Articles articles ={ articles as Article[]} page = { currentPage }/>

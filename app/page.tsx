@@ -6,8 +6,8 @@ import Random from "@/components/random"
 import MusingButton from "@/components/musing_button"
 
 export default function Page() {
-  const articles = getAll(true)
-  const musings = getAll(false)
+  const articles = getAll("articles")
+  const musings = getAll("musings")
 
   const recentArticles = articles.slice(0, 4);
   const recentMusings = musings.slice(0, 4);

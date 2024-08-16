@@ -9,7 +9,7 @@ export default async function Page({ searchParams }: {
 }) {
 
   const currentPage = Number(searchParams?.page) || 1;
-  const musings = getAll(false)
+  const musings = getAll("musings")
 
   return (
     <Musings musings = { musings as Musing[]} page={ currentPage }/>
