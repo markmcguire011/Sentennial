@@ -65,7 +65,7 @@ const Navbar = () => {
     } 
 
     return (
-        <nav className="py-4 border-b-2">
+        <nav className="p-4 border-b-2">
             <div className="container max-w-[1200px] mx-auto flex justify-between items-center text-black">
                 <LogoButton />
                 <div className="hidden md:flex space-x-4">
@@ -80,7 +80,7 @@ const Navbar = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className="md:hidden flex flex-col items-center justify-center">
+                <div className="md:hidden text-black flex flex-col items-center justify-center">
                     <NavList onClick={handleLinkClick}/>
                 </div>
             )}

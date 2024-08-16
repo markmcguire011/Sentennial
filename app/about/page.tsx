@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Page() {
     return (
-      <div className="flex flex-col justify-center max-w-[1200px] px-[calc(4vw)] mx-auto text-black">
+      <div className="flex flex-col justify-center max-w-[1200px] px-[calc(8vw)] mx-auto text-black">
         <div className="flex flex-col py-20">
           <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">About.</h1>
           <p className="text-lg color-brand-dark">
@@ -12,6 +12,9 @@ export default function Page() {
           this project. It&apos;s a combination of <strong className="opacity-100 font-semibold text-brand-color">Sentient</strong> and <strong className="font-semibold">Centennial</strong>. Sentience: I think is super cool,
           consciousness, it&apos;s a big interesting mystery, yeah. Centennial: Relates to time, history, experience,
           celebration. Now you know. It also sounded cool, like a sentinel, an observer (of cool things obviously).
+          <br />
+          <br />
+          <strong className="font-semibold">Life things:</strong>
           <br />
           <br />
           Currently, I&apos;m studying computer science at Cal Poly SLO. I&apos;ve always loved learning
@@ -28,7 +31,7 @@ export default function Page() {
           I also really love cities, space, and the human spirit.
           <br />
           <br />
-          <strong className="font-semibold"> Here are a few fun facts:</strong>
+          <strong className="font-semibold">Some random fun facts:</strong>
           </p>
           <ul className="p-4">
             <li className="text-lg color-brand-dark before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2">
@@ -44,7 +47,7 @@ export default function Page() {
               Favorite tangy taste: Lemon.
             </li>
           </ul>
-          <p className="pb-10 font-semibold text-brand-dark text-lg">And here are some buildings I thought were really cool from when I was recently in NYC:</p>
+          <p className="pb-10 font-semibold text-brand-dark text-lg">Some very cool building photos:</p>
           <div className="flex flex-wrap gap-10 items-center justify-center">
             <Image 
                   src="/articles/alien_building.JPG"
@@ -82,6 +85,7 @@ export default function Page() {
                 className="rounded-md"
               />
           </div>
+          <p className="text-center pt-5 font-semibold text-brand-dark text-lg">(These are all from a recent trip to NYC)</p>
           <p className="pt-10 pb-5 font-semibold text-brand-dark text-lg">And that&apos;s it</p>
           <div className="flex gap-2">
             <a className="rounded hover:bg-brand-color/70 w-min" target="_blank" href="https://www.linkedin.com/in/mark-mcguire011/" rel="noopener noreferrer">

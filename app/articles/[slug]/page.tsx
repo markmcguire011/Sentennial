@@ -16,19 +16,21 @@ export default async function ArticlePage({ params }: Params) {
     const content = await markdownToReact(article.content || "");
 
     return (
-        <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] py-[calc(4vh)] mx-auto">
+        <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] py-[calc(4vh)] mx-auto text-black">
             <div className="flex flex-col gap-2 pb-6">
-                <h1 className="text-6xl font-bold opacity-75 color-brand-dark">{article.title}</h1>
-                <h1 className="text-4xl font-semibold opacity-50 color-brand-dark">{article.subtitle}</h1>
+                <h1 className="text-6xl break-words font-bold opacity-75 color-brand-dark">{article.title}</h1>
+                <h1 className="text-4xl break-words font-semibold opacity-50 color-brand-dark">{article.subtitle}</h1>
             </div>
             <div className="flex">
                 <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
             </div>
-            <div className="flex gap-6 items-center p-2">
+            <div className="flex md:flex-row flex-col md:items-center justify-items-start gap-4 py-2">
                 <h1 className="text-l opacity-50 color-brand-dark">{article.date}</h1>
-                {article.categories.map((category) => (
-                    <Category key = {article.slug + category} name = {category} />
-                ))}
+                <div className='flex gap-4'>
+                    {article.categories.map((category) => (
+                        <Category key = {article.slug + category} name = {category} />
+                    ))}
+                </div>
             </div>
             <div className={markdownStyles['markdown']}>
                 {content}

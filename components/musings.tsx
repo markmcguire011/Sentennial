@@ -48,7 +48,7 @@ export default function Musings({ musings, page }: Props) {
   };
 
   return (
-    <div className="flex flex-col max-w-[1200px] px-[calc(4vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
+    <div className="flex flex-col max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
         <div className="pt-20 pb-10">
             <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
                 <div className="pr-10 max-w-[825px]">

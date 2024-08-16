@@ -49,11 +49,11 @@ export default function Articles({ articles, page }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-[20px] max-w-[1200px] px-[calc(4vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
+    <div className="flex flex-col gap-[20px] max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
         <div className="pt-20">
           <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
             <div className="pr-10 max-w-[825px]">
-              <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">Articles.</h1>
+              <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">Articles.</h1>
               <p className="text-xl opacity-75 color-brand-dark pb-6">
                 <b className="font-semibold">Full length pieces with more of a coherent theme or message. </b>
                 These are usually about things I&apos;ve read or things I&apos;m interested in. More abstract.
