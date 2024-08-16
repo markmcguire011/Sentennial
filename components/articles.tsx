@@ -69,7 +69,7 @@ export default function Articles({ articles, page }: Props) {
             </div>
             <div>
               <Image 
-                src="/articles/alien_building.jpg"
+                src="/assets/images/articles/alien_building.jpg"
                 width={400}
                 height={600}
                 alt="Cool alien-looking building" 
