@@ -8,6 +8,8 @@ import { Article } from '@/interfaces/article';
 import ArticleButton from './article_button';
 import { usePathname, useSearchParams } from 'next/navigation';
 
+import alienBuilding from '@/public/articles/alien_building.jpg'
+
 type Props = {
   articles: Article[]
   page: number
@@ -69,7 +71,7 @@ export default function Articles({ articles, page }: Props) {
             </div>
             <div>
               <Image 
-                src="/articles/alien_building.jpg"
+                src={alienBuilding}
                 width={400}
                 height={600}
                 alt="Cool alien-looking building" 
