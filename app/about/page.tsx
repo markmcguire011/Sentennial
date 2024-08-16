@@ -7,20 +7,20 @@ export default function Page() {
         <div className="flex flex-col py-20">
           <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">About.</h1>
           <p className="text-lg color-brand-dark">
-          Hey I'm Mark! This is a personal project/blog where I record thoughts and stories 
+          Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories 
           about random stuff. You already knew that, but something you didn't know, the name of
-          this project. It's a combination of <strong className="opacity-100 font-semibold text-brand-color">Sentient</strong> and <strong className="font-semibold">Centennial</strong>. Sentience: I think is super cool,
-          consciousness, it's a big interesting mystery, yeah. Centennial: Relates to time, history, experience,
+          this project. It&apos;s a combination of <strong className="opacity-100 font-semibold text-brand-color">Sentient</strong> and <strong className="font-semibold">Centennial</strong>. Sentience: I think is super cool,
+          consciousness, it&apos;s a big interesting mystery, yeah. Centennial: Relates to time, history, experience,
           celebration. Now you know. It also sounded cool, like a sentinel, an observer (of cool things obviously).
           <br />
           <br />
-          Currently, I'm studying computer science at Cal Poly SLO. I've always loved learning
+          Currently, I&apos;m studying computer science at Cal Poly SLO. I&apos;ve always loved learning
           about technical topics, but "the other stuff" is equally as engaging. History
           and psychology are what I would call the engineering of the non-engineering world, so I love it.
           Daniel Khaneman and Sir David Attenborough are some of my heroes.
           <br />
           <br />
-          In the field of computer science I'm really interested in machine learning. But more generally
+          In the field of computer science I&apos;m really interested in machine learning. But more generally
           I enjoy the struggle to learn how things work, and the act of creation and innovation through code.
           <br />
           <br />
@@ -82,7 +82,7 @@ export default function Page() {
                 className="rounded-md"
               />
           </div>
-          <p className="pt-10 pb-5 font-semibold text-brand-dark text-lg">And that's it</p>
+          <p className="pt-10 pb-5 font-semibold text-brand-dark text-lg">And that&apos;s it</p>
           <div className="flex gap-2">
             <a className="rounded hover:bg-brand-color/70 w-min" target="_blank" href="https://www.linkedin.com/in/mark-mcguire011/" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1"  width="24" height="24" viewBox="0 0 24 24">

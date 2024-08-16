@@ -26,7 +26,7 @@ export default function Page() {
           <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Articles n' Stuff</h1>
           <div className="w-prose">
             <p className="text-xl color-[#1E1E1E">
-              Hey I'm Mark! This is a personal project/blog where I record thoughts and stories about random stuff.
+              Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories about random stuff.
               <br />
               <br />
               Here's some of the things that I write about:
