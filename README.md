@@ -12,4 +12,4 @@ I used Next and Tailwind with Typescript.
 
 ## Take a look!
 
-Check out some of my other stuff: coming soon!
+Check out the project here: https://www.sentennial.org/
