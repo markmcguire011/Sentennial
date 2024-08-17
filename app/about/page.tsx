@@ -86,7 +86,7 @@ export default function Page() {
           </div>
           <p className="text-center py-5 text-brand-dark text-lg">(These are all from a recent trip to NYC)</p>
           <p className="pt-4 text-lg color-brand-dark">
-            <strong className="font-semibold">And that's it!</strong>
+            <strong className="font-semibold">And that&apos;s it!</strong>
             <br />
             <br />
             These are my other things:
