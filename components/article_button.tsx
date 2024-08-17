@@ -23,7 +23,7 @@ export default function ArticleButton({ data } : Props) {
                 </div> 
                 <div className="flex flex-col px-6 pb-3 md:flex-row justify-between">
                     <h1 className="text-lg text-slate-400">{data.subtitle}</h1>
-                    <h1 className="txt-md text-slate-400">{data.date}</h1>
+                    <h1 className="txt-md text-slate-400 sm:flex hidden">{data.date}</h1>
                 </div>
                 <div className="flex">
                     {data.categories.map((category) => {

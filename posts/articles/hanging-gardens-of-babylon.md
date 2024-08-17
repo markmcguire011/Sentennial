@@ -211,7 +211,7 @@ Water, raised.
 
 ## Enough with the History
 
-Yeah I’ll admit I’ve been writing this for a little too long now, but the perfectionist in me can’t bear to leave out the little historical bits and pieces from the story. Also there was a really good BBC documentary on the whole Babylon vs. Nineveh conundrum which is now on youtube, search for ‘finding babylon’s hanging gardens’. Ok done with that, now I want to turn to stuff a little more current and maybe a little more about the human condition.
+I’ve been writing this for a little too long now, if you want to learn more there's a BBC documentary on the whole Babylon vs. Nineveh conundrum on youtube, search for ‘finding babylon’s hanging gardens’. Ok done with that, now I want to turn to stuff a little more current and maybe a little more about the human condition.
 
 I want to circle back to the beginning of this article, why is it that the idea of the hanging gardens are so intriguing? Why did they retain their spot as a world wonder when other great works like the Gate of Ishtar (which was indisputably real and also in Babylon) were inevitably written off?
 
@@ -251,4 +251,3 @@ I’ll sum up this article (before I go back and revise) with my observation tha
 [^02]: The ever present number 7 in historical antiquity, biblical retellings, and all manners of different contexts is also an extremely interesting topic in and of itself. I may write something in the future about the phenomena but for now just know that the Greeks thought that 7 was a perfect number.
 
 [^03]: It’s amazing to think of how much knowledge has just been disintegrated by the sands of time and other natural or man made phenomena; also equally amazing is the ability to record so much knowledge on such transient mediums, the emergent properties of ink and papyrus, or any pen and paper for that matter, is one of my great many joys in life. Now, it's funny to think that instead of having information become regretfully lost, it may stay with us longer than we like, how times have changed.
-

@@ -4,6 +4,9 @@ import { Article } from "@/interfaces/article"
 import ArticleButton from "@/components/article_button"
 import Random from "@/components/random"
 import MusingButton from "@/components/musing_button"
+import Image from "next/image"
+
+import cursor from "@/public/cursor.svg"
 
 export default function Page() {
   const articles = getAll("articles")
@@ -23,10 +26,27 @@ export default function Page() {
       </div>
       <div className="flex flex-col mx-auto md:flex-row gap-[40px]">
         <div className="flex flex-col md:w-1/2 w-screen gap-[20px] p-[60px]">
-          <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">Articles n&apos; Stuff</h1>
+          <div className="w-1/2 h-[1px] bg-gradient-to-r from-[#a8a8a8] rounded"></div>
+          <div className="relative">
+            <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">A Development</h1>
+            <div className="-ml-5 absolute inset-0 flex">
+              <div className="relative w-[48px] h-[48px]">
+                <div className="absolute transform -translate-x-1/2 -rotate-[60deg] bg-[#a8a8a8] w-[1px] h-[24px]"></div>
+                <div className="absolute transform -translate-x-1/2 translate-y-1/2 rotate-[60deg] bg-[#a8a8a8] w-[1px] h-[24px]"></div>
+              </div>
+            </div>
+            <div className="ml-[80px] -mt-[5px] absolute inset-0 flex justify-center">
+              <div className="relative w-[64px] h-[64px]">
+                <div className="absolute inset-x-0 transform -translate-y-1/2 bg-[#a8a8a8] h-8 w-[1px]"></div>
+                <div className="absolute inset-y-0 transform -translate-x-1/2 bg-[#a8a8a8] w-8 h-[1px]"></div>
+              </div>
+            </div>
+            <Image className="ml-[160px] mt-8 absolute inset-0 flex justify-center" src={cursor} alt="cursor"/>
+          </div>
+          <div className="w-2/3 h-[1px] bg-gradient-to-l from-[#a8a8a8] rounded"></div>
           <div className="w-prose">
             <p className="text-xl color-[#1E1E1E">
-              Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories about random stuff.
+              Hey I&apos;m Mark! This is a personal project/blog where I record thoughts and stories about various topics.
               <br />
               <br />
               Here&apos;s some of the things that I write about:
