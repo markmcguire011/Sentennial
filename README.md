@@ -7,8 +7,11 @@ I post full-length articles about topics that interest me, and shorter commentar
 
 ## Build
 
-
 I used Next and Tailwind with Typescript. 
+
+## Copyright
+
+The written contents of the blog is licensed under Apache 2.0.
 
 ## Take a look!
 
