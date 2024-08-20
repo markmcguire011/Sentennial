@@ -15,6 +15,8 @@ export default function Page() {
   const recentArticles = articles.slice(0, 4);
   const recentMusings = musings.slice(0, 4);
 
+  
+
   return (
     <div className="flex flex-col max-w-[1200px] mx-auto text-black">
       <div className="min-h-[50vh] flex flex-col items-center justify-center gap-[20px]">
@@ -83,24 +85,23 @@ export default function Page() {
         <div className="flex items-center justify-center pb-6">
           <h1 className="text-4xl opacity-75 font-bold color-[#1E1E1E]">Discover</h1>
         </div>
-        <div className="flex justify-center items-center gap-10">
-          <Random collection={articles} type="article"/>
-          <Random collection={musings} type="musing" /> 
-          {/* <Link href={"/musings"} className="flex w-2/5 items-center">
-            <div className="group bg-white flex justify-between rounded w-full shadow-sm hover:shadow-md hover:animate-pulse p-6 border">
-              <h1 className="text-lg group-hover:underline group-hover:decoration-brand-color group-hover:text-brand-color">A random musing...</h1>
-              <svg className="md:flex hidden group-hover:fill-brand-color" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M22 13v-1a10 10 0 0 0-20 0v1h9v7a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h-2v1h-1v-7zM12 4a8.013 8.013 0 0 1 7.938 7H4.062A8.013 8.013 0 0 1 12 4z"/></svg>
-            </div>
-          </Link> */}
-        </div>
-        <div className="flex justify-center gap-5 md:gap-10">
-          <div className="flex flex-col gap-10 w-2/5">
+        <div className="flex md:flex-row flex-col md:items-start items-center justify-center gap-5 md:gap-10">
+          <div className="flex flex-col gap-10 md:w-2/5 w-3/5">
+            <Random collection={articles} type="article" customStyles="md:ml-5"/>
+            <div className="w-4 h-[3px] rounded bg-slate-200 place-self-center -my-4 md:hidden flex"></div>
             {recentArticles.map((article) => (
               <ArticleButton key = {article.slug + "-landing"} data = {article as Article}/>
             ))}
           </div>
-          <div className="h-auto w-[3px] rounded bg-slate-200"></div>
-          <div className="flex flex-col gap-16 w-2/5">
+          <div className="h-[42svh] w-[3px] md:flex hidden rounded bg-slate-200 place-self-end"></div>
+          <div className="md:hidden flex py-5 gap-3 items-center">
+            <div className="w-10 h-[3px] rounded bg-slate-200"></div>
+            <h1 className="text-3xl opacity-75 font-bold">Or</h1>
+            <div className="w-10 h-[3px] rounded bg-slate-200"></div>
+          </div>
+          <div className="flex flex-col gap-16 md:w-2/5 w-3/5">
+            <Random collection={musings} type="musing" customStyles="md:-ml-5"/>
+            <div className="w-4 h-[3px] rounded bg-slate-200 place-self-center -my-10 md:hidden flex"></div>
             {recentMusings.map((musing) => (
               <MusingButton key = {musing.slug + "-landing"} data = {musing}/>
             ))}
