@@ -86,7 +86,7 @@ export default function Page() {
           <h1 className="text-4xl opacity-75 font-bold color-[#1E1E1E]">Discover</h1>
         </div>
         <div className="flex md:flex-row flex-col md:items-start items-center justify-center gap-5 md:gap-10">
-          <div className="flex flex-col gap-10 md:w-2/5 w-3/5">
+          <div className="flex flex-col gap-10 md:w-2/5 w-4/5">
             <Random collection={articles} type="article" customStyles="md:ml-5"/>
             <div className="w-4 h-[3px] rounded bg-slate-200 place-self-center -my-4 md:hidden flex"></div>
             {recentArticles.map((article) => (
@@ -99,7 +99,7 @@ export default function Page() {
             <h1 className="text-3xl opacity-75 font-bold">Or</h1>
             <div className="w-10 h-[3px] rounded bg-slate-200"></div>
           </div>
-          <div className="flex flex-col gap-16 md:w-2/5 w-3/5">
+          <div className="flex flex-col gap-16 md:w-2/5 w-4/5">
             <Random collection={musings} type="musing" customStyles="md:-ml-5"/>
             <div className="w-4 h-[3px] rounded bg-slate-200 place-self-center -my-10 md:hidden flex"></div>
             {recentMusings.map((musing) => (
