@@ -93,7 +93,7 @@ export default function Page() {
               <ArticleButton key = {article.slug + "-landing"} data = {article as Article}/>
             ))}
           </div>
-          <div className="h-[42svh] w-[3px] md:flex hidden rounded bg-slate-200 place-self-end"></div>
+          <div className="h-[535px] w-[3px] md:flex hidden rounded bg-slate-200 place-self-end"></div>
           <div className="md:hidden flex py-5 gap-3 items-center">
             <div className="w-10 h-[3px] rounded bg-slate-200"></div>
             <h1 className="text-3xl opacity-75 font-bold">Or</h1>
