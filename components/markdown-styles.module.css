@@ -1,36 +1,36 @@
 .markdown {
-    @apply text-lg;
+  @apply text-lg;
 }
 
 .markdown p,
 .markdown blockquote {
-    @apply my-6 text-lg text-brand-dark;
+  @apply my-6 text-lg text-brand-dark;
 }
 
 .markdown h2 {
-    @apply text-3xl font-semibold text-brand-dark opacity-90 mt-12 mb-4;
+  @apply text-3xl font-semibold text-brand-dark opacity-90 mt-12 mb-4;
 }
 
 .markdown h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-8 mb-4 leading-snug;
 }
 
 .markdown sup a {
-    @apply rounded duration-100 p-[2px] bg-brand-color/25 hover:underline hover:bg-brand-color/35;
+  @apply rounded duration-100 p-[2px] bg-brand-color/25 hover:underline hover:bg-brand-color/35;
 }
 
 .markdown a {
-    @apply hover:text-brand-color
+  @apply hover:text-brand-color;
 }
 
 .markdown ul li {
-    @apply before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2
+  @apply before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2;
 }
 
 .markdown ol {
-    @apply [counter-reset:test] pl-8
+  @apply [counter-reset:test] pl-8;
 }
 
-.markdown ol li::before{
-    @apply content-counter [counter-increment:test] float-left -mx-8 text-brand-color font-medium
+.markdown ol li::before {
+  @apply content-[counter(test,decimal-leading-zero)] [counter-increment:test] float-left -mx-8 text-brand-color font-medium;
 }

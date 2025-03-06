@@ -143,9 +143,19 @@ export default function Articles({ articles, page }: Props) {
           Latest<span> {content}</span>
         </h1>
         <div className="flex flex-col gap-7">
-          {paginatedArticles.map((article) => (
-            <ArticleButton key={article.slug + "-article"} data={article} />
-          ))}
+          {paginatedArticles.length > 0 ? (
+            paginatedArticles.map((article) => (
+              <ArticleButton key={article.slug + "-article"} data={article} />
+            ))
+          ) : (
+            <div className="text-center py-10">
+              <p className="text-xl opacity-75 color-brand-dark">
+                Loading....
+                <br />
+                Just kidding, I&apos;m not done writing yet.
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex justify-between pb-10">
