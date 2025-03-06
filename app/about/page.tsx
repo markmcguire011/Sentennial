@@ -27,13 +27,19 @@ export default function Page() {
           <br />
           <br />
           Currently, I&apos;m studying computer science at Cal Poly SLO.
-          I&apos;m super passionate about CS, as well as history and psychology,
+          I&apos;m super passionate about CS, as well as history and philosophy,
           which are also huge interests of mine.
           <br />
           <br />
           In the field of computer science, ML/AI really interests me the most.
           But more generally, I just enjoy the struggle to learn how things
           work, and the act of problem solving and creation through technology.
+          <br />
+          <br />
+          History and philosophy are arguably bigger interests though, and I get
+          a special feeling from untangling the connections between them. Within
+          these two, ethics and the philosophy of mind are probably the most
+          interesting, as well as the French Revolution and the Enlightenment.
           <br />
           <br />
           Apart from that, I stay pretty active. I love basketball, running,
