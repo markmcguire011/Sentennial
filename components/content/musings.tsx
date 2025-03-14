@@ -5,7 +5,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
-import MusingButton from "./musing_button";
+import MusingButton from "@/components/content/musing_button";
 
 type Props = {
   musings: Musing[];
@@ -34,7 +34,7 @@ export default function Musings({ musings, page }: Props) {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
-  const musingsPerPage = 5;
+  const musingsPerPage = 4;
 
   const numPages = Math.ceil(musings.length / musingsPerPage);
 

@@ -110,6 +110,13 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  const navItems = [
+    { href: "/articles", text: "Articles" },
+    { href: "/musings", text: "Musings" },
+    { href: "/alexandria", text: "Alexandria [α]" },
+    { href: "/about", text: "About" },
+  ];
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 transform ${
@@ -126,13 +133,14 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavItem
-              href="/articles"
-              text="Articles"
-              onClick={handleLinkClick}
-            />
-            <NavItem href="/musings" text="Musings" onClick={handleLinkClick} />
-            <NavItem href="/about" text="About" onClick={handleLinkClick} />
+            {navItems.map((item) => (
+              <NavItem
+                key={item.href}
+                href={item.href}
+                text={item.text}
+                onClick={handleLinkClick}
+              />
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -168,13 +176,14 @@ export default function Navbar() {
           }`}
         >
           <div className="flex flex-col items-center space-y-4 py-4">
-            <NavItem
-              href="/articles"
-              text="Articles"
-              onClick={handleLinkClick}
-            />
-            <NavItem href="/musings" text="Musings" onClick={handleLinkClick} />
-            <NavItem href="/about" text="About" onClick={handleLinkClick} />
+            {navItems.map((item) => (
+              <NavItem
+                key={item.href}
+                href={item.href}
+                text={item.text}
+                onClick={handleLinkClick}
+              />
+            ))}
           </div>
         </div>
       </div>

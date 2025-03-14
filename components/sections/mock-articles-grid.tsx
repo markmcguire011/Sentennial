@@ -1,6 +1,6 @@
 "use client";
 
-import MockArticle from "./elements";
+import MockArticle from "@/components/ui/elements";
 
 export default function MockArticlesGrid() {
   return (

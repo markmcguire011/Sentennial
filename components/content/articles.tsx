@@ -5,7 +5,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
 import { Article } from "@/interfaces/article";
-import ArticleButton from "./article_button";
+import ArticleButton from "@/components/content/article_button";
 import { usePathname, useSearchParams } from "next/navigation";
 
 type Props = {

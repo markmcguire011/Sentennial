@@ -3,12 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 // Dynamically import Navbar with no SSR
-const Navbar = dynamic(() => import("@/components/navbar"), {
+const Navbar = dynamic(() => import("@/components/layout/navbar"), {
   ssr: false,
 });
 
@@ -66,8 +66,23 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
   },
 };
 

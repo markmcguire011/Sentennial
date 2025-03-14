@@ -7,7 +7,18 @@ I post full-length articles about topics that interest me, and shorter commentar
 
 ## Build
 
-I used Next and Tailwind with Typescript. 
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- MDX for content management
+
+## Future Plans
+- Enhanced article categorization system
+- Interactive knowledge mapping in Alexandria
+- Expanded research topic coverage
+- Improved content discovery features
+- Integration with external knowledge bases
 
 ## Copyright
 

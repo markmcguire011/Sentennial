@@ -10,6 +10,7 @@
     "generate-logos": "ts-node scripts/generate-logos.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",
     "gray-matter": "^4.0.3",

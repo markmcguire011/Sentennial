@@ -1,17 +1,16 @@
-import Articles from "@/components/articles"
+import Articles from "@/components/content/articles";
 import { Article } from "@/interfaces/article";
 import { getAll } from "@/lib/api";
 
-export default async function Page({ searchParams } : {
+export default async function Page({
+  searchParams,
+}: {
   searchParams?: {
-    page?: number
-  }
+    page?: number;
+  };
 }) {
-
   const currentPage = Number(searchParams?.page) || 1;
-  const articles = getAll("articles")
+  const articles = getAll("articles");
 
-  return (
-    <Articles articles ={ articles as Article[]} page = { currentPage }/>
-  )
+  return <Articles articles={articles as Article[]} page={currentPage} />;
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  const version = "v0.1.3"; // Increment this with significant updates
+  const version = "v0.1.4"; // Increment this with significant updates
 
   return (
     <div className="border-t-2 bg-white">
@@ -61,6 +61,12 @@ function Footer() {
                   className="opacity-75 hover:opacity-100"
                 >
                   Musings
+                </Link>
+                <Link
+                  href={"/alexandria"}
+                  className="opacity-75 hover:opacity-100"
+                >
+                  Alexandria [α]
                 </Link>
                 <Link href={"/about"} className="opacity-75 hover:opacity-100">
                   About

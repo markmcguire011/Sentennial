@@ -1,11 +1,13 @@
 import { getAll } from "@/lib/api";
-import ArticleButton from "@/components/article_button";
-import Random from "@/components/random";
-import MusingButton from "@/components/musing_button";
-import MockArticlesGrid from "@/components/mock-articles-grid";
-import IntroSection from "@/components/intro-section";
+import ArticleButton from "@/components/content/article_button";
+import Random from "@/components/ui/random";
+import MusingButton from "@/components/content/musing_button";
+import MockArticlesGrid from "@/components/sections/mock-articles-grid";
+import IntroSection from "@/components/sections/intro-section";
 import { Article } from "@/interfaces/article";
-import AnimatedHero from "@/components/animated-hero";
+import AnimatedHero from "@/components/layout/animated-hero";
+import CurrentResearch from "@/components/sections/current-research";
+import ScrollProgress from "@/components/ui/scroll-progress";
 
 export default function Page() {
   const articles = getAll("articles");
@@ -85,6 +87,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <CurrentResearch />
     </div>
   );
 }

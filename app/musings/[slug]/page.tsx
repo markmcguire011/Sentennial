@@ -2,8 +2,8 @@ import { getAll, getBySlug } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { Musing } from '@/interfaces/musing'
-import Category from '@/components/category'
-import markdownStyles from '@/components/markdown-styles.module.css'
+import Category from '@/components/content/category'
+import markdownStyles from '@/components/shared/markdown-styles.module.css'
 import markdownToReact from '@/lib/markdownToReact'
 
 export default async function MusingPage({ params }: Params) {

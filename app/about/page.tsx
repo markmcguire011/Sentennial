@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import DevStatus from "@/components/dev-status";
+import DevStatus from "@/components/ui/dev-status";
+import Newsletter from "@/components/sections/newsletter";
 
 export default function Page() {
   const projectStatuses = [
@@ -51,7 +52,16 @@ export default function Page() {
           sounded cool.
         </p>
 
-        <div className="mt-8 mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-16 mb-6">
+          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+            Development Status
+          </h2>
+          <p className="mt-2 text-lg opacity-75">
+            Here&apos;s what I&apos;m currently working on for this project:
+          </p>
+        </div>
+
+        <div className="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {projectStatuses.map((status) => (
             <div
               key={status.name}
@@ -132,50 +142,63 @@ export default function Page() {
           Some very cool building photos:
         </p>
         <div className="flex flex-wrap gap-10 items-center justify-center">
-          <Image
-            src="/articles/alien_building.JPG"
-            width={300}
-            height={600}
-            alt="Alien building"
-            className="rounded-md"
-          />
-          <Image
-            src="/about/habitat_building.JPG"
-            width={300}
-            height={600}
-            alt="Habitat building"
-            className="rounded-md"
-          />
-          <Image
-            src="/about/trellis_building.JPG"
-            width={300}
-            height={600}
-            alt="Trellis building"
-            className="rounded-md"
-          />
-          <Image
-            src="/about/ornate_building.JPG"
-            width={300}
-            height={600}
-            alt="Ornate building"
-            className="rounded-md"
-          />
-          <Image
-            src="/about/pod_building.JPG"
-            width={300}
-            height={600}
-            alt="Pod building"
-            className="rounded-md"
-          />
+          <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Image
+              src="/articles/alien_building.JPG"
+              width={300}
+              height={600}
+              alt="Alien building"
+              className="rounded-md transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Image
+              src="/about/habitat_building.JPG"
+              width={300}
+              height={600}
+              alt="Habitat building"
+              className="rounded-md transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Image
+              src="/about/trellis_building.JPG"
+              width={300}
+              height={600}
+              alt="Trellis building"
+              className="rounded-md transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Image
+              src="/about/ornate_building.JPG"
+              width={300}
+              height={600}
+              alt="Ornate building"
+              className="rounded-md transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+          <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
+            <Image
+              src="/about/pod_building.JPG"
+              width={300}
+              height={600}
+              alt="Pod building"
+              className="rounded-md transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
         </div>
         <p className="text-center py-5 text-brand-dark text-lg">
           (These are all from a recent trip to NYC)
         </p>
-        <p className="pt-4 text-lg color-brand-dark">
-          <strong className="font-semibold">And that&apos;s it!</strong>
-          <br />
-          <br />
-        </p>
+
+        {/* Newsletter Section */}
+        <Newsletter />
       </div>
     </div>
   );
