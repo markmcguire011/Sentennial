@@ -20,7 +20,7 @@ export default function LibraryWIP() {
           📚 Building the Library
         </h2>
         <p className="text-lg opacity-60 mb-6">
-          The library is currently under active development. I'm
+          The library is currently under active development. I&apos;m
           curating and annotating books, tracing the connections between ideas,
           and building an interactive knowledge space.
         </p>
