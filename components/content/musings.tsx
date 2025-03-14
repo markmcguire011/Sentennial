@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
 import MusingButton from "@/components/content/musing_button";
+import RandomDiscovery from "@/components/ui/random-discovery";
 
 type Props = {
   musings: Musing[];
@@ -13,23 +14,6 @@ type Props = {
 };
 
 export default function Musings({ musings, page }: Props) {
-  //   const [content, setContent] = useState('');
-  //   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  //   const handleClick = (category: string): void => {
-  //     if (selectedCategory === category) {
-  //       setSelectedCategory(null);
-  //       setContent("")
-  //     } else {
-  //       setSelectedCategory(category);
-  //       setContent(category)
-  //     }
-  //   };
-
-  //   const musings = selectedCategory
-  //     ? articles.filter(article => article.categories.includes(selectedCategory))
-  //     : articles;
-
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
@@ -88,17 +72,18 @@ export default function Musings({ musings, page }: Props) {
       <div className="flex items-center justify-center pb-10">
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
-      <div className="flex flex-col gap-10 pb-10">
+      <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
         <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">
           Latest
         </h1>
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-7 flex-grow relative">
           {paginatedMusings.map((musing) => (
             <MusingButton
               key={musing.slug + "-musing"}
               data={musing as Musing}
             />
           ))}
+          {paginatedMusings.length < 3 && <RandomDiscovery />}
         </div>
       </div>
       <div className="flex justify-between pb-10">
@@ -136,6 +121,13 @@ function PaginationArrow({
     }
   );
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isDisabled) {
+      window.history.pushState({}, "", href);
+    }
+  };
+
   const icon =
     direction === "left" ? (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -150,7 +142,7 @@ function PaginationArrow({
   return isDisabled ? (
     <div className={className}>{icon}</div>
   ) : (
-    <Link className={className} href={href}>
+    <Link className={className} href={href} onClick={handleClick}>
       {icon}
     </Link>
   );

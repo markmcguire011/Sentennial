@@ -17,34 +17,38 @@ export default function LibraryWIP() {
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 opacity-75">
-          📚 Building the Library
+          📚 Building the Repository
         </h2>
         <p className="text-lg opacity-60 mb-6">
-          The library is currently under active development. I&apos;m
-          curating and annotating books, tracing the connections between ideas,
-          and building an interactive knowledge space.
+          Currently developing a comprehensive collection of case studies examining
+          the ethical implications of AI development and deployment. Each entry
+          will connect philosophical frameworks with it&apos;s real-world challenges.
         </p>
 
         <div className="space-y-3 text-sm opacity-75">
           <div className="flex items-center gap-2">
             <span className="text-green-500">✓</span>
-            <span>Basic structure and design</span>
+            <span>Repository structure and categorization</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-green-500">✓</span>
-            <span>Book categorization system</span>
+            <span>Case study format and methodology</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-yellow-500">○</span>
-            <span>Adding detailed book annotations</span>
+            <span>Initial case studies development</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-yellow-500">○</span>
-            <span>Implementing idea connections</span>
+            <span>Ethical framework integration</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-slate-300">○</span>
-            <span>Interactive knowledge mapping</span>
+            <span>Interactive exploration tools</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-slate-300">○</span>
+            <span>Community contribution system</span>
           </div>
         </div>
       </div>

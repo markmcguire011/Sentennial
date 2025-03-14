@@ -10,9 +10,9 @@ export default function Page() {
             Alexandria. <span className="text-2xl align-top">[α]</span>
           </h1>
           <p className="text-xl opacity-75 max-w-2xl">
-            A curated collection of books that shape my thinking, from
-            philosophy to engineering. Part library, part laboratory — where
-            ideas meet implementation.
+            An open-access digital repository exploring the philosophical and
+            ethical dimensions of artificial intelligence. This is where, historical
+            wisdom will meet contemporary challenges in AI development. Stay tuned!
           </p>
         </div>
       </div>

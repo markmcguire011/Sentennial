@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Article } from "@/interfaces/article";
 import ArticleButton from "@/components/content/article_button";
 import { usePathname, useSearchParams } from "next/navigation";
+import RandomDiscovery from "@/components/ui/random-discovery";
 
 type Props = {
   articles: Article[];
@@ -54,8 +55,8 @@ export default function Articles({ articles, page }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-[20px] max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
-      <div className="pt-20">
+    <div className="flex flex-col max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
+      <div className="pt-20 pb-10">
         <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
           <div className="pr-10 max-w-[825px]">
             <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">
@@ -63,15 +64,12 @@ export default function Articles({ articles, page }: Props) {
             </h1>
             <p className="text-xl opacity-75 color-brand-dark pb-6">
               <b className="font-semibold">
-                Full length pieces with more of a coherent theme or message.{" "}
+                Long-form pieces with coherent themes and messages.{" "}
               </b>
-              These are usually about things I&apos;ve read or things I&apos;m
-              interested in. More focused.
+              These are more structured than musings, and usually have a
+              specific point or message that I want to convey.
             </p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-              <path d="M21.515 5.143A9.218 9.218 0 0 0 12 4.82a9.223 9.223 0 0 0-9.515.323L2 5.434v14.332l1.515-.909A7.19 7.19 0 0 1 11.4 18.8l.6.442.6-.439a7.194 7.194 0 0 1 7.889.054l1.511.909V5.434zM7.559 15.656A9.3 9.3 0 0 0 4 16.378V6.585a7.2 7.2 0 0 1 7-.035v9.792a9.086 9.086 0 0 0-3.441-.686zM20 16.378a9.057 9.057 0 0 0-7-.038V6.55a7.2 7.2 0 0 1 7 .035z" />
-            </svg>
-            <div className="flex flex-wrap gap-x-4 gap-y-5 pt-10">
+            <div className="flex gap-4 flex-wrap">
               <button
                 onClick={() => handleClick("Psychology")}
                 className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-psychology ${
@@ -135,26 +133,20 @@ export default function Articles({ articles, page }: Props) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center p-10">
+      <div className="flex items-center justify-center pb-10">
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
-      <div className="flex flex-col gap-10 pb-10">
+      <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
         <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">
           Latest<span> {content}</span>
         </h1>
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-7 flex-grow relative">
           {paginatedArticles.length > 0 ? (
             paginatedArticles.map((article) => (
               <ArticleButton key={article.slug + "-article"} data={article} />
             ))
           ) : (
-            <div className="text-center py-10">
-              <p className="text-xl opacity-75 color-brand-dark">
-                Loading....
-                <br />
-                Just kidding, I&apos;m not done writing yet.
-              </p>
-            </div>
+            <RandomDiscovery />
           )}
         </div>
       </div>
@@ -193,6 +185,13 @@ function PaginationArrow({
     }
   );
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isDisabled) {
+      window.history.pushState({}, "", href);
+    }
+  };
+
   const icon =
     direction === "left" ? (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
@@ -207,7 +206,7 @@ function PaginationArrow({
   return isDisabled ? (
     <div className={className}>{icon}</div>
   ) : (
-    <Link className={className} href={href}>
+    <Link className={className} href={href} onClick={handleClick}>
       {icon}
     </Link>
   );

@@ -52,7 +52,7 @@ export default function Page() {
           sounded cool.
         </p>
 
-        <div className="mt-16 mb-6">
+        <div className="mt-10 mb-2">
           <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
             Development Status
           </h2>
@@ -85,62 +85,76 @@ export default function Page() {
           ))}
         </div>
 
-        <p className="text-lg color-brand-dark">
-          <strong className="font-semibold">Life things:</strong>
-          <br />
-          <br />
-          Currently, I&apos;m studying computer science at Cal Poly SLO.
-          I&apos;m super passionate about CS, as well as history and philosophy,
-          which are also huge interests of mine.
-          <br />
-          <br />
-          In the field of computer science, ML/AI really interests me the most.
-          But more generally, I just enjoy the struggle to learn how things
-          work, and the act of problem solving and creation through technology.
-          <br />
-          <br />
-          History and philosophy are arguably bigger interests though, and I get
-          a special feeling from untangling the connections between them. Within
-          these two, ethics and the philosophy of mind are probably the most
-          interesting, as well as the French Revolution and the Enlightenment.
-          <br />
-          <br />
-          Apart from that, I stay pretty active. I love basketball, running,
-          swimming, and going to the gym. I also really love cities, space, and
-          the human spirit.
-          <br />
-          <br />
-          <strong className="font-semibold">Some random fun facts:</strong>
-        </p>
-        <div className="flex flex-col gap-3 py-4">
-          <div className="group flex items-center gap-3 transition-all">
-            <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-            <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
-              Favorite sound: Construction or tires on a wet road
-            </p>
-          </div>
-          <div className="group flex items-center gap-3 transition-all">
-            <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-            <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
-              Favorite art genre: Baroque or High Renaissance
-            </p>
-          </div>
-          <div className="group flex items-center gap-3 transition-all">
-            <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-            <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
-              Favorite trinket: The clock
-            </p>
-          </div>
-          <div className="group flex items-center gap-3 transition-all">
-            <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-            <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
-              Favorite number: 9
-            </p>
+        <div className="mt-10 mb-2">
+          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+            Life Things
+          </h2>
+          <div className="mt-2 text-lg color-brand-dark">
+            Currently, I&apos;m studying computer science at Cal Poly SLO.
+            I&apos;m super passionate about CS, as well as history and
+            philosophy, which are also huge interests of mine.
+            <br />
+            <br />
+            In the field of computer science, ML/AI really interests me the
+            most. But more generally, I just enjoy the struggle to learn how
+            things work, and the act of problem solving and creation through
+            technology.
+            <br />
+            <br />
+            History and philosophy are arguably bigger interests though, and I
+            get a special feeling from untangling the connections between them.
+            Within these two, ethics and the philosophy of mind are probably the
+            most interesting, as well as the French Revolution and the
+            Enlightenment.
+            <br />
+            <br />
+            Apart from that, I stay pretty active. I love basketball, running,
+            swimming, and going to the gym. I also really love cities, space,
+            and the human spirit.
           </div>
         </div>
-        <p className="pb-10 font-semibold text-brand-dark text-lg">
-          Some very cool building photos:
-        </p>
+
+        <div className="mt-10 mb-2">
+          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+            Random Fun Facts
+          </h2>
+          <div className="flex flex-col gap-3 py-4">
+            <div className="group flex items-center gap-3 transition-all">
+              <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
+              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+                Favorite sound: Construction or tires on a wet road
+              </p>
+            </div>
+            <div className="group flex items-center gap-3 transition-all">
+              <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
+              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+                Favorite art genre: Baroque or High Renaissance
+              </p>
+            </div>
+            <div className="group flex items-center gap-3 transition-all">
+              <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
+              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+                Favorite trinket: The clock
+              </p>
+            </div>
+            <div className="group flex items-center gap-3 transition-all">
+              <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
+              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+                Favorite number: 9
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 mb-2">
+          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+            Building Photos
+          </h2>
+          <p className="mt-2 text-lg opacity-75">
+            Some very cool building photos from NYC:
+          </p>
+        </div>
+
         <div className="flex flex-wrap gap-10 items-center justify-center">
           <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
             <Image
