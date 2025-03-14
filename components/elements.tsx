@@ -1,24 +1,25 @@
-import React from 'react';
+import React from "react";
 
-function  DiscoverButton({}){
-    
-}
+function DiscoverButton({}) {}
 
-function MockArticle({ numLines } : { numLines: number }){
-    const lines = []
+function MockArticle({ numLines }: { numLines: number }) {
+  const lines = [];
 
-    for (let i = 0; i < numLines; i++){
-        lines.push(
-            <div key={"lines_" + i.toString()} className="bg-slate-400 rounded h-[10px] w-full"></div>
-        );
-    }
-
-    return (
-        <div className="flex flex-col gap-3 h-40 rounded-md shadow-md border border-brand-color p-[30px] items center">
-            <div className="bg-slate-500 rounded h-[10px] w-full"></div>
-            { lines }
-        </div>
+  for (let i = 0; i < numLines; i++) {
+    lines.push(
+      <div
+        key={"lines_" + i.toString()}
+        className="bg-slate-400/50 rounded h-[10px] w-full group-hover:bg-slate-400 transition-all duration-300"
+      ></div>
     );
+  }
+
+  return (
+    <div className="group flex flex-col gap-3 h-40 rounded-md shadow-sm hover:shadow-md border border-brand-color/25 hover:border-brand-color p-[30px] items-center transition-all duration-300">
+      <div className="bg-slate-500/50 rounded h-[10px] w-full group-hover:bg-slate-500 transition-all duration-300"></div>
+      {lines}
+    </div>
+  );
 }
 
 export default MockArticle;

@@ -5,9 +5,10 @@ import Link from "next/link";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const version = "v0.1.3"; // Increment this with significant updates
 
   return (
-    <div className="border-t-2">
+    <div className="border-t-2 bg-white">
       <div className="flex md:flex-row flex-col md:justify-between items-center py-8 md:py-12 px-4 md:px-8 gap-8 md:gap-12 max-w-[1200px] mx-auto text-black">
         {/* Left column - Logo and copyright */}
         <div className="flex flex-col gap-4 justify-center items-center md:items-start">
@@ -36,15 +37,16 @@ function Footer() {
               />
             </svg>
           </Link>
-          <div className="flex flex-row justify-between w-full">
+          <div className="flex flex-row justify-between w-full items-center">
             <span className="text-sm opacity-75 text-center md:text-left">
               © {currentYear} Mark McGuire. All rights reserved.
             </span>
+            <span className="text-sm opacity-50 ml-2">{version}</span>
           </div>
         </div>
 
         {/* Right column - Navigation and Social links */}
-        <div className="flex flex-col h-full justify-between gap-4 md:gap-6">
+        <div className="flex flex-col h-full justify-between gap-4 md:gap-[40px]">
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
               <div className="flex justify-center items-center gap-4 md:gap-8">

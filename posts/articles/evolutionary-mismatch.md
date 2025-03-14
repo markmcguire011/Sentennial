@@ -70,7 +70,7 @@ how I wouldn't want to live in any other time
 
 ## Sources
 
-- _Homo Deus_, Yuval Noah Harrari
+- _Homo Deus_ Yuval Noah Harrari
 - _Dialectic of Enlightenment_ Max Horkheimer & Theodor Adorno
 
 [^01]: Ahh, literally.

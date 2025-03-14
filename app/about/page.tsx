@@ -1,11 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
+import DevStatus from "@/components/dev-status";
 
 export default function Page() {
+  const projectStatuses = [
+    {
+      name: "Development",
+      status: "active",
+      focus: "UI Refinements",
+      color: "bg-green-400",
+    },
+    {
+      name: "Research",
+      status: "active",
+      focus: "Ethics of AI",
+      color: "bg-blue-400",
+    },
+    {
+      name: "Writing",
+      status: "paused",
+      focus: "New article series on ML Ethics",
+      color: "bg-yellow-400",
+    },
+    {
+      name: "Reading",
+      status: "active",
+      focus: "Notes from the Underground",
+      color: "bg-purple-400",
+    },
+  ];
+
   return (
     <div className="flex flex-col justify-center max-w-[1200px] px-[calc(8vw)] mx-auto text-black">
       <div className="flex flex-col py-20">
-        <h1 className="text-6xl pb-10 font-bold opacity-75 color-brand-dark">
+        <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">
           About.
         </h1>
         <p className="text-lg color-brand-dark">
@@ -21,8 +49,33 @@ export default function Page() {
           personal. Centennial: Relates to time, history, experience, and
           celebration. It blends a lot of relevant themes and I thought it
           sounded cool.
-          <br />
-          <br />
+        </p>
+
+        <div className="mt-8 mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {projectStatuses.map((status) => (
+            <div
+              key={status.name}
+              className="bg-white/80 backdrop-blur-sm shadow-sm rounded-lg p-4 border"
+            >
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-2 h-2 ${status.color} rounded-full ${
+                    status.status === "active" ? "animate-pulse" : "opacity-50"
+                  }`}
+                />
+                <span className="text-brand-dark opacity-75">
+                  {status.name}
+                </span>
+              </div>
+              <div className="mt-2 text-xs text-brand-dark opacity-50">
+                {status.status === "paused" ? "Paused: " : "Current focus: "}
+                {status.focus}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-lg color-brand-dark">
           <strong className="font-semibold">Life things:</strong>
           <br />
           <br />

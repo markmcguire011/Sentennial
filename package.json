@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-logos": "ts-node scripts/generate-logos.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^12.5.0",
     "gray-matter": "^4.0.3",
     "next": "14.2.5",
     "react": "^18",
@@ -22,10 +24,13 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/sharp": "^0.32.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

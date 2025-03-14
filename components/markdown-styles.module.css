@@ -24,7 +24,19 @@
 }
 
 .markdown ul li {
-  @apply before:content-['-'] before:bg-brand-color/75 before:px-[8px] before:mx-1 before:rounded py-2;
+  @apply flex items-center gap-3 py-2 transition-all;
+}
+
+.markdown ul li::before {
+  @apply h-2 w-2 rounded-full bg-brand-color/75 transition-colors content-[''];
+}
+
+.markdown ul li:hover::before {
+  @apply bg-brand-color;
+}
+
+.markdown ul li em {
+  @apply mr-1;
 }
 
 .markdown ol {
@@ -33,4 +45,25 @@
 
 .markdown ol li::before {
   @apply content-[counter(test,decimal-leading-zero)] [counter-increment:test] float-left -mx-8 text-brand-color font-medium;
+}
+
+/* Special styling for sources section */
+.markdown h2:last-of-type {
+  @apply text-3xl font-semibold text-brand-dark opacity-90 mt-16 mb-6;
+}
+
+.markdown h2:last-of-type + ul {
+  @apply flex flex-col gap-4 pl-0;
+}
+
+.markdown h2:last-of-type + ul li {
+  @apply flex items-start gap-4 py-3 px-4 rounded-lg hover:bg-background-secondary transition-all;
+}
+
+.markdown h2:last-of-type + ul li::before {
+  @apply mt-2;
+}
+
+.markdown h2:last-of-type + ul li em {
+  @apply font-medium text-brand-color;
 }
