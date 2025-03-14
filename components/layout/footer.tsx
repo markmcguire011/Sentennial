@@ -1,11 +1,10 @@
 "use client";
 
-import NavItem from "@/components/navbar";
 import Link from "next/link";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  const version = "v0.1.4"; // Increment this with significant updates
+  const version = "v0.1.4";
 
   return (
     <div className="border-t-2 bg-white">
