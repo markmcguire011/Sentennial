@@ -30,7 +30,7 @@ export default function MusingButton({ data }: Props) {
             <path d="M7 7h10v2H7zm0 4h7v2H7z" />
           </svg>
         </div>
-        <div className="flex flex-col px-6 pb-3 md:flex-row-reverse justify-between">
+        <div className="flex flex-col px-6 md:pb-3 pb-5 md:flex-row-reverse justify-between">
           <span className="font-mono text-md text-slate-400/50 sm:flex hidden">
             {formatDate(data.date)}
           </span>

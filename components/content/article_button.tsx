@@ -35,7 +35,7 @@ export default function ArticleButton({ data }: Props) {
             <path d="M13.293 7.293 8.586 12l4.707 4.707 1.414-1.414L11.414 12l3.293-3.293-1.414-1.414z" />
           </svg>
         </div>
-        <div className="flex flex-col px-6 pb-3 md:flex-row justify-between items-center">
+        <div className="flex px-6 pb-3 flex-row justify-between items-center">
           <h1 className="text-lg text-slate-400">{data.subtitle}</h1>
           <span className="font-mono text-sm text-slate-400 sm:flex hidden">
             {formatDate(data.date)}

@@ -33,11 +33,11 @@ export default function Page() {
 
   return (
     <div className="flex flex-col justify-center max-w-[1200px] px-[calc(8vw)] mx-auto text-black">
-      <div className="flex flex-col py-20">
-        <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">
+      <div className="flex flex-col py-16 md:py-20">
+        <h1 className="text-4xl md:text-6xl pb-6 md:pb-10 font-bold opacity-75 text-brand-dark">
           About.
         </h1>
-        <p className="text-lg color-brand-dark">
+        <p className="text-base md:text-lg color-brand-dark">
           Hey I&apos;m Mark! This is a personal project/blog where I record
           thoughts and stories about various topics. You already knew that, but
           something you didn&apos;t know, the name of this project. It&apos;s a
@@ -52,16 +52,16 @@ export default function Page() {
           sounded cool.
         </p>
 
-        <div className="mt-10 mb-2">
-          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+        <div className="mt-8 md:mt-10 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Development Status
           </h2>
-          <p className="mt-2 text-lg opacity-75">
+          <p className="mt-2 text-base md:text-lg opacity-75">
             Here&apos;s what I&apos;m currently working on for this project:
           </p>
         </div>
 
-        <div className="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="pb-4 md:pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {projectStatuses.map((status) => (
             <div
               key={status.name}
@@ -85,77 +85,79 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="mt-10 mb-2">
-          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+        <div className="mt-8 md:mt-10 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Life Things
           </h2>
-          <div className="mt-2 text-lg color-brand-dark">
-            Currently, I&apos;m studying computer science at Cal Poly SLO.
-            I&apos;m super passionate about CS, as well as history and
-            philosophy, which are also huge interests of mine.
-            <br />
-            <br />
-            In the field of computer science, ML/AI really interests me the
-            most. But more generally, I just enjoy the struggle to learn how
-            things work, and the act of problem solving and creation through
-            technology.
-            <br />
-            <br />
-            History and philosophy are arguably bigger interests though, and I
-            get a special feeling from untangling the connections between them.
-            Within these two, ethics and the philosophy of mind are probably the
-            most interesting, as well as the French Revolution and the
-            Enlightenment.
-            <br />
-            <br />
-            Apart from that, I stay pretty active. I love basketball, running,
-            swimming, and going to the gym. I also really love cities, space,
-            and the human spirit.
+          <div className="mt-2 text-base md:text-lg color-brand-dark space-y-4">
+            <p>
+              Currently, I&apos;m studying computer science at Cal Poly SLO.
+              I&apos;m super passionate about CS, as well as history and
+              philosophy, which are also huge interests of mine.
+            </p>
+            <p>
+              In the field of computer science, ML/AI really interests me the
+              most. But more generally, I just enjoy the struggle to learn how
+              things work, and the act of problem solving and creation through
+              technology.
+            </p>
+            <p>
+              History and philosophy are arguably bigger interests though, and I
+              get a special feeling from untangling the connections between
+              them. Within these two, ethics and the philosophy of mind are
+              probably the most interesting, as well as the French Revolution
+              and the Enlightenment.
+            </p>
+            <p>
+              Apart from that, I stay pretty active. I love basketball, running,
+              swimming, and going to the gym. I also really love cities, space,
+              and the human spirit.
+            </p>
           </div>
         </div>
 
-        <div className="mt-10 mb-2">
-          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+        <div className="mt-8 md:mt-10 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Random Fun Facts
           </h2>
-          <div className="flex flex-col gap-3 py-4">
+          <div className="flex flex-col gap-3 py-3 md:py-4">
             <div className="group flex items-center gap-3 transition-all">
               <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+              <p className="text-base md:text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
                 Favorite sound: Construction or tires on a wet road
               </p>
             </div>
             <div className="group flex items-center gap-3 transition-all">
               <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+              <p className="text-base md:text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
                 Favorite art genre: Baroque or High Renaissance
               </p>
             </div>
             <div className="group flex items-center gap-3 transition-all">
               <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+              <p className="text-base md:text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
                 Favorite trinket: The clock
               </p>
             </div>
             <div className="group flex items-center gap-3 transition-all">
               <div className="h-2 w-2 rounded-full bg-brand-color/75 group-hover:bg-brand-color transition-colors"></div>
-              <p className="text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
+              <p className="text-base md:text-lg color-brand-dark group-hover:translate-x-1 transition-transform">
                 Favorite number: 9
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 mb-2">
-          <h2 className="text-2xl font-semibold opacity-75 text-brand-dark">
+        <div className="mt-8 md:mt-10 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Building Photos
           </h2>
-          <p className="mt-2 text-lg opacity-75">
+          <p className="mt-2 text-base md:text-lg opacity-75">
             Some very cool building photos from NYC:
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-10 items-center justify-center">
+        <div className="flex flex-wrap gap-4 md:gap-10 items-center justify-center">
           <div className="relative group overflow-hidden rounded-md border shadow-sm hover:shadow-md transition-shadow duration-300">
             <Image
               src="/articles/alien_building.JPG"
@@ -207,7 +209,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
-        <p className="text-center py-5 text-brand-dark text-lg">
+        <p className="text-center py-4 md:py-5 text-brand-dark text-base md:text-lg">
           (These are all from a recent trip to NYC)
         </p>
 

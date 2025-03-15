@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 function NavItem({
   text,
@@ -66,7 +67,7 @@ function LogoButton() {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
@@ -122,8 +123,8 @@ export default function Navbar() {
       className={`fixed w-full z-50 transition-all duration-300 transform ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
-        hasScrolled
-          ? "bg-white/80 backdrop-blur-sm shadow-sm"
+        hasScrolled || isOpen
+          ? "bg-white/95 backdrop-blur-sm shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -171,19 +172,31 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isOpen ? "max-h-[300px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
           }`}
         >
-          <div className="flex flex-col items-center space-y-4 py-4">
+          <div className="bg-white/95 backdrop-blur-md rounded-lg shadow-md border border-gray-100 p-4 flex flex-col space-y-4">
             {navItems.map((item) => (
-              <NavItem
+              <Link
                 key={item.href}
                 href={item.href}
-                text={item.text}
                 onClick={handleLinkClick}
-              />
+                className={`block py-2 px-3 rounded-md transition-colors duration-200 ${
+                  pathname === item.href
+                    ? "bg-brand-color/10 text-brand-color font-medium"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {item.text}
+              </Link>
             ))}
+            <div className="h-[1px] w-full bg-gray-100 my-1"></div>
+            <div className="flex items-center justify-center py-1">
+              <div className="text-sm opacity-20 self-center md:self-end">
+                v0.1.4
+              </div>
+            </div>
           </div>
         </div>
       </div>

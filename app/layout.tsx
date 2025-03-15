@@ -4,11 +4,12 @@ import "./globals.css";
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 // Dynamically import Navbar with no SSR
-const Navbar = dynamic(() => import("@/components/layout/navbar"), {
+const NavbarComponent = dynamic(() => import("@/components/layout/navbar"), {
   ssr: false,
 });
 
@@ -100,10 +101,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body suppressHydrationWarning={true} className={inter.className}>
         <div className="fixed inset-0 blueprint-measurements -z-10" />
         <div className="relative">
-          <Navbar />
+          <NavbarComponent />
           <main className="pt-24 min-h-[calc(100vh-80px)]">{children}</main>
           <Footer />
         </div>
