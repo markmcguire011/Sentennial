@@ -73,8 +73,8 @@ export default function HereBeDragons() {
           <div className="prose prose-lg prose-invert mb-12 font-serif opacity-70">
             <p className="text-xl opacity-80 leading-relaxed">
               In ancient maps, cartographers would mark unexplored territories
-              with the phrase "HC SVNT DRACONES" — Here be dragons. These
-              uncharted regions represented both danger and possibility.
+              with the phrase &quot;HC SVNT DRACONES&quot; — Here be dragons.
+              These uncharted regions represented both danger and possibility.
             </p>
 
             <p className="text-xl opacity-80 leading-relaxed mt-6">
@@ -188,8 +188,8 @@ export default function HereBeDragons() {
                 Sea Monsters Era
               </h3>
               <p className="text-white/70 text-sm">
-                Renaissance maps featured fantastical creatures, with "HC SVNT
-                DRACONES" appearing on the Hunt-Lenox Globe (c. 1510).
+                Renaissance maps featured fantastical creatures, with &quot;HC
+                SVNT DRACONES&quot; appearing on the Hunt-Lenox Globe (c. 1510).
               </p>
             </motion.div>
 
