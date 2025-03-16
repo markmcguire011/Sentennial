@@ -71,6 +71,7 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
+  // Here be dragons: /herebedragons
   useEffect(() => {
     console.log(sessionStorage.getItem("hasVisited"));
     const hasVisited = sessionStorage.getItem("hasVisited");
