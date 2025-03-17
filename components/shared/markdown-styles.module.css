@@ -24,11 +24,11 @@
 }
 
 .markdown ul li {
-  @apply flex items-center gap-3 py-2 transition-all;
+  @apply flex items-start gap-3 py-2 transition-all;
 }
 
 .markdown ul li::before {
-  @apply h-2 w-2 rounded-full bg-brand-color/75 transition-colors content-[''];
+  @apply h-2 w-2 mt-2.5 rounded-full bg-brand-color/75 transition-colors content-[''] flex-shrink-0;
 }
 
 .markdown ul li:hover::before {
@@ -53,7 +53,7 @@
 }
 
 .markdown h2:last-of-type + ul {
-  @apply flex flex-col gap-4 pl-0;
+  @apply flex flex-col gap-4 pl-0 md:pl-0;
 }
 
 .markdown h2:last-of-type + ul li {
@@ -61,9 +61,24 @@
 }
 
 .markdown h2:last-of-type + ul li::before {
-  @apply mt-2;
+  @apply mt-2 flex-shrink-0;
 }
 
 .markdown h2:last-of-type + ul li em {
   @apply font-medium text-brand-color;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  .markdown h2:last-of-type + ul li {
+    @apply px-2 py-4 gap-3;
+  }
+
+  .markdown h2:last-of-type + ul li::before {
+    @apply h-2 w-2 mt-2;
+  }
+
+  .markdown ul li {
+    @apply text-base;
+  }
 }
