@@ -42,7 +42,7 @@ export default function AnimatedHero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 0.75 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-7xl font-bold text-brand-dark opacity-75 relative z-10 text-center"
+          className="md:text-7xl text-5xl font-bold text-brand-dark opacity-75 relative z-10 text-center"
         >
           Sentennial.
         </motion.h1>
@@ -51,7 +51,7 @@ export default function AnimatedHero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 0.6 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-xl text-center max-w-lg"
+          className="md:text-xl text-md text-center max-w-lg px-3"
         >
           Exploring the intersections of technology, history, and human nature
         </motion.p>

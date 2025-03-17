@@ -33,7 +33,7 @@ export default function Newsletter() {
         </p>
 
         <form onSubmit={handleSubmit} className="relative">
-          <div className="flex gap-2">
+          <div className="flex md:flex-row flex-col gap-2">
             <input
               type="email"
               value={email}
