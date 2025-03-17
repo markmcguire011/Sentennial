@@ -94,7 +94,10 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY) {
+      // Always show navbar when at the top of the page
+      if (currentScrollY <= 20) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -183,7 +186,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={handleLinkClick}
-                className={`block py-2 px-3 rounded-md transition-colors duration-200 ${
+                className={`block py-2 px-3 text-brand-dark rounded-md transition-colors duration-200 ${
                   pathname === item.href
                     ? "bg-brand-color/10 text-brand-color font-medium"
                     : "hover:bg-gray-100"
@@ -194,7 +197,7 @@ export default function Navbar() {
             ))}
             <div className="h-[1px] w-full bg-gray-100 my-1"></div>
             <div className="flex items-center justify-center py-1">
-              <div className="text-sm opacity-20 self-center md:self-end">
+              <div className="text-sm text-brand-dark opacity-20 self-center md:self-end">
                 v0.1.4
               </div>
             </div>
