@@ -6,11 +6,10 @@ import Category from "@/components/content/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
 
-type Params = { slug: string };
+type Params = Promise<{ slug: string }>;
 
 export default async function MusingPage({ params }: { params: Params }) {
   const { slug } = await params;
-  console.log(slug);
   const musing = getBySlug<Musing>(slug, "musings");
 
   if (!musing) {
@@ -43,7 +42,7 @@ export default async function MusingPage({ params }: { params: Params }) {
   );
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
   const musing = getBySlug(slug, "musings");
 
