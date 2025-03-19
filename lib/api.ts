@@ -58,7 +58,7 @@ export function getSlugs(type: "articles" | "musings") {
 export function getBySlug<T extends Article | Musing>(
   slug: string,
   type: "articles" | "musings"
-): T | undefined{
+) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory(type), `${realSlug}.md`);
 

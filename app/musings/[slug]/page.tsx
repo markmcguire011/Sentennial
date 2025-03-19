@@ -6,15 +6,12 @@ import Category from "@/components/content/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
 
-type Props = {
-    params: {
-        slug: string
-    }
-}
+type Params = { slug: string };
 
-export default async function MusingPage({ params }: Props) {
-  const awaitedParams = await params;
-  const musing = getBySlug<Musing>(awaitedParams.slug, "musings");
+export default async function MusingPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  console.log(slug);
+  const musing = getBySlug<Musing>(slug, "musings");
 
   if (!musing) {
     return notFound();
@@ -46,15 +43,9 @@ export default async function MusingPage({ params }: Props) {
   );
 }
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const awaitedParams = await params;
-  const musing = getBySlug(awaitedParams.slug, "musings");
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { slug } = await params;
+  const musing = getBySlug(slug, "musings");
 
   if (!musing) {
     return notFound();

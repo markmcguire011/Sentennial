@@ -8,15 +8,11 @@ import markdownToReact from "@/lib/markdownToReact";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import "katex/dist/katex.min.css";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+type Params = Promise<{ slug: string }>;
 
-export default async function ArticlePage({ params }: Props) {
-  const awaitedParams = await params;
-  const article = getBySlug<Article>(awaitedParams.slug, "articles");
+export default async function ArticlePage({ params }: { params: Params }) {
+  const { slug } = await params;
+  const article = getBySlug<Article>(slug, "articles");
 
   if (!article) {
     return notFound();
@@ -51,9 +47,9 @@ export default async function ArticlePage({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const awaitedParams = await params;
-  const article = getBySlug(awaitedParams.slug, "articles");
+export async function generateMetadata({ params }: { params: Params }) {
+  const { slug } = await params;
+  const article = getBySlug(slug, "articles");
 
   if (!article) {
     return notFound();
