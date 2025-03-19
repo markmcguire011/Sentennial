@@ -5,6 +5,8 @@ import { Musing } from "@/interfaces/musing";
 import Category from "@/components/content/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
+import { Suspense } from "react";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 type Params = Promise<{ slug: string }>;
 
@@ -19,9 +21,10 @@ export default async function MusingPage({ params }: { params: Params }) {
   const content = await markdownToReact(musing.content || "");
 
   return (
-    <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] mx-auto py-[calc(4vh)] text-black">
-      <div className="flex flex-col gap-2 pb-6">
-        <h1 className="text-6xl font-bold opacity-75 color-brand-dark">
+    <Suspense fallback={<LoadingSpinner />}>
+      <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] mx-auto py-[calc(4vh)] text-black">
+        <div className="flex flex-col gap-2 pb-6">
+          <h1 className="text-6xl font-bold opacity-75 color-brand-dark">
           {musing.title}
         </h1>
       </div>
@@ -37,8 +40,9 @@ export default async function MusingPage({ params }: { params: Params }) {
       <div className="flex gap-6 items-center p-2">
         <h1 className="text-l opacity-50 color-brand-dark">{musing.date}</h1>
       </div>
-      <div className={markdownStyles["markdown"]}>{content}</div>
-    </div>
+        <div className={markdownStyles["markdown"]}>{content}</div>
+      </div>
+    </Suspense>
   );
 }
 

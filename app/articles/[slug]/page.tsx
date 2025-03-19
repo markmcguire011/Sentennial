@@ -7,6 +7,8 @@ import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import "katex/dist/katex.min.css";
+import { Suspense } from "react";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 type Params = Promise<{ slug: string }>;
 
@@ -21,9 +23,10 @@ export default async function ArticlePage({ params }: { params: Params }) {
   const content = await markdownToReact(article.content || "");
 
   return (
-    <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] py-[calc(4vh)] mx-auto text-black">
-      <ScrollProgress />
-      <div className="flex flex-col gap-2 pb-6">
+    <Suspense fallback={<LoadingSpinner />}>
+      <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] py-[calc(4vh)] mx-auto text-black">
+        <ScrollProgress />
+        <div className="flex flex-col gap-2 pb-6">
         <h1 className="text-6xl break-words font-bold opacity-75 color-brand-dark">
           {article.title}
         </h1>
@@ -42,8 +45,9 @@ export default async function ArticlePage({ params }: { params: Params }) {
           ))}
         </div>
       </div>
-      <div className={markdownStyles["markdown"]}>{content}</div>
-    </div>
+        <div className={markdownStyles["markdown"]}>{content}</div>
+      </div>
+    </Suspense>
   );
 }
 
