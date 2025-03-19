@@ -5,11 +5,10 @@ import { getAll } from "@/lib/api";
 export default async function Page({
   searchParams,
 }: {
-  searchParams?: {
-    page?: number;
-  };
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const currentPage = Number(searchParams?.page) || 1;
+  const params = await searchParams;
+  const currentPage = Number(params.page) || 1;
   const musings = getAll("musings");
 
   return <Musings musings={musings as Musing[]} page={currentPage} />;

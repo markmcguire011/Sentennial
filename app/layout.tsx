@@ -1,17 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import React, { Suspense } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Dynamically import Navbar with no SSR
-const NavbarComponent = dynamic(() => import("@/components/layout/navbar"), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sentennial.org"),
@@ -66,32 +62,12 @@ export const metadata: Metadata = {
       "Exploring the intersections of technology, history, and human nature",
     images: ["/og-image.png"],
   },
-  icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-      {
-        url: "/icon.png",
-        type: "image/png",
-        sizes: "32x32",
-      },
-    ],
-    apple: [
-      {
-        url: "/apple-touch-icon.png",
-        sizes: "180x180",
-      },
-    ],
-  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#4D88B8",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -104,7 +80,7 @@ export default function RootLayout({
       <body suppressHydrationWarning={true} className={inter.className}>
         <div className="fixed inset-0 blueprint-measurements -z-10" />
         <div className="relative">
-          <NavbarComponent />
+          <Navbar />
           <main className="pt-24 min-h-[calc(100vh-80px)]">{children}</main>
           <Footer />
         </div>

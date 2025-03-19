@@ -6,8 +6,11 @@ import Category from '@/components/content/category'
 import markdownStyles from '@/components/shared/markdown-styles.module.css'
 import markdownToReact from '@/lib/markdownToReact'
 import ScrollProgress from '@/components/ui/scroll-progress'
+import 'katex/dist/katex.min.css'
+
 export default async function ArticlePage({ params }: Params) {
-    const article = getBySlug<Article>(params.slug, "articles")
+    const awaitedParams = await params;
+    const article = getBySlug<Article>(awaitedParams.slug, "articles")
 
     if (!article) {
         return notFound()

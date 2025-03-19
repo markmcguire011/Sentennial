@@ -12,7 +12,7 @@
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply text-2xl mt-8 mb-4 text-brand-dark leading-snug;
 }
 
 .markdown sup a {
@@ -68,6 +68,29 @@
   @apply font-medium text-brand-color;
 }
 
+/* Quote card styles */
+.markdown blockquote,
+.quote-card {
+  @apply bg-background-secondary border-l-4 border-brand-color/60 rounded-lg p-6 my-8 shadow-md relative;
+  font-style: italic;
+}
+
+.markdown blockquote::before,
+.quote-card::before {
+  content: '"';
+  @apply text-6xl text-brand-color/20 absolute -top-4 left-2 font-serif;
+}
+
+.markdown blockquote p,
+.quote-card p {
+  @apply m-0 relative z-10 text-brand-dark;
+}
+
+.markdown blockquote p:last-child,
+.quote-card p:last-child {
+  @apply text-right font-semibold mt-2 not-italic text-brand-color;
+}
+
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
   .markdown h2:last-of-type + ul li {
@@ -81,4 +104,22 @@
   .markdown ul li {
     @apply text-base;
   }
+}
+
+.markdown strong,
+.markdown b {
+  @apply font-bold text-brand-dark opacity-90;
+}
+
+/* Make sure footnotes have proper spacing and styling */
+.markdown .footnotes {
+  @apply mt-8 pt-6 border-t border-gray-200;
+}
+
+.markdown .footnotes ol {
+  @apply pl-5;
+}
+
+.markdown .footnotes li {
+  @apply text-sm text-brand-dark/80;
 }

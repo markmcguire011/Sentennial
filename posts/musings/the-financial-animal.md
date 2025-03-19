@@ -18,4 +18,4 @@ At our core though, we are emotional beings, and our alienation from the everyda
 
 We have a lot to learn, but all the complexities brought about by our modern world has created a truly exciting time to be alive. I would rather grapple with these intellectually challenging issues, than have to be in Ushar’s shoes, contemplating whether the Gods will provide during the next rainfall.
 
-[^01]: Another amazing book which I highly recommend on our psychology in general is the late Daniel Khanneman’s Thinking Fast and Slow, the veritable holy grail on how our human brains really work.
+[^01]: Another amazing book which I highly recommend on is the late Daniel Khanneman’s _Thinking Fast and Slow_, the veritable holy grail on how our human brains really work.
