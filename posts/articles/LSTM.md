@@ -1,14 +1,14 @@
 ---
 title: "LSTMs"
 subtitle: "learning super tricky models"
-date: "Marhc 6, 2025"
+date: "March 6, 2025"
 comp_date: 2025-3-6T04:30:26.284Z
 categories: ["Computer Science", "Psychology"]
 ---
 
 ## Spoiler Alert
 
-In honor of an upcoming lecture I'm giving for the Cal Poly Quanitative Finance Club, I've condensed all the most important and vital information into this medium length article. Consequently, this article is less article and more guideboook, with examples and equations sprinkled in to make understanding this complex behemoth easier.
+In honor of an upcoming lecture I'm giving for the Cal Poly Quantitative Finance Club, I've condensed all the most important and vital information into this medium length article. Consequently, this article is less article and more guidebook, with examples and equations sprinkled in to make understanding this complex behemoth easier.
 
 ## Prediction
 
@@ -16,7 +16,7 @@ Humanity has long sought to predict the future[^01]. Ancient oracles to modern b
 
 Traditional financial models like ARIMA and GARCH once ruled time series forecasting, but their Achilles' heel has always been long-term dependencies. Recurrent Neural Networks (RNNs) attempted to address this but suffered from the vanishing gradient problem, where crucial past information was lost in the depths of backpropagation[^02]. Enter LSTMs.
 
-## I: The Core of Memory-How LSTMs Work
+## I. The Core of Memory-How LSTMs Work
 
 The LSTM network is designed to address the vanishing gradient problem by introducing a memory cell that can maintain long-term dependencies. At the core of the LSTM is its sophisticated gating mechanism, which enables it to retain, modify, and output relevant information over long sequences.
 
@@ -99,7 +99,7 @@ A milestone in financial modeling definitely[^03], but research continues to evo
 
 In the unpredictable world of finance, mastering time is power. LSTMs are the latest tool in humanity’s eternal quest to make sense of chaos.
 
-## II: The Brain
+## II. The Brain
 
 "You know, huh, memory cells and the whole concept of LSTMs sound a lot like what we do everyday with our head." Yes. The parallels are numerous, so let's investigate them all.
 
@@ -115,7 +115,7 @@ Neuroplasticity is the brain's ability to reorganize itself by forming new conne
 
 **Synaptic Weights & Hebbian Learning:** In biological neural networks (us), the strength of connections between neurons determines how effectively information is passed through the network. These weights are adjusted during learning through what's known as the Hebbian learning rule: "neurons that fire together wire together."
 
-**LSTM Training & Backpropogation:** LSTMs rely on Backpropagation Through Time (BPTT) and various error functions to fine-tune weights and biases. Adjusting through repeated exposure to sequential data, they are able to make more accurate predictions.
+**LSTM Training & Backpropagation:** LSTMs rely on Backpropagation Through Time (BPTT) and various error functions to fine-tune weights and biases. Adjusting through repeated exposure to sequential data, they are able to make more accurate predictions.
 
 In both cases, the more something is used, the more it fires and strengthens, enhancing our skills over time and the model's performance.
 
@@ -131,7 +131,7 @@ Emotion.
 
 As much as we can pride ourselves on calm, cool, rational thinking, we are impulsive and we are irrational. But, that's what makes us human.
 
-## III: Wrapping it up
+## III. Wrapping it up
 
 So, what have we learned? Well, besides the fact that your brain is essentially running a state-of-the-art deep learning model for free[^04], we've seen just how much artificial intelligence borrows from biological intelligence.
 

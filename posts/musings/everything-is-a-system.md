@@ -8,8 +8,7 @@ excerpt: ""
 ## The Great Russian Doll of the World
 
 I remember way back in middle school, in a science class, I learned of the concept of a 'closed system'. Something where matter couldn't get in or out, and you would be studying one specific interaction or reaction.
-But in reality, is anything really a closed system, no. I learned quickly after in my high school chemistry and physics classes that actually, energy is just *lost* to the environment all the time. Sure it's not
-very much, but it refutes the idea of real, pure, closed systems.
+But in reality, is anything really a closed system, no. I learned quickly after in my high school chemistry and physics classes that actually, energy is just *lost* to the environment all the time. Sure it's not very much, but it refutes the idea of real, pure, closed systems.
 
 First of all, that's crazy. We have houses, buildings, boxes, all these containers and separators, and in reality, these things aren't the steadfast barriers we imagine them to be. A truly closed system just *does not
 exist*.
@@ -36,5 +35,7 @@ There is so much depth to the world, that really what any of us should strive fo
 Seeing the impact we can have on the world—a system, an institution—a system, ourselves—a system, and other people (also a system) is all a matter of perspective and willingness to try.
 
 Whatever system you choose to flourish in, bloom like the brightest and most vibrant flower you've ever known! First of all, you can do it, second of all, why not, and third of all, that's what life is all about.
+
+---
 
 [^1]: "But if the universe is always expanding..." Wow that's exactly what I thought! What is the interaction between the non-universe and expanding-universe? I don't know, and I'm in the process of googling...

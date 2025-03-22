@@ -6,9 +6,9 @@ comp_date: 2024-08-19T05:02:44.737Z
 
 ## On Getting Better
 
-There is a certain curse in having too much foresight, it's difficult to focus on the short term. The funny thing is too, the short term ineivatebly leads to the long term.
-Recently I've spent so much time on planning and looking towards the future, that I lost sight of what's right here in front of me: friends, family, sports, reading, just having fun.
-The side effect of focusing too much on the bigger picture is that everything also seems just a little bit impossible, you really need to disect big goals into steps and actions.
+There is a certain curse in having too much foresight, it's difficult to focus on the short term. The funny thing is too, the short term inevitably leads to the long term.
+Recently I've spent so much time on planning and looking towards the future that I've lost sight of what's right here in front of me: friends, family, sports, reading, just having fun.
+The side effect of focusing too much on the bigger picture is that everything also seems just a little bit impossible, you really need to dissect big goals into steps and actions.
 
 ## The Title
 
@@ -23,10 +23,9 @@ Part of this post is also just cementing in my own mind the power that I should 
 ## and then Happiness
 
 The biggest predictor of happiness is the degree to which we observe that we have control over our lives[^2]. What do we have the utmost control over? Our daily experiences, what we
-choose to do with our time *now*, that elusive 1% is a choice.
+choose to do with our time _now_, that elusive 1% is a choice.
 
 ---
 
 [^1]: thanks charlie and warren.
-
 [^2]: I'm pretty sure I read this in a financial book, go figure that philosophy's biggest lessons could be learnt from such a practical field.

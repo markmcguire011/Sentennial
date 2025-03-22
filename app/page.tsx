@@ -8,6 +8,7 @@ import { Article } from "@/interfaces/article";
 import AnimatedHero from "@/components/layout/animated-hero";
 import CurrentResearch from "@/components/sections/current-research";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 export default function Page() {
   const articles = getAll("articles");

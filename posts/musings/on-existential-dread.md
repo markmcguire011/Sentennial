@@ -18,4 +18,6 @@ passage for anyone aspiring to true fulfillment. What's worse than feelings of e
 Harness the feelings, use them to explore what makes you excited, what awakens the fire to exist within you. Out of all feelings, this may be the most supremely human, so embrace it and
 know you're not alone.
 
+---
+
 [^1]: I'd define this as the creeping sensation that what you're doing is pointless and may not be worthwhile, this can apply to the present or thoughts of the future.

@@ -60,12 +60,6 @@ Certainly, we are not the first to grapple with the complexities of the human co
 
 The world is not certain; more lies unanswered than ever before. Yet, you would not want to be anywhere else. This is what humanity is built for. Knowing our limitations, knowing we know nothing, and striving nonetheless—that is what it means to be human.
 
-evolutionary mismatch
-sprituality
-techno-humanism/dataism
-exploring technology and self
-how I wouldn't want to live in any other time
-
 ---
 
 ## Sources

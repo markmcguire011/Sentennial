@@ -17,10 +17,10 @@ proves to be such an effective tool.
 ## Memories and Caching
 
 It makes intuitive sense that if we're called upon to recall a certain bit of information on a consistent basis, we'll remember that information much better.
-Hence why things becomes seocond nature after consistency and repition (which is honestly an homage to habits but is also relevant for memory). The more you use information, the more
+Hence why things become second nature after consistency and repetition (which is honestly an homage to habits but is also relevant for memory). The more you use information, the more
 you will retain it. So you can test yourself, or you can teach others, or you can just practice remembering it, really anything to teach yourself that this information is important.
 
-That's a pretty base assumption, and on top of that, any number of different techniques can be instituted to improve learning[^2].
+That's a pretty basic assumption, and on top of that, any number of different techniques can be instituted to improve learning[^2].
 
 So really if you look at it, all the information you store in your head has an associated 'stickiness' to it, and the more you use it, the stickier it gets.
 
@@ -34,6 +34,8 @@ So being highly civilized and advanced LRU caches, we can wield this knowledge o
 achieve all our grandest learning objectives.
 
 What are my objectives you may ask? I haven't thought about them recently enough.
+
+---
 
 [^1]: The liminal space right before summer or right before the school year is always filled with so much emotion. My theory is that it's related to the fresh start
 effect and all the latent emotion and deeply ingrained association that is baked into both time periods.
