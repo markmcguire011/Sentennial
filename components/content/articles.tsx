@@ -137,17 +137,17 @@ export default function Articles({ articles, page }: Props) {
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
-        <h1 className="text-4xl font-bold opacity-75 color-[#1E1E1E]">
-          Latest<span> {content}</span>
+        <h1 className="text-4xl font-bold opacity-75 color-brand-dark">
+          Latest
         </h1>
         <div className="flex flex-col gap-7 flex-grow relative">
-          {paginatedArticles.length > 0 ? (
-            paginatedArticles.map((article) => (
-              <ArticleButton key={article.slug + "-article"} data={article} />
-            ))
-          ) : (
-            <RandomDiscovery />
-          )}
+          {paginatedArticles.map((article) => (
+            <ArticleButton
+              key={article.slug + "-article"}
+              data={article as Article}
+            />
+          ))}
+          {paginatedArticles.length < 3 && <RandomDiscovery />}
         </div>
       </div>
       <div className="flex justify-between pb-10">
