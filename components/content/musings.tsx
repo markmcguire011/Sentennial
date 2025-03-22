@@ -73,7 +73,7 @@ export default function Musings({ musings, page }: Props) {
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
-        <h1 className="text-4xl font-bold opacity-75 color-brand-dark">
+        <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
           Latest
         </h1>
         <div className="flex flex-col gap-7 flex-grow relative">

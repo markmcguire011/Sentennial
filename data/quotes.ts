@@ -57,10 +57,6 @@ export const writingQuotes: Quote[] = [
     author: "Time Puzzles",
   },
   {
-    text: "This message has a 0.0001% chance of appearing. If you're seeing this, go buy a lottery ticket!",
-    author: "Probability Games",
-  },
-  {
     text: "The entire internet weighs about the same as a strawberry. Data is stored as electrons, which have mass (very, very little mass).",
     author: "Digital Physics",
   },
