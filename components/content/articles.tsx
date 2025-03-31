@@ -72,9 +72,9 @@ export default function Articles({ articles, page }: Props) {
             <div className="flex gap-4 flex-wrap">
               <button
                 onClick={() => handleClick("Psychology")}
-                className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-psychology ${
+                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-psychology ${
                   selectedCategory === "Psychology"
-                    ? "bg-psychology text-white border-white"
+                    ? "bg-psychology text-white border-white shadow-none"
                     : ""
                 }`}
               >
@@ -82,9 +82,9 @@ export default function Articles({ articles, page }: Props) {
               </button>
               <button
                 onClick={() => handleClick("Computer Science")}
-                className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science ${
+                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science ${
                   selectedCategory === "Computer Science"
-                    ? "bg-computer-science text-white border-white"
+                    ? "bg-computer-science text-white border-white shadow-none"
                     : ""
                 }`}
               >
@@ -92,9 +92,9 @@ export default function Articles({ articles, page }: Props) {
               </button>
               <button
                 onClick={() => handleClick("History")}
-                className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-history ${
+                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-history ${
                   selectedCategory === "History"
-                    ? "bg-history text-white border-white"
+                    ? "bg-history text-white border-white shadow-none"
                     : ""
                 }`}
               >
@@ -102,9 +102,9 @@ export default function Articles({ articles, page }: Props) {
               </button>
               <button
                 onClick={() => handleClick("Architecture")}
-                className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-architecture ${
+                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-architecture ${
                   selectedCategory === "Architecture"
-                    ? "bg-architecture text-white border-white"
+                    ? "bg-architecture text-white border-white shadow-none"
                     : ""
                 }`}
               >
@@ -112,9 +112,9 @@ export default function Articles({ articles, page }: Props) {
               </button>
               <button
                 onClick={() => handleClick("Philosophy")}
-                className={`border-2 py-2 px-4 rounded-full transition duration-2 hover:bg-philosophy ${
+                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-philosophy ${
                   selectedCategory === "Philosophy"
-                    ? "bg-philosophy text-white border-white"
+                    ? "bg-philosophy text-white border-white shadow-none"
                     : ""
                 }`}
               >
