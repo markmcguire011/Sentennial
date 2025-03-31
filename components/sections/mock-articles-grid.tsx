@@ -1,11 +1,11 @@
 "use client";
 
-import MockArticle from "@/components/ui/elements";
+import MockArticle from "@/components/ui/mock-article";
 
 export default function MockArticlesGrid() {
   return (
     <div
-      className="relative grid grid-cols-3 gap-[10px] md:w-1/2 w-screen p-[40px] overflow-hidden [--mouse-x:50%] [--mouse-y:50%] hover:[&>div]:opacity-100"
+      className="relative grid grid-cols-2 md:grid-cols-3 gap-[10px] w-screen md:w-1/2 p-[40px] overflow-hidden [--mouse-x:50%] [--mouse-y:50%] hover:[&>div]:opacity-100"
       onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -24,10 +24,10 @@ export default function MockArticlesGrid() {
       <MockArticle numLines={4} />
       <MockArticle numLines={3} />
       <MockArticle numLines={2} />
-      <MockArticle numLines={1} />
-      <MockArticle numLines={3} />
+      <MockArticle numLines={1} className="hidden md:block" />
+      <MockArticle numLines={3} className="hidden md:block" />
       <MockArticle numLines={4} />
-      <MockArticle numLines={2} />
+      <MockArticle numLines={2} className="hidden md:block" />
       <MockArticle numLines={1} />
     </div>
   );

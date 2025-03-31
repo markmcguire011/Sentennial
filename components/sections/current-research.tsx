@@ -23,8 +23,8 @@ const topics: ResearchTopic[] = [
   {
     title: "Historical Urban Planning",
     description:
-      "Analysis of ancient city designs and their modern implications.",
-    progress: 34,
+      "Analysis of ancient city designs and their modern implications. Current focus: Paris.",
+    progress: 83,
     status: "research",
     estimatedCompletion: "Early April 2025",
   },
