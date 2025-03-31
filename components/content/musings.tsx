@@ -7,6 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
 import MusingButton from "@/components/content/musing_button";
 import RandomDiscovery from "@/components/ui/random-discovery";
+import Random from "@/components/ui/random";
 
 type Props = {
   musings: Musing[];
@@ -49,14 +50,6 @@ export default function Musings({ musings, page }: Props) {
               These are mostly random thoughts or lines-of-thought that are
               inspired by the world, by other people, or just boredom.
             </p>
-            <svg
-              className="fill-brand-dark"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-            >
-              <path d="m15 4.946-6-2-7 2.333v16.108l7-2.333 6 2 7-2.333V2.613zm-5 .442 4 1.333v11.891l-4-1.333zM4 6.721l4-1.333v11.891l-4 1.334zm16 10.558-4 1.333V6.721l4-1.334z" />
-            </svg>
           </div>
           <div>
             <Image
@@ -73,9 +66,12 @@ export default function Musings({ musings, page }: Props) {
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
-        <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
-          Latest
-        </h1>
+        <div className="flex justify-between">
+          <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
+            Latest
+          </h1>
+          <Random collection={musings} type="musing" customStyles="w-auto" />
+        </div>
         <div className="flex flex-col gap-7 flex-grow relative">
           {paginatedMusings.map((musing) => (
             <MusingButton

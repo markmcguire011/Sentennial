@@ -8,6 +8,7 @@ import { Article } from "@/interfaces/article";
 import ArticleButton from "@/components/content/article_button";
 import { usePathname, useSearchParams } from "next/navigation";
 import RandomDiscovery from "@/components/ui/random-discovery";
+import Random from "@/components/ui/random";
 
 type Props = {
   articles: Article[];
@@ -137,9 +138,12 @@ export default function Articles({ articles, page }: Props) {
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
-        <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
-          Latest
-        </h1>
+        <div className="flex justify-between">
+          <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
+            Latest
+          </h1>
+          <Random collection={articles} type="article" customStyles="w-auto" />
+        </div>
         <div className="flex flex-col gap-7 flex-grow relative">
           {paginatedArticles.map((article) => (
             <ArticleButton
