@@ -17,15 +17,20 @@ I post full-length articles about topics that interest me, and shorter commentar
 - MDX for content management
 
 ## Future Plans
+
 - Enhanced article categorization system
 - Interactive knowledge mapping in Alexandria
 - Expanded research topic coverage
 - Improved content discovery features
 - Integration with external knowledge bases
 
-## Copyright
+## License
 
-The written contents of the blog is licensed under Apache 2.0.
+The written contents of this blog are licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License.
+
+You are free to copy and redistribute the material in any medium or format with proper attribution, but you may not use the material for commercial purposes or distribute modified versions.
+
+For more details, see the [full license text](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
 ## Take a look!
 
