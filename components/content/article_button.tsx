@@ -7,11 +7,11 @@ type Props = {
 };
 
 const colorList = {
-  psychology: "#bccce6",
-  "computer-science": "#dfd1e6",
-  history: "#e6d1d6",
-  architecture: "#e6d7d1",
-  philosophy: "#d1e3e6",
+  psychology: "#9dc8db",
+  "computer-science": "#ddaee4",
+  history: "#f1adaf",
+  architecture: "#ffda89",
+  philosophy: "#9ad4bc",
 };
 
 export default function ArticleButton({ data }: Props) {
@@ -56,8 +56,11 @@ export default function ArticleButton({ data }: Props) {
             return (
               <div
                 key={data.slug + category}
-                style={{ backgroundColor: color }}
-                className="h-2 w-full"
+                style={{
+                  backgroundColor: color,
+                  opacity: 0.4,
+                }}
+                className="h-2 w-full "
               ></div>
             );
           })}

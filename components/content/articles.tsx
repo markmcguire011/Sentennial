@@ -71,56 +71,31 @@ export default function Articles({ articles, page }: Props) {
               specific point or message that I want to convey.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <button
-                onClick={() => handleClick("Psychology")}
-                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-psychology ${
-                  selectedCategory === "Psychology"
-                    ? "bg-psychology text-white border-white shadow-none"
-                    : ""
-                }`}
-              >
-                Psychology
-              </button>
-              <button
-                onClick={() => handleClick("Computer Science")}
-                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-computer-science ${
-                  selectedCategory === "Computer Science"
-                    ? "bg-computer-science text-white border-white shadow-none"
-                    : ""
-                }`}
-              >
-                Computer Science
-              </button>
-              <button
+              <FilterButton
+                category="History"
+                isSelected={selectedCategory === "History"}
                 onClick={() => handleClick("History")}
-                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-history ${
-                  selectedCategory === "History"
-                    ? "bg-history text-white border-white shadow-none"
-                    : ""
-                }`}
-              >
-                History
-              </button>
-              <button
-                onClick={() => handleClick("Architecture")}
-                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-architecture ${
-                  selectedCategory === "Architecture"
-                    ? "bg-architecture text-white border-white shadow-none"
-                    : ""
-                }`}
-              >
-                Architecture
-              </button>
-              <button
+              />
+              <FilterButton
+                category="Computer Science"
+                isSelected={selectedCategory === "Computer Science"}
+                onClick={() => handleClick("Computer Science")}
+              />
+              <FilterButton
+                category="Philosophy"
+                isSelected={selectedCategory === "Philosophy"}
                 onClick={() => handleClick("Philosophy")}
-                className={`shadow-md py-2 px-4 rounded-full transition duration-2 hover:bg-philosophy ${
-                  selectedCategory === "Philosophy"
-                    ? "bg-philosophy text-white border-white shadow-none"
-                    : ""
-                }`}
-              >
-                Philosophy
-              </button>
+              />
+              <FilterButton
+                category="Architecture"
+                isSelected={selectedCategory === "Architecture"}
+                onClick={() => handleClick("Architecture")}
+              />
+              <FilterButton
+                category="Psychology"
+                isSelected={selectedCategory === "Psychology"}
+                onClick={() => handleClick("Psychology")}
+              />
             </div>
           </div>
           <div>
@@ -151,7 +126,7 @@ export default function Articles({ articles, page }: Props) {
               data={article as Article}
             />
           ))}
-          {paginatedArticles.length < 3 && <RandomDiscovery />}
+          {paginatedArticles.length < 2 && <RandomDiscovery />}
         </div>
       </div>
       <div className="flex justify-between pb-10">
@@ -167,6 +142,86 @@ export default function Articles({ articles, page }: Props) {
         />
       </div>
     </div>
+  );
+}
+
+function FilterButton({
+  category,
+  isSelected,
+  onClick,
+}: {
+  category: string;
+  isSelected: boolean;
+  onClick: () => void;
+}) {
+  // Get the category slug for color mapping
+  const categorySlug = category.toLowerCase().replace(" ", "-");
+
+  // Color mapping
+  const colorMap: Record<
+    string,
+    { bg: string; hover: string; active: string; text: string }
+  > = {
+    history: {
+      bg: "bg-history",
+      hover: "hover:bg-history/40",
+      active: "active:bg-history/90",
+      text: "text-white",
+    },
+    "computer-science": {
+      bg: "bg-computer-science",
+      hover: "hover:bg-computer-science/40",
+      active: "active:bg-computer-science/90",
+      text: "text-white",
+    },
+    philosophy: {
+      bg: "bg-philosophy",
+      hover: "hover:bg-philosophy/40",
+      active: "active:bg-philosophy/90",
+      text: "text-white",
+    },
+    architecture: {
+      bg: "bg-architecture",
+      hover: "hover:bg-architecture/40",
+      active: "active:bg-architecture/90",
+      text: "text-white",
+    },
+    psychology: {
+      bg: "bg-psychology",
+      hover: "hover:bg-psychology/40",
+      active: "active:bg-psychology/90",
+      text: "text-white",
+    },
+  };
+
+  const colors = colorMap[categorySlug] || {
+    bg: "bg-gray-800",
+    hover: "hover:bg-gray-700",
+    active: "active:bg-gray-900",
+    text: "text-white",
+  };
+
+  return (
+    <button
+      onClick={onClick}
+      className={clsx(
+        "relative py-2 px-4 rounded-full font-medium transition-all duration-200",
+        "transform active:scale-95",
+        {
+          // Not selected
+          "shadow-md hover:shadow-lg": !isSelected,
+          "bg-white text-gray-800": !isSelected,
+          [colors.hover]: !isSelected,
+
+          // Selected
+          [colors.bg]: isSelected,
+          [colors.text]: isSelected,
+          "shadow-inner": isSelected,
+        }
+      )}
+    >
+      {category}
+    </button>
   );
 }
 
