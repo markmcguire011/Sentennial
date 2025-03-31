@@ -115,8 +115,9 @@ export default function Articles({ articles, page }: Props) {
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
-            Latest
+            Latest {selectedCategory ? selectedCategory : ""}
           </h1>
+
           <Random collection={articles} type="article" customStyles="w-auto" />
         </div>
         <div className="flex flex-col gap-7 flex-grow relative">
