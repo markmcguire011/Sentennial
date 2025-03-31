@@ -8,7 +8,7 @@ export default function Page() {
     {
       name: "Development",
       status: "active",
-      focus: "UI Refinements",
+      focus: "Alexandria Repository",
       color: "bg-green-400",
     },
     {
@@ -56,7 +56,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Development Status
           </h2>
-          <p className="mt-2 text-base md:text-lg opacity-75">
+          <p className="mt-2 mb-4 text-base md:text-lg opacity-75">
             Here&apos;s what I&apos;m currently working on for this project:
           </p>
         </div>
@@ -152,7 +152,7 @@ export default function Page() {
           <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
             Building Photos
           </h2>
-          <p className="mt-2 text-base md:text-lg opacity-75">
+          <p className="mt-2 mb-4 text-base md:text-lg opacity-75">
             Some very cool building photos from NYC:
           </p>
         </div>
