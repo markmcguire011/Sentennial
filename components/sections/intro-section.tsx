@@ -1,5 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import cursor from "@/public/cursor.svg";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const colorList = {
+  psychology: "#bccce6",
+  "computer-science": "#dfd1e6",
+  history: "#e6d1d6",
+  architecture: "#e6d7d1",
+  philosophy: "#d1e3e6",
+};
 
 export default function IntroSection() {
   return (
@@ -25,14 +37,39 @@ export default function IntroSection() {
           Here&apos;s some of the things that I write about:
         </p>
       </div>
-      <div className="flex items-center pl-[30px]">
-        <ul className="list-image-none text-xl">
-          <li className="underline decoration-brand-color">History</li>
-          <li className="underline decoration-brand-color">Computer Science</li>
-          <li className="underline decoration-brand-color">Machine Learning</li>
-          <li className="underline decoration-brand-color">Psychology</li>
-          <li className="underline decoration-brand-color">Architecture</li>
-        </ul>
+      <div className="flex items-center gap-5 pl-[30px]">
+        <div className="flex flex-col gap-[1px] text-xl">
+          <Link
+            href="/articles"
+            className="underline decoration-brand-dark/40 hover:decoration-brand-color"
+          >
+            History
+          </Link>
+          <Link
+            href="/articles"
+            className="underline decoration-brand-dark/40 hover:decoration-brand-color"
+          >
+            Computer Science
+          </Link>
+          <Link
+            href="/articles"
+            className="underline decoration-brand-dark/40 hover:decoration-brand-color"
+          >
+            Philosophy
+          </Link>
+          <Link
+            href="/articles"
+            className="underline decoration-brand-dark/40 hover:decoration-brand-color"
+          >
+            Architecture
+          </Link>
+          <Link
+            href="/articles"
+            className="underline decoration-brand-dark/40 hover:decoration-brand-color"
+          >
+            Psychology
+          </Link>
+        </div>
       </div>
     </div>
   );
