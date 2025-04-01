@@ -40,31 +40,31 @@ export default function IntroSection() {
       <div className="flex items-center gap-5 pl-[30px]">
         <div className="flex flex-col gap-[1px] text-xl">
           <Link
-            href="/articles"
+            href="/articles?category=history"
             className="underline decoration-brand-dark/40 hover:decoration-brand-color"
           >
             History
           </Link>
           <Link
-            href="/articles"
+            href="/articles?category=computer-science"
             className="underline decoration-brand-dark/40 hover:decoration-brand-color"
           >
             Computer Science
           </Link>
           <Link
-            href="/articles"
+            href="/articles?category=philosophy"
             className="underline decoration-brand-dark/40 hover:decoration-brand-color"
           >
             Philosophy
           </Link>
           <Link
-            href="/articles"
+            href="/articles?category=architecture"
             className="underline decoration-brand-dark/40 hover:decoration-brand-color"
           >
             Architecture
           </Link>
           <Link
-            href="/articles"
+            href="/articles?category=psychology"
             className="underline decoration-brand-dark/40 hover:decoration-brand-color"
           >
             Psychology

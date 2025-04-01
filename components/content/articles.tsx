@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Article } from "@/interfaces/article";
 import ArticleButton from "@/components/content/article_button";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -22,6 +22,23 @@ export default function Articles({ articles, page }: Props) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
+
+  // get category from URL
+  const categoryParam = searchParams.get("category");
+
+  // set initial from URL
+  useEffect(() => {
+    if (categoryParam) {
+      // formatting
+      const formattedCategory = categoryParam
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+
+      setSelectedCategory(formattedCategory);
+      setContent(formattedCategory);
+    }
+  }, [categoryParam]);
 
   const articlesPerPage = 4;
 
@@ -49,9 +66,20 @@ export default function Articles({ articles, page }: Props) {
     if (selectedCategory === category) {
       setSelectedCategory(null);
       setContent("");
+
+      // removes category filter
+      const params = new URLSearchParams(searchParams);
+      params.delete("category");
+      window.history.pushState({}, "", `${pathname}?${params.toString()}`);
     } else {
       setSelectedCategory(category);
       setContent(category);
+
+      // includes category filter
+      const categorySlug = category.toLowerCase().replace(" ", "-");
+      const params = new URLSearchParams(searchParams);
+      params.set("category", categorySlug);
+      window.history.pushState({}, "", `${pathname}?${params.toString()}`);
     }
   };
 
@@ -155,10 +183,10 @@ function FilterButton({
   isSelected: boolean;
   onClick: () => void;
 }) {
-  // Get the category slug for color mapping
+  // get slug for mapping
   const categorySlug = category.toLowerCase().replace(" ", "-");
 
-  // Color mapping
+  // color mapping
   const colorMap: Record<
     string,
     { bg: string; hover: string; active: string; text: string }
@@ -209,12 +237,12 @@ function FilterButton({
         "relative py-2 px-4 rounded-full font-medium transition-all duration-200",
         "transform active:scale-95",
         {
-          // Not selected
+          // not selected
           "shadow-md hover:shadow-lg": !isSelected,
           "bg-white text-gray-800": !isSelected,
           [colors.hover]: !isSelected,
 
-          // Selected
+          // selected
           [colors.bg]: isSelected,
           [colors.text]: isSelected,
           "shadow-inner": isSelected,
