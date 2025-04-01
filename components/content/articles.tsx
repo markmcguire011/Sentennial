@@ -87,18 +87,28 @@ export default function Articles({ articles, page }: Props) {
     <div className="flex flex-col max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
       <div className="pt-20 pb-10">
         <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
-          <div className="pr-10 max-w-[825px]">
-            <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">
+          <div className="pr-0 md:pr-10 max-w-full md:max-w-[825px]">
+            <h1 className="text-5xl md:text-6xl pb-6 md:pb-10 font-bold opacity-75 text-brand-dark">
               Articles.
             </h1>
-            <p className="text-xl opacity-75 color-brand-dark pb-6">
+            <p className="text-lg md:text-xl opacity-75 color-brand-dark pb-6">
               <b className="font-semibold">
                 Long-form pieces with coherent themes and messages.{" "}
               </b>
               These are more structured than musings, and usually have a
               specific point or message that I want to convey.
             </p>
-            <div className="flex gap-4 flex-wrap">
+            {/* Image for mobile view - positioned between text and filters */}
+            <div className="block md:hidden mb-6">
+              <Image
+                src="/articles/alien_building.JPG"
+                width={400}
+                height={600}
+                alt="Cool alien-looking building"
+                className="rounded-md w-full max-w-[400px] mx-auto"
+              />
+            </div>
+            <div className="flex gap-3 md:gap-4 flex-wrap">
               <FilterButton
                 category="History"
                 isSelected={selectedCategory === "History"}
@@ -126,7 +136,8 @@ export default function Articles({ articles, page }: Props) {
               />
             </div>
           </div>
-          <div>
+          {/* Image for desktop view - original position */}
+          <div className="hidden md:block">
             <Image
               src="/articles/alien_building.JPG"
               width={400}
@@ -142,7 +153,7 @@ export default function Articles({ articles, page }: Props) {
       </div>
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
         <div className="flex justify-between">
-          <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
+          <h1 className="text-3xl md:text-4xl font-bold opacity-75 text-brand-dark">
             Latest {selectedCategory ? selectedCategory : ""}
           </h1>
 
@@ -234,13 +245,13 @@ function FilterButton({
     <button
       onClick={onClick}
       className={clsx(
-        "relative py-2 px-4 rounded-full font-medium transition-all duration-200",
+        "relative py-1.5 md:py-2 px-3 md:px-4 rounded-full font-medium transition-all duration-200 text-sm md:text-base",
         "transform active:scale-95",
         {
           // not selected
-          "shadow-md hover:shadow-lg": !isSelected,
           "bg-white text-gray-800": !isSelected,
           [colors.hover]: !isSelected,
+          "shadow-md": !isSelected,
 
           // selected
           [colors.bg]: isSelected,
