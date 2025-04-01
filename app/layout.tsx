@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     "AI",
     "architecture",
   ],
-  authors: [{ name: "Mark" }],
-  creator: "Mark",
+  authors: [{ name: "Mark McGuire" }],
+  creator: "Mark McGuire",
   publisher: "Sentennial",
   robots: {
     index: true,

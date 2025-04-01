@@ -24,10 +24,10 @@ export default function MockArticlesGrid() {
       <MockArticle numLines={4} />
       <MockArticle numLines={3} />
       <MockArticle numLines={2} />
-      <MockArticle numLines={1} className="hidden md:block" />
-      <MockArticle numLines={3} className="hidden md:block" />
+      <MockArticle numLines={1} className="hidden md:flex" />
+      <MockArticle numLines={3} className="hidden md:flex" />
       <MockArticle numLines={4} />
-      <MockArticle numLines={2} className="hidden md:block" />
+      <MockArticle numLines={2} className="hidden md:flex" />
       <MockArticle numLines={1} />
     </div>
   );
