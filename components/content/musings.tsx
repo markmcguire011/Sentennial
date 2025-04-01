@@ -11,10 +11,9 @@ import PaginationArrow from "@/components/ui/pagination-arrow";
 
 type Props = {
   musings: Musing[];
-  page: number;
 };
 
-export default function Musings({ musings, page }: Props) {
+export default function Musings({ musings }: Props) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;

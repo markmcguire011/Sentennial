@@ -16,6 +16,19 @@ I post full-length articles about topics that interest me, and shorter commentar
 - Framer Motion
 - MDX for content management
 
+## Testing
+
+The project includes comprehensive testing:
+
+- **Jest**: Unit and integration tests for components and pages
+  - Component rendering and functionality
+  - Page navigation and routing
+  - Content filtering and pagination
+  - State management
+
+Run tests with:
+`npm test`
+
 ## Future Plans
 
 - Enhanced article categorization system

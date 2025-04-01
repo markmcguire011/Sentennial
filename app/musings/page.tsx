@@ -4,16 +4,12 @@ import { getAll } from "@/lib/api";
 import { Suspense } from "react";
 import LoadingSpinner from "@/components/ui/loading-spinner";
 
-type Params = Promise<{ page: string }>;
-
-export default async function Page({ params }: { params: Params }) {
-  const { page } = await params;
-  const currentPage = Number(page) || 1;
+export default async function Page() {
   const musings = getAll("musings");
 
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <Musings musings={musings as Musing[]} page={currentPage} />
+      <Musings musings={musings as Musing[]}/>
     </Suspense>
   );
 }
