@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate-logos": "ts-node scripts/generate-logos.ts",
-    "date": "node scripts/get_date.js",
+    "date": "ts-node scripts/get_date.ts",
     "test": "jest --watchAll=false",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
