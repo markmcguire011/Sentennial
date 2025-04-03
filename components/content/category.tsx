@@ -20,7 +20,7 @@ export default function Category({ name }: { name: string }) {
   return (
     <h1
       style={{ backgroundColor: bg }}
-      className={`text-l opacity-75 rounded-full px-3 py-1`}
+      className={`text-l text-black opacity-40 font-normal rounded-full px-3 py-1`}
     >
       {name}
     </h1>

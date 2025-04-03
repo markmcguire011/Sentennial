@@ -238,11 +238,11 @@ function FilterButton({
     <button
       onClick={onClick}
       className={clsx(
-        "relative py-2 px-4 rounded-full font-medium transition-all duration-200 text-md",
+        "relative py-2 px-4 rounded-full font-normal transition-all duration-200 text-md",
         "transform active:scale-95",
         {
           // not selected
-          "bg-white text-brand-dark opacity-85": !isSelected,
+          "bg-white text-brand-dark opacity-75": !isSelected,
           [colors.hover]: !isSelected,
           "shadow-md": !isSelected,
 
