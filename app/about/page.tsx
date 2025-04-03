@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import DevStatus from "@/components/ui/dev-status";
 import Newsletter from "@/components/sections/newsletter";
 
 export default function Page() {

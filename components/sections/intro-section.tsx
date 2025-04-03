@@ -3,15 +3,6 @@
 import Image from "next/image";
 import cursor from "@/public/cursor.svg";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-
-const colorList = {
-  psychology: "#bccce6",
-  "computer-science": "#dfd1e6",
-  history: "#e6d1d6",
-  architecture: "#e6d7d1",
-  philosophy: "#d1e3e6",
-};
 
 export default function IntroSection() {
   return (
@@ -29,7 +20,7 @@ export default function IntroSection() {
       </div>
       <div className="w-2/3 h-[1px] bg-gradient-to-l from-[#a8a8a8] rounded"></div>
       <div className="w-prose">
-        <p className="text-xl color-[#1E1E1E">
+        <p className="text-xl">
           Hey I&apos;m Mark! This is a personal project/blog where I record
           thoughts and stories about various topics.
           <br />

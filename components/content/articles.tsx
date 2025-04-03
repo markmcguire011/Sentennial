@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import { Article } from "@/interfaces/article";
@@ -16,7 +15,6 @@ type Props = {
 };
 
 export default function Articles({ articles }: Props) {
-  const [content, setContent] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const pathname = usePathname();
@@ -36,7 +34,6 @@ export default function Articles({ articles }: Props) {
         .join(" ");
 
       setSelectedCategory(formattedCategory);
-      setContent(formattedCategory);
     }
   }, [categoryParam]);
 
@@ -65,7 +62,6 @@ export default function Articles({ articles }: Props) {
   const handleClick = (category: string): void => {
     if (selectedCategory === category) {
       setSelectedCategory(null);
-      setContent("");
 
       // removes category filter
       const params = new URLSearchParams(searchParams);
@@ -73,7 +69,6 @@ export default function Articles({ articles }: Props) {
       window.history.pushState({}, "", `${pathname}?${params.toString()}`);
     } else {
       setSelectedCategory(category);
-      setContent(category);
 
       // includes category filter
       const categorySlug = category.toLowerCase().replace(" ", "-");

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import dynamic from "next/dynamic";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 

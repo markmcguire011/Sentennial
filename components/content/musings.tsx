@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
 import MusingButton from "@/components/content/musing_button";

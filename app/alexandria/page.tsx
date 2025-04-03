@@ -1,4 +1,4 @@
-import Library from "@/components/sections/library";
+// import Library from "@/components/sections/library";
 import LibraryWIP from "@/components/sections/library-wip";
 
 export default function Page() {
@@ -17,8 +17,8 @@ export default function Page() {
           </p>
           <div className="mt-4 p-6 bg-slate-50 rounded-lg shadow-md">
             <blockquote className="text-xl italic text-brand-dark opacity-75">
-              "The real problem is not whether machines think, but whether men
-              do."
+              &quot;The real problem is not whether machines think, but whether
+              men do.&quot;
             </blockquote>
             <p className="mt-2 text-right text-gray-600">—B.F. Skinner</p>
           </div>

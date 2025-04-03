@@ -1,6 +1,5 @@
 import { getAll, getBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import { Article } from "@/interfaces/article";
 import Category from "@/components/content/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
@@ -39,7 +38,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
       </div>
       <div className="flex md:flex-row flex-col md:items-center justify-items-start gap-4 py-2">
         <h1 className="text-l opacity-50 color-brand-dark">{article.date}</h1>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {article.categories.map((category) => (
             <Category key={article.slug + category} name={category} />
           ))}

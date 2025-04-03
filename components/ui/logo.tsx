@@ -1,4 +1,11 @@
-export default function Logo({ size = 100, className = "" }) {
+import React from "react";
+
+interface LogoProps {
+  size?: number;
+  className?: string;
+}
+
+export default function Logo({ size = 100, className = "" }: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

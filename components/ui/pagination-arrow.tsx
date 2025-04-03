@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import clsx from "clsx";
+import React from "react";
 
 type PaginationArrowProps = {
   href: string;

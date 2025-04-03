@@ -1,10 +1,10 @@
 export default function Category({ name }: { name: string }) {
   const colorList = {
-    psychology: "#bccce6",
-    "computer-science": "#dfd1e6",
-    history: "#e6d1d6",
-    architecture: "#e6d7d1",
-    philosophy: "#d1e3e6",
+    psychology: "#9dc8db",
+    "computer-science": "#ddaee4",
+    history: "#f1adaf",
+    architecture: "#ffda89",
+    philosophy: "#9ad4bc",
   };
 
   const color = name.toLowerCase().replace(" ", "-");

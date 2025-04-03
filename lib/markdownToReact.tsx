@@ -13,7 +13,7 @@ export default async function markdownToReact(markdown: string) {
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
-          a: ({ node, href, ...props }) => {
+          a: ({ href, ...props }) => {
             // Handle external links
             const isExternalLink =
               href &&
@@ -32,7 +32,7 @@ export default async function markdownToReact(markdown: string) {
 
             return <a href={href} {...props} />;
           },
-          blockquote: ({ node, className, ...props }) => {
+          blockquote: ({ className, ...props }) => {
             const combinedClassName = `quote-card ${className || ""}`.trim();
             return <blockquote className={combinedClassName} {...props} />;
           },

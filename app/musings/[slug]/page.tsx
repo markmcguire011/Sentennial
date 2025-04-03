@@ -1,8 +1,6 @@
 import { getAll, getBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import { Musing } from "@/interfaces/musing";
-import Category from "@/components/content/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
 import { Suspense } from "react";
