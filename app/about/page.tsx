@@ -43,7 +43,7 @@ export default function Page() {
           <strong className="opacity-100 font-semibold text-brand-color">
             Sentient
           </strong>{" "}
-          and <strong className="font-semibold">Centennial</strong>. Sentience:
+          and <strong className="font-semibold text-brand-dark">Centennial</strong>. Sentience:
           I think is just a super intriguing topic, mysterious but also deeply
           personal. Centennial: Relates to time, history, experience, and
           celebration. It blends a lot of relevant themes and I thought it

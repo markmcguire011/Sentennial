@@ -15,17 +15,22 @@ export default function Page() {
             historical wisdom will meet contemporary challenges in AI
             development. Stay tuned!
           </p>
-          <div className="mt-4 p-6 bg-slate-50 rounded-lg shadow-md">
-            <blockquote className="text-xl italic text-brand-dark opacity-75">
-              &quot;The real problem is not whether machines think, but whether
-              men do.&quot;
-            </blockquote>
-            <p className="mt-2 text-right text-gray-600">—B.F. Skinner</p>
-          </div>
         </div>
       </div>
       {/* <Library /> */}
       <LibraryWIP />
+
+      <div className="px-[calc(8vw)] pb-16">
+        <div className="mt-8 border-t border-slate-300 pt-12">
+          <blockquote className="text-sm font-mono text-brand-dark opacity-45 italic max-w-md mx-auto text-center">
+            &quot;The real problem is not whether machines think, but whether
+            men do.&quot;
+            <footer className="mt-2 opacity-75 text-xs">
+              —B.F. Skinner
+            </footer>
+          </blockquote>
+        </div>
+      </div>
     </div>
   );
 }
