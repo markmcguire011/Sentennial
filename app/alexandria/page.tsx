@@ -11,9 +11,17 @@ export default function Page() {
           </h1>
           <p className="text-xl opacity-75 max-w-2xl">
             An open-access digital repository exploring the philosophical and
-            ethical dimensions of artificial intelligence. This is where, historical
-            wisdom will meet contemporary challenges in AI development. Stay tuned!
+            ethical dimensions of artificial intelligence. This is where,
+            historical wisdom will meet contemporary challenges in AI
+            development. Stay tuned!
           </p>
+          <div className="mt-4 p-6 bg-slate-50 rounded-lg shadow-md">
+            <blockquote className="text-xl italic text-brand-dark opacity-75">
+              "The real problem is not whether machines think, but whether men
+              do."
+            </blockquote>
+            <p className="mt-2 text-right text-gray-600">—B.F. Skinner</p>
+          </div>
         </div>
       </div>
       {/* <Library /> */}

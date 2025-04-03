@@ -157,7 +157,7 @@ export default function Articles({ articles }: Props) {
 
           <Random collection={articles} type="article" customStyles="w-auto" />
         </div>
-        <div className="flex flex-col gap-7 flex-grow relative">
+        <div className="flex flex-col gap-7 flex-grow min-h-[492px] relative">
           {paginatedArticles.map((article) => (
             <ArticleButton
               key={article.slug + "-article"}
@@ -247,7 +247,7 @@ function FilterButton({
         "transform active:scale-95",
         {
           // not selected
-          "bg-white text-brand-dark": !isSelected,
+          "bg-white text-brand-dark opacity-85": !isSelected,
           [colors.hover]: !isSelected,
           "shadow-md": !isSelected,
 
