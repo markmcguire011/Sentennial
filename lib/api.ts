@@ -86,7 +86,7 @@ export function getAll<T extends Article | Musing>(
 }
 
 // Add this function to get article by slug with specific fields
-export function getArticleBySlug(slug: string, fields: string[] = []) {
+export function getArticleBySlug(slug: string) {
   return getBySlug<Article>(slug, "articles");
 }
 
@@ -116,13 +116,7 @@ export function getAllSeries(): ArticleSeries[] {
       // Get the full article data for each article in the series
       const articles = seriesData.articleSlugs
         .map((slug: string) => {
-          const article = getArticleBySlug(slug, [
-            "title",
-            "slug",
-            "date",
-            "categories",
-            "readTime",
-          ]);
+          const article = getArticleBySlug(slug);
           return article as Article;
         })
         .filter(Boolean);
@@ -172,15 +166,7 @@ export function getSeriesById(id: string): ArticleSeries | null {
   // Get the full article data for each article in the series
   const articles = seriesData.articleSlugs
     .map((slug: string) => {
-      const article = getArticleBySlug(slug, [
-        "title",
-        "slug",
-        "date",
-        "categories",
-        "subtitle",
-        "readTime",
-        "coverImage",
-      ]);
+      const article = getArticleBySlug(slug);
       return article as Article;
     })
     .filter(Boolean);

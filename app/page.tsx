@@ -1,7 +1,7 @@
 import { getAll } from "@/lib/api";
-import ArticleButton from "@/components/content/article_button";
+import ArticleButton from "@/components/content/article-button";
 import Random from "@/components/ui/random";
-import MusingButton from "@/components/content/musing_button";
+import MusingButton from "@/components/content/musing-button";
 import MockArticlesGrid from "@/components/sections/mock-articles-grid";
 import IntroSection from "@/components/sections/intro-section";
 import { Article } from "@/interfaces/article";
