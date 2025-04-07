@@ -1,5 +1,12 @@
-const fs = require("fs");
-const sharp = require("sharp");
+/**
+ * Script to generate various logo formats for the website
+ *
+ * Usage:
+ * - Run the script: ts-node scripts/calculate-read-time.ts
+ */
+
+import fs from "fs";
+import sharp from "sharp";
 
 const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 40 40" fill="none">
   <rect width="40" height="40" fill="white"/>

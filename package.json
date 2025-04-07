@@ -2,14 +2,18 @@
   "name": "sentennial",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "generate-logos": "ts-node scripts/generate-logos.ts",
-    "date": "ts-node scripts/get_date.ts",
+    "generate-logos": "npx tsx scripts/generate-logos.ts",
+    "date": "npx tsx scripts/get-date.ts",
+    "calculate-read-time": "npx tsx scripts/calculate-read-time.ts",
+    "calculate-read-time:all": "npx tsx scripts/calculate-read-time.ts --all",
+    "calculate-read-time:update": "npx tsx scripts/calculate-read-time.ts --all --update",
     "test": "jest --watchAll=false",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -59,6 +63,7 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.3.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "typescript": "^5"
   }
 }
