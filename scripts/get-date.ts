@@ -8,12 +8,12 @@
  */
 
 // get date from command line argument or use current date
-const inputDate: Date = process.argv[2]
+const userDate: Date = process.argv[2]
   ? new Date(process.argv[2])
   : new Date();
 
 // check valid
-if (isNaN(inputDate.getTime())) {
+if (isNaN(userDate.getTime())) {
   console.error(
     'Error: Invalid date format. Please use YYYY-MM-DD or "YYYY-MM-DD HH:MM" format.'
   );
@@ -21,7 +21,7 @@ if (isNaN(inputDate.getTime())) {
 }
 
 // full ISO format with timezone for frontmatter
-const formattedDate: string = inputDate.toISOString();
+const formattedDate: string = userDate.toISOString();
 
 // human-readable format for reference
 const options: Intl.DateTimeFormatOptions = {
@@ -31,7 +31,7 @@ const options: Intl.DateTimeFormatOptions = {
   hour: "2-digit",
   minute: "2-digit",
 };
-const readableDate: string = inputDate.toLocaleDateString("en-US", options);
+const readableDate: string = userDate.toLocaleDateString("en-US", options);
 
 console.log("\nDate for frontmatter:");
 console.log(formattedDate);
