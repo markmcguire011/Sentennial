@@ -33,6 +33,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-01"),
     categories: ["Philosophy"],
     content: "Test content 1",
+    readTime: 1,
   },
   {
     slug: "test-article-2",
@@ -42,6 +43,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-02"),
     categories: ["History"],
     content: "Test content 2",
+    readTime: 2,
   },
   {
     slug: "test-article-3",
@@ -51,6 +53,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-03"),
     categories: ["Computer Science"],
     content: "Test content 3",
+    readTime: 3,
   },
   {
     slug: "test-article-4",
@@ -60,6 +63,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-04"),
     categories: ["Psychology"],
     content: "Test content 4",
+    readTime: 4,
   },
   {
     slug: "test-article-5",
@@ -69,6 +73,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-05"),
     categories: ["Architecture"],
     content: "Test content 5",
+    readTime: 5,
   },
   {
     slug: "test-article-6",
@@ -78,6 +83,7 @@ const mockArticles: Article[] = [
     comp_date: new Date("2023-01-06"),
     categories: ["Philosophy", "History"],
     content: "Test content 6",
+    readTime: 6,
   },
 ];
 
