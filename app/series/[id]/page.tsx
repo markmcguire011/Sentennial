@@ -3,12 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
 
-export default async function SeriesPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const series = getSeriesById(params.id);
+type Params = Promise<{ id: string }>;
+
+export default async function SeriesPage({ params }: { params: Params }) {
+  const { id } = await params;
+  const series = getSeriesById(id);
 
   if (!series) {
     notFound();
