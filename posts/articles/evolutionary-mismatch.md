@@ -1,9 +1,12 @@
 ---
-title: "Evolutionary Mismatch"
-subtitle: "and the intellectual match"
-date: "February 4, 2025"
-comp_date: 2025-02-4T04:52:24.464Z
-categories: ["Psychology", "Philosophy"]
+title: Evolutionary Mismatch
+subtitle: and the intellectual match
+date: 'February 4, 2025'
+comp_date: 2025-02-04T04:52:24.464Z
+categories:
+  - Psychology
+  - Philosophy
+readTime: 6
 ---
 
 ## The Paleolithic Brain

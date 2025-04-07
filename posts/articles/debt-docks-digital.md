@@ -1,9 +1,12 @@
 ---
-title: "Debt, Docks, and Digital Coins"
-subtitle: "a brief history of finance"
-date: "February 27, 2025"
+title: 'Debt, Docks, and Digital Coins'
+subtitle: a brief history of finance
+date: 'February 27, 2025'
 comp_date: 2025-02-27T01:34:16.264Z
-categories: ["History", "Computer Science"]
+categories:
+  - History
+  - Computer Science
+readTime: 27
 ---
 
 ## Summer Vacation

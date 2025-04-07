@@ -1,9 +1,12 @@
 ---
-title: "Gamma Waves and Rainy days"
-subtitle: "the brain's perfect soundtrack"
-date: "March 21, 2025"
+title: Gamma Waves and Rainy days
+subtitle: the brain's perfect soundtrack
+date: 'March 21, 2025'
 comp_date: 2025-03-21T10:40:24.464Z
-categories: ["Psychology", "Philosophy"]
+categories:
+  - Psychology
+  - Philosophy
+readTime: 5
 ---
 
 ## Sounds

@@ -1,9 +1,12 @@
 ---
-title: "LSTMs"
-subtitle: "learning super tricky models"
-date: "March 6, 2025"
-comp_date: 2025-3-6T04:30:26.284Z
-categories: ["Computer Science", "Psychology"]
+title: LSTMs
+subtitle: learning super tricky models
+date: 'March 6, 2025'
+comp_date: 2025-03-06T04:30:26.284Z
+categories:
+  - Computer Science
+  - Psychology
+readTime: 9
 ---
 
 ## Spoiler Alert
