@@ -4,7 +4,9 @@ import Image from "next/image";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import { Article } from "@/interfaces/article";
-import ArticleButton from "@/components/content/article_button";
+import { ArticleSeries } from "@/interfaces/article-series";
+import ArticleButton from "@/components/content/article-button";
+import ArticleSeriesButton from "@/components/content/article-series-button";
 import { usePathname, useSearchParams } from "next/navigation";
 import RandomDiscovery from "@/components/ui/random-discovery";
 import Random from "@/components/ui/random";
@@ -12,10 +14,13 @@ import PaginationArrow from "@/components/ui/pagination-arrow";
 
 type Props = {
   articles: Article[];
+  series?: ArticleSeries[];
 };
 
-export default function Articles({ articles }: Props) {
+export default function Articles({ articles, series = [] }: Props) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showSeries, setShowSeries] = useState<boolean>(true);
+  const [showArticles, setShowArticles] = useState<boolean>(true);
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -23,6 +28,7 @@ export default function Articles({ articles }: Props) {
 
   // get category from URL
   const categoryParam = searchParams.get("category");
+  const typeParam = searchParams.get("type");
 
   // set initial from URL
   useEffect(() => {
@@ -35,20 +41,66 @@ export default function Articles({ articles }: Props) {
 
       setSelectedCategory(formattedCategory);
     }
-  }, [categoryParam]);
+
+    if (typeParam) {
+      if (typeParam === "series") {
+        setShowSeries(true);
+        setShowArticles(false);
+      } else if (typeParam === "articles") {
+        setShowSeries(false);
+        setShowArticles(true);
+      } else {
+        setShowSeries(true);
+        setShowArticles(true);
+      }
+    }
+  }, [categoryParam, typeParam]);
 
   const articlesPerPage = 4;
 
+  // Filter articles by category if selected
   const filteredArticles = selectedCategory
     ? articles.filter((article) =>
         article.categories.includes(selectedCategory)
       )
     : articles;
 
-  const numPages = Math.ceil(filteredArticles.length / articlesPerPage);
+  // Filter series by category if selected
+  const filteredSeries = selectedCategory
+    ? series.filter((s) =>
+        s.articles.some((article) =>
+          article.categories.includes(selectedCategory)
+        )
+      )
+    : series;
+
+  // Combine articles and series for pagination
+  const combinedContent = [
+    ...(showSeries
+      ? filteredSeries.map((s) => ({ type: "series", content: s }))
+      : []),
+    ...(showArticles
+      ? filteredArticles.map((a) => ({ type: "article", content: a }))
+      : []),
+  ];
+
+  // Sort by date (newest first)
+  combinedContent.sort((a, b) => {
+    const dateA =
+      a.type === "series"
+        ? new Date((a.content as ArticleSeries).lastUpdated).getTime()
+        : new Date((a.content as Article).date).getTime();
+    const dateB =
+      b.type === "series"
+        ? new Date((b.content as ArticleSeries).lastUpdated).getTime()
+        : new Date((b.content as Article).date).getTime();
+    return dateB - dateA;
+  });
+
+  const numPages = Math.ceil(combinedContent.length / articlesPerPage);
 
   const startIndex = (currentPage - 1) * articlesPerPage;
-  const paginatedArticles = filteredArticles.slice(
+  const paginatedContent = combinedContent.slice(
     startIndex,
     startIndex + articlesPerPage
   );
@@ -78,6 +130,22 @@ export default function Articles({ articles }: Props) {
     }
   };
 
+  const handleTypeFilter = (type: "all" | "series" | "articles") => {
+    const params = new URLSearchParams(searchParams);
+
+    if (type === "all") {
+      params.delete("type");
+      setShowSeries(true);
+      setShowArticles(true);
+    } else {
+      params.set("type", type);
+      setShowSeries(type === "series");
+      setShowArticles(type === "articles");
+    }
+
+    window.history.pushState({}, "", `${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className="flex flex-col max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
       <div className="pt-20 pb-10">
@@ -102,7 +170,9 @@ export default function Articles({ articles }: Props) {
                 className="rounded-md w-full max-w-[400px] mx-auto"
               />
             </div>
-            <div className="flex gap-3 md:gap-4 flex-wrap">
+
+            {/* Category filters */}
+            <div className="flex gap-3 md:gap-4 flex-wrap mb-4">
               <FilterButton
                 category="History"
                 isSelected={selectedCategory === "History"}
@@ -129,6 +199,27 @@ export default function Articles({ articles }: Props) {
                 onClick={() => handleClick("Psychology")}
               />
             </div>
+
+            {/* Content type filters */}
+            {series.length > 0 && (
+              <div className="flex gap-3 mt-4">
+                <TypeFilterButton
+                  label="All"
+                  isSelected={showSeries && showArticles}
+                  onClick={() => handleTypeFilter("all")}
+                />
+                <TypeFilterButton
+                  label="Series"
+                  isSelected={showSeries && !showArticles}
+                  onClick={() => handleTypeFilter("series")}
+                />
+                <TypeFilterButton
+                  label="Individual"
+                  isSelected={!showSeries && showArticles}
+                  onClick={() => handleTypeFilter("articles")}
+                />
+              </div>
+            )}
           </div>
           <div className="hidden md:block">
             <Image
@@ -153,13 +244,55 @@ export default function Articles({ articles }: Props) {
           <Random collection={articles} type="article" customStyles="w-auto" />
         </div>
         <div className="flex flex-col gap-7 flex-grow min-h-[492px] relative">
-          {paginatedArticles.map((article) => (
-            <ArticleButton
-              key={article.slug + "-article"}
-              data={article as Article}
-            />
-          ))}
-          {paginatedArticles.length < 2 && <RandomDiscovery />}
+          {paginatedContent.map((item) =>
+            item.type === "series" ? (
+              <ArticleSeriesButton
+                key={`series-${(item.content as ArticleSeries).id}`}
+                series={item.content as ArticleSeries}
+              />
+            ) : (
+              <ArticleButton
+                key={`article-${(item.content as Article).slug}`}
+                data={item.content as Article}
+                seriesInfo={
+                  series.find((s) =>
+                    s.articles.some(
+                      (a) => a.slug === (item.content as Article).slug
+                    )
+                  )
+                    ? {
+                        id: series.find((s) =>
+                          s.articles.some(
+                            (a) => a.slug === (item.content as Article).slug
+                          )
+                        )!.id,
+                        title: series.find((s) =>
+                          s.articles.some(
+                            (a) => a.slug === (item.content as Article).slug
+                          )
+                        )!.title,
+                        position:
+                          series
+                            .find((s) =>
+                              s.articles.some(
+                                (a) => a.slug === (item.content as Article).slug
+                              )
+                            )!
+                            .articles.findIndex(
+                              (a) => a.slug === (item.content as Article).slug
+                            ) + 1,
+                        total: series.find((s) =>
+                          s.articles.some(
+                            (a) => a.slug === (item.content as Article).slug
+                          )
+                        )!.articles.length,
+                      }
+                    : undefined
+                }
+              />
+            )
+          )}
+          {paginatedContent.length < 2 && <RandomDiscovery />}
         </div>
       </div>
       <div className="flex justify-between pb-10">
@@ -254,6 +387,31 @@ function FilterButton({
       )}
     >
       {category}
+    </button>
+  );
+}
+
+function TypeFilterButton({
+  label,
+  isSelected,
+  onClick,
+}: {
+  label: string;
+  isSelected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={clsx(
+        "py-1 px-3 rounded-md text-sm font-medium transition-all duration-200",
+        {
+          "bg-brand-color/10 text-brand-color": isSelected,
+          "bg-slate-100 text-slate-600 hover:bg-slate-200": !isSelected,
+        }
+      )}
+    >
+      {label}
     </button>
   );
 }

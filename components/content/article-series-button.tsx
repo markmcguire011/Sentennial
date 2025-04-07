@@ -1,0 +1,114 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArticleSeries } from "@/interfaces/article-series";
+import { formatDate } from "@/lib/utils";
+
+type Props = {
+  series: ArticleSeries;
+};
+
+export default function ArticleSeriesButton({ series }: Props) {
+  const { id, title, description, articles, status, lastUpdated } = series;
+
+  // Calculate total articles and read time
+  const articleCount = articles.length;
+  const totalReadTime =
+    series.totalReadTime ||
+    articles.reduce((total, article) => total + (article.readTime || 0), 0);
+
+  return (
+    <Link href={`/series/${id}`} className="block">
+      <motion.div
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.2 }}
+        className="flex flex-col md:flex-row gap-4 p-4 rounded-lg border border-slate-200 hover:shadow-md transition-all bg-white"
+      >
+        <div className="relative h-40 md:h-auto md:w-48 overflow-hidden rounded-md flex-shrink-0">
+          <div className="absolute top-2 right-2">
+            <span
+              className={`text-xs px-2 py-1 rounded-full ${
+                status === "ongoing"
+                  ? "bg-blue-100 text-blue-800"
+                  : "bg-green-100 text-green-800"
+              }`}
+            >
+              {status === "ongoing" ? "Ongoing" : "Completed"}
+            </span>
+          </div>
+        </div>
+
+        <div className="flex flex-col flex-grow">
+          <div className="flex items-start justify-between">
+            <h3 className="text-xl font-semibold text-brand-dark group-hover:text-brand-color transition-colors">
+              {title}
+            </h3>
+            <div className="flex items-center gap-1 text-xs text-slate-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>
+                {articleCount} article{articleCount !== 1 ? "s" : ""}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-sm text-slate-600 mt-2 line-clamp-2">
+            {description}
+          </p>
+
+          <div className="mt-auto pt-3 flex items-center justify-between text-xs text-slate-500">
+            <div className="flex items-center gap-4">
+              <span>Updated: {formatDate(lastUpdated)}</span>
+              <span className="flex items-center gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                {totalReadTime} min total
+              </span>
+            </div>
+
+            <div className="flex -space-x-2">
+              {articles.slice(0, 3).map((article, index) => (
+                <div
+                  key={article.slug}
+                  className="w-6 h-6 rounded-full bg-slate-200 border border-white flex items-center justify-center text-xs font-medium"
+                  style={{ zIndex: 3 - index }}
+                >
+                  {article.title.charAt(0)}
+                </div>
+              ))}
+              {articleCount > 3 && (
+                <div
+                  className="w-6 h-6 rounded-full bg-slate-100 border border-white flex items-center justify-center text-xs font-medium"
+                  style={{ zIndex: 0 }}
+                >
+                  +{articleCount - 3}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
+  );
+}

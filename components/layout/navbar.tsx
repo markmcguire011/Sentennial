@@ -57,7 +57,7 @@ function LogoButton() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </div>  
       <span className="text-xl font-semibold text-brand-dark">Sentennial.</span>
     </Link>
   );

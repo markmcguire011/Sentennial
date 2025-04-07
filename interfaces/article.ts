@@ -6,4 +6,5 @@ export type Article = {
     comp_date: Date;
     categories: string[]
     content: string;
+    readTime: number;
   };

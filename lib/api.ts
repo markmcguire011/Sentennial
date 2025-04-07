@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import { Article } from "@/interfaces/article";
 import { Musing } from "@/interfaces/musing";
+import { ArticleSeries } from "@/interfaces/article-series";
 
 // const postsDirectory = (type: "articles" | "musings") =>
 //   join(process.cwd(), `posts/${type}`);
@@ -82,4 +83,121 @@ export function getAll<T extends Article | Musing>(
     .filter((post): post is T => post !== undefined)
     .sort((post1, post2) => (post1.comp_date > post2.comp_date ? -1 : 1));
   return posts;
+}
+
+// Add this function to get article by slug with specific fields
+export function getArticleBySlug(slug: string, fields: string[] = []) {
+  return getBySlug<Article>(slug, "articles");
+}
+
+/**
+ * Get all article series
+ */
+export function getAllSeries(): ArticleSeries[] {
+  const seriesDirectory = join(process.cwd(), "posts/series");
+
+  // Check if directory exists
+  if (!fs.existsSync(seriesDirectory)) {
+    return [];
+  }
+
+  const seriesFiles = fs.readdirSync(seriesDirectory);
+
+  const allSeries = seriesFiles
+    .filter((file) => file.endsWith(".json"))
+    .map((file) => {
+      const fullPath = join(seriesDirectory, file);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const seriesData = JSON.parse(fileContents) as Omit<
+        ArticleSeries,
+        "articles"
+      > & { articleSlugs: string[] };
+
+      // Get the full article data for each article in the series
+      const articles = seriesData.articleSlugs
+        .map((slug: string) => {
+          const article = getArticleBySlug(slug, [
+            "title",
+            "slug",
+            "date",
+            "categories",
+            "readTime",
+          ]);
+          return article as Article;
+        })
+        .filter(Boolean);
+
+      // Calculate total read time if not provided
+      const totalReadTime =
+        seriesData.totalReadTime ||
+        articles.reduce(
+          (total: number, article: Article) => total + (article.readTime || 0),
+          0
+        );
+
+      // Return the complete series object
+      return {
+        ...seriesData,
+        articles,
+        totalReadTime,
+        id: file.replace(/\.json$/, ""),
+      } as ArticleSeries;
+    });
+
+  // Sort by lastUpdated date (newest first)
+  return allSeries.sort((a, b) => {
+    return (
+      new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()
+    );
+  });
+}
+
+/**
+ * Get a specific series by ID
+ */
+export function getSeriesById(id: string): ArticleSeries | null {
+  const seriesDirectory = join(process.cwd(), "posts/series");
+  const fullPath = join(seriesDirectory, `${id}.json`);
+
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
+
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const seriesData = JSON.parse(fileContents) as Omit<
+    ArticleSeries,
+    "articles"
+  > & { articleSlugs: string[] };
+
+  // Get the full article data for each article in the series
+  const articles = seriesData.articleSlugs
+    .map((slug: string) => {
+      const article = getArticleBySlug(slug, [
+        "title",
+        "slug",
+        "date",
+        "categories",
+        "subtitle",
+        "readTime",
+        "coverImage",
+      ]);
+      return article as Article;
+    })
+    .filter(Boolean);
+
+  // Calculate total read time if not provided
+  const totalReadTime =
+    seriesData.totalReadTime ||
+    articles.reduce(
+      (total: number, article: Article) => total + (article.readTime || 0),
+      0
+    );
+
+  // Return the complete series object
+  return {
+    ...seriesData,
+    articles,
+    totalReadTime,
+    id,
+  } as ArticleSeries;
 }
