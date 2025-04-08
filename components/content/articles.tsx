@@ -19,8 +19,7 @@ type Props = {
 
 export default function Articles({ articles, series = [] }: Props) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [showSeries, setShowSeries] = useState<boolean>(true);
-  const [showArticles, setShowArticles] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState<"articles" | "series">("articles");
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -28,7 +27,7 @@ export default function Articles({ articles, series = [] }: Props) {
 
   // get category from URL
   const categoryParam = searchParams.get("category");
-  const typeParam = searchParams.get("type");
+  const tabParam = searchParams.get("tab");
 
   // set initial from URL
   useEffect(() => {
@@ -42,19 +41,12 @@ export default function Articles({ articles, series = [] }: Props) {
       setSelectedCategory(formattedCategory);
     }
 
-    if (typeParam) {
-      if (typeParam === "series") {
-        setShowSeries(true);
-        setShowArticles(false);
-      } else if (typeParam === "articles") {
-        setShowSeries(false);
-        setShowArticles(true);
-      } else {
-        setShowSeries(true);
-        setShowArticles(true);
+    if (tabParam) {
+      if (tabParam === "series" || tabParam === "articles") {
+        setActiveTab(tabParam);
       }
     }
-  }, [categoryParam, typeParam]);
+  }, [categoryParam, tabParam]);
 
   const articlesPerPage = 4;
 
@@ -74,33 +66,27 @@ export default function Articles({ articles, series = [] }: Props) {
       )
     : series;
 
-  // Combine articles and series for pagination
-  const combinedContent = [
-    ...(showSeries
-      ? filteredSeries.map((s) => ({ type: "series", content: s }))
-      : []),
-    ...(showArticles
-      ? filteredArticles.map((a) => ({ type: "article", content: a }))
-      : []),
-  ];
+  // Get content based on active tab
+  const activeContent =
+    activeTab === "articles" ? filteredArticles : filteredSeries;
 
   // Sort by date (newest first)
-  combinedContent.sort((a, b) => {
+  const sortedContent = [...activeContent].sort((a, b) => {
     const dateA =
-      a.type === "series"
-        ? new Date((a.content as ArticleSeries).lastUpdated).getTime()
-        : new Date((a.content as Article).date).getTime();
+      activeTab === "series"
+        ? new Date((a as ArticleSeries).lastUpdated).getTime()
+        : new Date((a as Article).date).getTime();
     const dateB =
-      b.type === "series"
-        ? new Date((b.content as ArticleSeries).lastUpdated).getTime()
-        : new Date((b.content as Article).date).getTime();
+      activeTab === "series"
+        ? new Date((b as ArticleSeries).lastUpdated).getTime()
+        : new Date((b as Article).date).getTime();
     return dateB - dateA;
   });
 
-  const numPages = Math.ceil(combinedContent.length / articlesPerPage);
+  const numPages = Math.ceil(sortedContent.length / articlesPerPage);
 
   const startIndex = (currentPage - 1) * articlesPerPage;
-  const paginatedContent = combinedContent.slice(
+  const paginatedContent = sortedContent.slice(
     startIndex,
     startIndex + articlesPerPage
   );
@@ -130,19 +116,13 @@ export default function Articles({ articles, series = [] }: Props) {
     }
   };
 
-  const handleTypeFilter = (type: "all" | "series" | "articles") => {
+  const handleTabChange = (tab: "articles" | "series") => {
+    setActiveTab(tab);
+
+    // Update URL
     const params = new URLSearchParams(searchParams);
-
-    if (type === "all") {
-      params.delete("type");
-      setShowSeries(true);
-      setShowArticles(true);
-    } else {
-      params.set("type", type);
-      setShowSeries(type === "series");
-      setShowArticles(type === "articles");
-    }
-
+    params.set("tab", tab);
+    params.set("page", "1"); // Reset to first page when changing tabs
     window.history.pushState({}, "", `${pathname}?${params.toString()}`);
   };
 
@@ -199,27 +179,6 @@ export default function Articles({ articles, series = [] }: Props) {
                 onClick={() => handleClick("Psychology")}
               />
             </div>
-
-            {/* Content type filters */}
-            {series.length > 0 && (
-              <div className="flex gap-3 mt-4">
-                <TypeFilterButton
-                  label="All"
-                  isSelected={showSeries && showArticles}
-                  onClick={() => handleTypeFilter("all")}
-                />
-                <TypeFilterButton
-                  label="Series"
-                  isSelected={showSeries && !showArticles}
-                  onClick={() => handleTypeFilter("series")}
-                />
-                <TypeFilterButton
-                  label="Individual"
-                  isSelected={!showSeries && showArticles}
-                  onClick={() => handleTypeFilter("articles")}
-                />
-              </div>
-            )}
           </div>
           <div className="hidden md:block">
             <Image
@@ -235,62 +194,100 @@ export default function Articles({ articles, series = [] }: Props) {
       <div className="flex items-center justify-center pb-10">
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
+
+      {/* Tab navigation */}
+      <div className="flex border-b border-slate-200 mb-8">
+        <button
+          onClick={() => handleTabChange("articles")}
+          className={clsx(
+            "py-3 px-6 font-medium text-lg transition-colors",
+            activeTab === "articles"
+              ? "text-brand-color border-b-2 border-brand-color"
+              : "text-slate-500 hover:text-slate-800"
+          )}
+        >
+          Individual
+        </button>
+        <button
+          onClick={() => handleTabChange("series")}
+          className={clsx(
+            "py-3 px-6 font-medium text-lg transition-colors",
+            activeTab === "series"
+              ? "text-brand-color border-b-2 border-brand-color"
+              : "text-slate-500 hover:text-slate-800"
+          )}
+        >
+          Series
+        </button>
+      </div>
+
       <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
         <div className="flex justify-between">
           <h1 className="text-3xl md:text-4xl font-bold opacity-75 text-brand-dark">
-            Latest {selectedCategory ? selectedCategory : ""}
+            {activeTab === "articles"
+              ? "Individual Articles"
+              : "Article Series"}
+            {selectedCategory ? ` in ${selectedCategory}` : ""}
           </h1>
-
-          <Random collection={articles} type="article" customStyles="w-auto" />
+          <Random
+            collection={activeTab === "articles" ? articles : series}
+            type={activeTab === "articles" ? "article" : "series"}
+            customStyles="w-auto"
+          />
         </div>
         <div className="flex flex-col gap-7 flex-grow min-h-[492px] relative">
-          {paginatedContent.map((item) =>
-            item.type === "series" ? (
-              <ArticleSeriesButton
-                key={`series-${(item.content as ArticleSeries).id}`}
-                series={item.content as ArticleSeries}
-              />
-            ) : (
-              <ArticleButton
-                key={`article-${(item.content as Article).slug}`}
-                data={item.content as Article}
-                seriesInfo={
-                  series.find((s) =>
-                    s.articles.some(
-                      (a) => a.slug === (item.content as Article).slug
+          {paginatedContent.length > 0 ? (
+            paginatedContent.map((item) =>
+              activeTab === "series" ? (
+                <ArticleSeriesButton
+                  key={`series-${(item as ArticleSeries).id}`}
+                  series={item as ArticleSeries}
+                />
+              ) : (
+                <ArticleButton
+                  key={`article-${(item as Article).slug}`}
+                  data={item as Article}
+                  seriesInfo={
+                    series.find((s) =>
+                      s.articles.some((a) => a.slug === (item as Article).slug)
                     )
-                  )
-                    ? {
-                        id: series.find((s) =>
-                          s.articles.some(
-                            (a) => a.slug === (item.content as Article).slug
-                          )
-                        )!.id,
-                        title: series.find((s) =>
-                          s.articles.some(
-                            (a) => a.slug === (item.content as Article).slug
-                          )
-                        )!.title,
-                        position:
-                          series
-                            .find((s) =>
-                              s.articles.some(
-                                (a) => a.slug === (item.content as Article).slug
-                              )
-                            )!
-                            .articles.findIndex(
-                              (a) => a.slug === (item.content as Article).slug
-                            ) + 1,
-                        total: series.find((s) =>
-                          s.articles.some(
-                            (a) => a.slug === (item.content as Article).slug
-                          )
-                        )!.articles.length,
-                      }
-                    : undefined
-                }
-              />
+                      ? {
+                          id: series.find((s) =>
+                            s.articles.some(
+                              (a) => a.slug === (item as Article).slug
+                            )
+                          )!.id,
+                          title: series.find((s) =>
+                            s.articles.some(
+                              (a) => a.slug === (item as Article).slug
+                            )
+                          )!.title,
+                          position:
+                            series
+                              .find((s) =>
+                                s.articles.some(
+                                  (a) => a.slug === (item as Article).slug
+                                )
+                              )!
+                              .articles.findIndex(
+                                (a) => a.slug === (item as Article).slug
+                              ) + 1,
+                          total: series.find((s) =>
+                            s.articles.some(
+                              (a) => a.slug === (item as Article).slug
+                            )
+                          )!.articles.length,
+                        }
+                      : undefined
+                  }
+                />
+              )
             )
+          ) : (
+            <div className="text-center py-10 text-slate-500">
+              No {activeTab} found{" "}
+              {selectedCategory ? `in ${selectedCategory}` : ""}
+            </div>
           )}
           {paginatedContent.length < 2 && <RandomDiscovery />}
         </div>
@@ -374,12 +371,10 @@ function FilterButton({
         "relative py-2 px-4 rounded-full font-normal transition-all duration-200 text-md",
         "transform active:scale-95",
         {
-          // not selected
           "bg-white text-brand-dark opacity-75": !isSelected,
           [colors.hover]: !isSelected,
           "shadow-md": !isSelected,
 
-          // selected
           [colors.bg]: isSelected,
           [colors.text]: isSelected,
           "shadow-inner": isSelected,
@@ -404,10 +399,17 @@ function TypeFilterButton({
     <button
       onClick={onClick}
       className={clsx(
-        "py-1 px-3 rounded-md text-sm font-medium transition-all duration-200",
+        "relative py-2 px-4 rounded-full font-normal transition-all duration-200 text-md",
+        "transform active:scale-95",
         {
-          "bg-brand-color/10 text-brand-color": isSelected,
-          "bg-slate-100 text-slate-600 hover:bg-slate-200": !isSelected,
+          // not selected
+          "bg-white text-brand-dark opacity-75": !isSelected,
+          "hover:bg-slate-100": !isSelected,
+          "shadow-md": !isSelected,
+
+          // selected
+          "bg-brand-color text-white": isSelected,
+          "shadow-inner": isSelected,
         }
       )}
     >

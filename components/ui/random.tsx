@@ -4,26 +4,41 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Article } from "@/interfaces/article";
 import { Musing } from "@/interfaces/musing";
+import { ArticleSeries } from "@/interfaces/article-series";
 
 type Props = {
-  collection: (Article | Musing)[];
+  collection: (Article | Musing | ArticleSeries)[];
   type: string;
   customStyles?: string;
 };
 
 export default function Random({ collection, type, customStyles }: Props) {
-  const [random, setRandom] = useState<Article | Musing | null>(null);
+  const [random, setRandom] = useState<Article | Musing | ArticleSeries | null>(
+    null
+  );
 
   useEffect(() => {
-    const index = Math.floor(Math.random() * collection.length);
-    setRandom(collection[index]);
+    if (collection && collection.length > 0) {
+      const index = Math.floor(Math.random() * collection.length);
+      setRandom(collection[index]);
+    }
   }, [collection]);
 
+  if (!random) {
+    return null;
+  }
+
+  // Determine the correct URL path based on content type
+  let path;
+  if (type === "series") {
+    path = `/series/${(random as ArticleSeries).id}`;
+  } else {
+    // For articles and musings, use the plural form and slug
+    path = `/${type + "s"}/${(random as Article | Musing).slug}`;
+  }
+
   return (
-    <Link
-      href={`/${type + "s"}/${random ? random.slug : ""}`}
-      className={`flex items-center ${customStyles}`}
-    >
+    <Link href={path} className={`flex items-center ${customStyles}`}>
       <div className="group flex items-center gap-2 text-sm text-slate-400 hover:text-brand-color transition-colors">
         <span className="opacity-75">random</span>
         <svg
