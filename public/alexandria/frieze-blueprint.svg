@@ -1,0 +1,40 @@
+<svg width="1200" height="64" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="1200" height="64" fill="none" stroke="#1E3A8A" stroke-width="1" />
+  
+  <!-- Triglyph and metope pattern -->
+  <g stroke="#1E3A8A" fill="none">
+    <defs>
+      <pattern id="frieze-pattern" x="0" y="0" width="120" height="64" patternUnits="userSpaceOnUse">
+        <!-- Triglyph -->
+        <rect x="0" y="10" width="40" height="44" stroke-width="0.5" />
+        <line x1="13" y1="10" x2="13" y2="54" stroke-width="0.5" />
+        <line x1="27" y1="10" x2="27" y2="54" stroke-width="0.5" />
+        
+        <!-- Metope -->
+        <rect x="40" y="10" width="80" height="44" stroke-width="0.5" />
+        <circle cx="80" cy="32" r="15" stroke-width="0.3" stroke-dasharray="2,1" />
+        <path d="M65,32 Q80,15 95,32 Q80,49 65,32" stroke-width="0.3" />
+      </pattern>
+    </defs>
+    
+    <rect x="0" y="0" width="1200" height="64" fill="url(#frieze-pattern)" />
+    
+    <!-- Top and bottom borders -->
+    <rect x="0" y="0" width="1200" height="10" stroke-width="0.5" />
+    <rect x="0" y="54" width="1200" height="10" stroke-width="0.5" />
+    
+    <!-- Measurement lines -->
+    <line x1="0" y1="5" x2="1200" y2="5" stroke-width="0.2" stroke-dasharray="4,2" />
+    <line x1="0" y1="59" x2="1200" y2="59" stroke-width="0.2" stroke-dasharray="4,2" />
+  </g>
+  
+  <!-- Measurements -->
+  <g stroke="#1E3A8A" fill="none" stroke-width="0.2">
+    <line x1="10" y1="0" x2="10" y2="3" />
+    <line x1="10" y1="64" x2="10" y2="61" />
+    <line x1="1190" y1="0" x2="1190" y2="3" />
+    <line x1="1190" y1="64" x2="1190" y2="61" />
+    
+    <text x="600" y="7" font-family="monospace" font-size="5" fill="#1E3A8A" text-anchor="middle">1180</text>
+  </g>
+</svg> 

@@ -1,0 +1,48 @@
+<svg width="60" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Capital -->
+  <g stroke="#1E3A8A" fill="none" stroke-width="0.5">
+    <rect x="5" y="10" width="50" height="30" />
+    <path d="M5,40 C15,50 45,50 55,40" />
+    <line x1="5" y1="10" x2="55" y2="10" stroke-width="1" />
+    <line x1="15" y1="15" x2="45" y2="15" stroke-dasharray="2,1" />
+    <line x1="15" y1="25" x2="45" y2="25" stroke-dasharray="2,1" />
+    <line x1="15" y1="35" x2="45" y2="35" stroke-dasharray="2,1" />
+  </g>
+  
+  <!-- Column shaft -->
+  <g stroke="#1E3A8A" fill="none">
+    <line x1="15" y1="40" x2="15" y2="450" stroke-width="0.5" />
+    <line x1="45" y1="40" x2="45" y2="450" stroke-width="0.5" />
+    
+    <!-- Fluting -->
+    <path d="M15,40 Q20,60 15,80 Q20,100 15,120 Q20,140 15,160 Q20,180 15,200 Q20,220 15,240 Q20,260 15,280 Q20,300 15,320 Q20,340 15,360 Q20,380 15,400 Q20,420 15,440" stroke-width="0.3" />
+    <path d="M45,40 Q40,60 45,80 Q40,100 45,120 Q40,140 45,160 Q40,180 45,200 Q40,220 45,240 Q40,260 45,280 Q40,300 45,320 Q40,340 45,360 Q40,380 45,400 Q40,420 45,440" stroke-width="0.3" />
+    
+    <!-- Horizontal lines -->
+    <line x1="15" y1="100" x2="45" y2="100" stroke-width="0.3" stroke-dasharray="2,2" />
+    <line x1="15" y1="200" x2="45" y2="200" stroke-width="0.3" stroke-dasharray="2,2" />
+    <line x1="15" y1="300" x2="45" y2="300" stroke-width="0.3" stroke-dasharray="2,2" />
+    <line x1="15" y1="400" x2="45" y2="400" stroke-width="0.3" stroke-dasharray="2,2" />
+  </g>
+  
+  <!-- Base -->
+  <g stroke="#1E3A8A" fill="none" stroke-width="0.5">
+    <rect x="10" y="450" width="40" height="10" />
+    <rect x="5" y="460" width="50" height="20" />
+    <line x1="5" y1="470" x2="55" y2="470" stroke-dasharray="4,1" />
+    <line x1="5" y1="480" x2="55" y2="480" stroke-width="1" />
+  </g>
+  
+  <!-- Measurements -->
+  <g stroke="#1E3A8A" fill="none" stroke-width="0.2">
+    <line x1="60" y1="10" x2="57" y2="10" />
+    <line x1="60" y1="40" x2="57" y2="40" />
+    <line x1="60" y1="450" x2="57" y2="450" />
+    <line x1="60" y1="480" x2="57" y2="480" />
+    <line x1="60" y1="10" x2="60" y2="480" />
+    
+    <text x="48" y="25" font-family="monospace" font-size="4" fill="#1E3A8A">30</text>
+    <text x="48" y="245" font-family="monospace" font-size="4" fill="#1E3A8A">410</text>
+    <text x="48" y="465" font-family="monospace" font-size="4" fill="#1E3A8A">30</text>
+  </g>
+</svg> 
