@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="relative">
+    <div className="relative bg-white/30">
       {/* Blueprint grid background */}
       <div className="absolute inset-0 bg-[url('/alexandria/blueprint-grid.svg')] opacity-[0.03] pointer-events-none" />
 

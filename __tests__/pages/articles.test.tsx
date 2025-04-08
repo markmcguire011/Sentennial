@@ -2,6 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Articles from "@/components/content/articles";
 import { Article } from "@/interfaces/article";
+import { ArticleSeries } from "@/interfaces/article-series";
 
 // Mock the usePathname and useSearchParams hooks
 const mockPush = jest.fn();
@@ -87,6 +88,26 @@ const mockArticles: Article[] = [
   },
 ];
 
+// Sample article series for testing
+const mockSeries: ArticleSeries[] = [
+  {
+    id: "test-series-1",
+    title: "Test Series 1",
+    description: "A test series about Philosophy",
+    lastUpdated: "2023-01-10",
+    articles: [mockArticles[0], mockArticles[5]],
+    status: "completed",
+  },
+  {
+    id: "test-series-2",
+    title: "Test Series 2",
+    description: "A test series about History",
+    lastUpdated: "2023-01-15",
+    articles: [mockArticles[1], mockArticles[5]],
+    status: "ongoing",
+  },
+];
+
 describe("Articles Component", () => {
   beforeEach(() => {
     mockSearchParams = new URLSearchParams("page=1");
@@ -94,7 +115,7 @@ describe("Articles Component", () => {
   });
 
   it("renders all articles when no category is selected", () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // Should show the first 4 articles (pagination)
     expect(screen.getByText("Test Article 1")).toBeInTheDocument();
@@ -108,7 +129,7 @@ describe("Articles Component", () => {
   });
 
   it("filters articles when a category is selected", async () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // Click on Philosophy filter
     const philosophyButton = screen.getByRole("button", {
@@ -133,7 +154,7 @@ describe("Articles Component", () => {
   });
 
   it("deselects category when clicking the same filter again", async () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // Click on Philosophy filter
     const philosophyButton = screen.getByRole("button", {
@@ -157,7 +178,7 @@ describe("Articles Component", () => {
   });
 
   it("changes filter when clicking a different category", async () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // Click on Philosophy filter
     const philosophyButton = screen.getByRole("button", {
@@ -186,9 +207,9 @@ describe("Articles Component", () => {
   });
 
   it("handles pagination correctly", async () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
-    const nextPageButton = screen.getByRole("link", { name: "Next Page" });
+    const nextPageButton = screen.getByLabelText("Next Page");
     fireEvent.click(nextPageButton);
 
     // Should update URL with page=2
@@ -199,7 +220,7 @@ describe("Articles Component", () => {
     // Set up URL with category parameter
     mockSearchParams = new URLSearchParams("page=1&category=philosophy");
 
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // Should only show Philosophy articles
     await waitFor(() => {
@@ -217,10 +238,10 @@ describe("Articles Component", () => {
   });
 
   it("displays the correct heading when a category is selected", async () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
-    // Initially should show "Latest"
-    expect(screen.getByText("Latest")).toBeInTheDocument();
+    // Initially should show "Individual Articles"
+    expect(screen.getByText("Individual Articles")).toBeInTheDocument();
 
     // Click on Philosophy filter
     const philosophyButton = screen.getByRole("button", {
@@ -228,14 +249,16 @@ describe("Articles Component", () => {
     });
     fireEvent.click(philosophyButton);
 
-    // Should now show "Latest Philosophy"
+    // Should now show "Individual Articles in Philosophy"
     await waitFor(() => {
-      expect(screen.getByText("Latest Philosophy")).toBeInTheDocument();
+      expect(
+        screen.getByText("Individual Articles in Philosophy")
+      ).toBeInTheDocument();
     });
   });
 
   it("disables pagination arrows when at first or last page", () => {
-    render(<Articles articles={mockArticles} />);
+    render(<Articles articles={mockArticles} series={mockSeries} />);
 
     // First page - previous arrow should be disabled
     const prevArrow = screen.getByLabelText("Previous Page");
@@ -244,5 +267,74 @@ describe("Articles Component", () => {
     // Next arrow should be enabled (since we have more than 4 articles)
     const nextArrow = screen.getByLabelText("Next Page");
     expect(nextArrow).not.toHaveClass("pointer-events-none");
+  });
+
+  it("switches between articles and series tabs", async () => {
+    render(<Articles articles={mockArticles} series={mockSeries} />);
+
+    // Initially should be on articles tab
+    expect(screen.getByText("Individual Articles")).toBeInTheDocument();
+
+    // Click on Series tab
+    const seriesTab = screen.getByRole("button", { name: /Series/i });
+    fireEvent.click(seriesTab);
+
+    // Should now show series content
+    await waitFor(() => {
+      expect(screen.getByText("Article Series")).toBeInTheDocument();
+      expect(screen.getByText("Test Series 1")).toBeInTheDocument();
+      expect(screen.getByText("Test Series 2")).toBeInTheDocument();
+    });
+
+    // Should update URL with tab parameter
+    expect(mockPushState).toHaveBeenCalledWith(
+      {},
+      "",
+      "/articles?tab=series&page=1"
+    );
+  });
+
+  it("initializes with tab from URL", async () => {
+    // Set up URL with tab parameter
+    mockSearchParams = new URLSearchParams("page=1&tab=series");
+
+    render(<Articles articles={mockArticles} series={mockSeries} />);
+
+    // Should show series content
+    await waitFor(() => {
+      expect(screen.getByText("Article Series")).toBeInTheDocument();
+      expect(screen.getByText("Test Series 1")).toBeInTheDocument();
+      expect(screen.getByText("Test Series 2")).toBeInTheDocument();
+    });
+
+    // Series tab should be selected
+    const seriesTab = screen.getByRole("button", { name: /Series/i });
+    expect(seriesTab).toHaveClass("text-brand-color");
+  });
+
+  it("filters series by category", async () => {
+    // Switch to series tab first
+    mockSearchParams = new URLSearchParams("page=1&tab=series");
+
+    render(<Articles articles={mockArticles} series={mockSeries} />);
+
+    // Click on Philosophy filter
+    const philosophyButton = screen.getByRole("button", {
+      name: /Philosophy/i,
+    });
+    fireEvent.click(philosophyButton);
+
+    // Should only show Philosophy series
+    await waitFor(() => {
+      expect(screen.getByText("Test Series 1")).toBeInTheDocument();
+      expect(screen.queryByText("Test Series 2")).not.toBeInTheDocument();
+    });
+
+    // Should update URL with category parameter
+    expect(mockPushState).toHaveBeenCalledWith(
+      {},
+      "",
+      "/articles?tab=series&page=1&category=philosophy"
+    );
   });
 });
