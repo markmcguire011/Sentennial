@@ -37,7 +37,7 @@ export default function Page() {
       <div className="flex flex-col gap-[40px]">
         <div className="flex flex-col mx-auto md:flex-row gap-[40px]">
           <IntroSection />
-          <MockArticlesGrid />
+          <MockArticlesGrid articles={articles as Article[]} />
         </div>
         <div className="flex flex-col gap-8 pb-20 px-4 md:px-8">
           <div className="flex items-center justify-center pb-6">

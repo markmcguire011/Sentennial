@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { useMemo } from "react";
 import MockArticle from "@/components/ui/mock-article";
 import { useRouter } from "next/navigation";
-import { getAll } from "@/lib/api";
+import { Article } from "@/interfaces/article";
 
-export default function MockArticlesGrid() {
+interface MockArticlesGridProps {
+  articles: Article[];
+}
+
+export default function MockArticlesGrid({ articles }: MockArticlesGridProps) {
   const router = useRouter();
-
-  // Fetch articles only once using useMemo
-  const articles = useMemo(() => getAll("articles"), []);
 
   const navigateToRandomArticle = () => {
     if (articles.length === 0) return;
