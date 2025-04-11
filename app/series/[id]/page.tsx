@@ -14,7 +14,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
   }
 
   return (
-    <div className="flex flex-col max-w-[1200px] mx-auto px-[calc(8vw)] text-black">
+    <div className="flex flex-col max-w-[1200px] min-h-screen mx-auto px-[calc(8vw)] text-black">
       <div className="pt-20 pb-10">
         <div className="flex flex-col gap-6">
           <h1 className="md:text-6xl text-5xl font-bold opacity-75 text-brand-dark">
@@ -58,7 +58,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
       </div>
 
       <div className="pb-20">
-        <h2 className="text-2xl font-semibold text-brand-dark mb-6">
+        <h2 className="text-2xl font-medium opacity-75 text-brand-dark mb-6">
           Articles in this series
         </h2>
 
@@ -74,17 +74,17 @@ export default async function SeriesPage({ params }: { params: Params }) {
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-brand-dark group-hover:text-brand-color transition-colors">
+                <h3 className="text-xl font-semibold text-brand-dark opacity-75 hover:text-brand-color hover:underline transition-colors">
                   {article.title}
                 </h3>
 
                 {article.subtitle && (
-                  <p className="text-sm text-slate-600 mt-1">
+                  <p className="text-sm text-slate-400 mt-1">
                     {article.subtitle}
                   </p>
                 )}
 
-                <div className="mt-3 flex items-center gap-4 text-xs text-slate-500">
+                <div className="mt-3 font-mono flex items-center gap-4 text-xs text-slate-500">
                   <span>{formatDate(article.date)}</span>
                   {article.readTime && (
                     <span className="flex items-center gap-1">
