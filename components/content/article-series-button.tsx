@@ -1,12 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArticleSeries } from "@/interfaces/article-series";
 import { formatDate } from "@/lib/utils";
+import { useMemo } from "react";
+import React from "react";
 
 type Props = {
   series: ArticleSeries;
+};
+
+// color mapping
+const CATEGORY_COLORS = {
+  psychology: "#9dc8db",
+  "computer-science": "#ddaee4",
+  history: "#f1adaf",
+  architecture: "#ffda89",
+  philosophy: "#9ad4bc",
+  default: "#6366f1",
 };
 
 export default function ArticleSeriesButton({ series }: Props) {
@@ -18,32 +29,82 @@ export default function ArticleSeriesButton({ series }: Props) {
     series.totalReadTime ||
     articles.reduce((total, article) => total + (article.readTime || 0), 0);
 
+  // Determine the dominant category - computed once per render
+  const { categoryColor } = useMemo(() => {
+    if (!articles.length)
+      return {
+        dominantCategory: "default",
+        categoryColor: CATEGORY_COLORS.default,
+      };
+
+    const categoryCounts: Record<string, number> = {};
+
+    // Process all categories from all articles
+    articles.forEach((article) => {
+      if (article.categories && article.categories.length) {
+        article.categories.forEach((category) => {
+          // Normalize category name to match the format in CATEGORY_COLORS
+          const normalizedCategory = category.toLowerCase().replace(" ", "-");
+          categoryCounts[normalizedCategory] =
+            (categoryCounts[normalizedCategory] || 0) + 1;
+        });
+      }
+    });
+
+    let maxCount = 0;
+    let dominantCategory = "default";
+
+    Object.entries(categoryCounts).forEach(([category, count]) => {
+      if (count > maxCount) {
+        maxCount = count;
+        dominantCategory = category;
+      }
+    });
+
+    // Get the appropriate color for this category
+    const categoryColor =
+      CATEGORY_COLORS[dominantCategory as keyof typeof CATEGORY_COLORS] ||
+      CATEGORY_COLORS.default;
+
+    return { dominantCategory, categoryColor };
+  }, [articles]);
+
   return (
     <Link href={`/series/${id}`} className="block">
-      <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.2 }}
-        className="flex flex-col md:flex-row gap-4 p-4 rounded-lg border border-slate-200 hover:shadow-md transition-all bg-white"
+      <div
+        className="group flex flex-col md:flex-row gap-4 py-4 px-8 rounded-lg border border-slate-200 hover:shadow-md bg-white"
+        style={
+          {
+            "--hover-color": categoryColor,
+          } as React.CSSProperties
+        }
       >
-        <div className="relative h-40 md:h-auto md:w-48 overflow-hidden rounded-md flex-shrink-0">
-          <div className="absolute top-2 right-2">
-            <span
-              className={`text-xs px-2 py-1 rounded-full ${
-                status === "ongoing"
-                  ? "bg-blue-100 text-blue-800"
-                  : "bg-green-100 text-green-800"
-              }`}
-            >
-              {status === "ongoing" ? "Ongoing" : "Completed"}
-            </span>
-          </div>
-        </div>
+        {/* <div
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-600 group-hover:text-[var(--hover-color)] transition-colors mr-4"
+            style={{
+              color: "var(--hover-color)",
+              opacity: 0.7,
+            }}
+          >
+            {categoryIcon}
+          </div> */}
 
         <div className="flex flex-col flex-grow">
           <div className="flex items-start justify-between">
-            <h3 className="text-xl font-semibold text-brand-dark group-hover:text-brand-color transition-colors">
-              {title}
-            </h3>
+            <div className="flex gap-4">
+              <h3 className="text-xl text-slate-800 group-hover:text-[var(--hover-color)] group-hover:opacity-80 group-hover:underline">
+                {title}
+              </h3>
+              <span
+                className={`text-xs px-2 py-1 text-center rounded-full flex items-center justify-center ${
+                  status === "ongoing"
+                    ? "bg-blue-100 text-blue-800"
+                    : "bg-green-100 text-green-800"
+                }`}
+              >
+                {status === "ongoing" ? "Ongoing" : "Completed"}
+              </span>
+            </div>
             <div className="flex items-center gap-1 text-xs text-slate-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,12 +124,12 @@ export default function ArticleSeriesButton({ series }: Props) {
             </div>
           </div>
 
-          <p className="text-sm text-slate-600 mt-2 line-clamp-2">
+          <p className="text-sm text-slate-500 mt-2 line-clamp-2">
             {description}
           </p>
 
           <div className="mt-auto pt-3 flex items-center justify-between text-xs text-slate-500">
-            <div className="flex items-center gap-4">
+            <div className="flex font-mono items-center gap-4">
               <span>Updated: {formatDate(lastUpdated)}</span>
               <span className="flex items-center gap-1">
                 <svg
@@ -108,7 +169,7 @@ export default function ArticleSeriesButton({ series }: Props) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }
