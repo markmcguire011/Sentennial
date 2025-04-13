@@ -1,4 +1,4 @@
-import Musings from "@/components/content/musings";
+import Musings from "@/components/content/musings/musings";
 import { Musing } from "@/interfaces/musing";
 import { getAll } from "@/lib/api";
 import { Suspense } from "react";
@@ -9,7 +9,7 @@ export default async function Page() {
 
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <Musings musings={musings as Musing[]}/>
+      <Musings musings={musings as Musing[]} />
     </Suspense>
   );
 }

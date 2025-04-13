@@ -1,7 +1,7 @@
 import { getAll, getBySlug } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Article } from "@/interfaces/article";
-import Category from "@/components/content/category";
+import Category from "@/components/content/articles/category";
 import markdownStyles from "@/components/shared/markdown-styles.module.css";
 import markdownToReact from "@/lib/markdownToReact";
 import ScrollProgress from "@/components/ui/scroll-progress";

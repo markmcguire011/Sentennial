@@ -1,4 +1,4 @@
-import Articles from "@/components/content/articles";
+import Articles from "@/components/content/articles/articles";
 import { Article } from "@/interfaces/article";
 import { ArticleSeries } from "@/interfaces/article-series";
 import { getAll, getAllSeries } from "@/lib/api";
