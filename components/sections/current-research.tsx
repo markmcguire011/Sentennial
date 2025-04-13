@@ -2,12 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 type ResearchTopic = {
   title: string;
   description: string;
   progress: number;
   status: "active" | "planning" | "research" | "writing";
+  link?: string;
   estimatedCompletion?: string;
 };
 
@@ -16,9 +18,9 @@ const topics: ResearchTopic[] = [
     title: "Consciousness and AI",
     description:
       "Exploring the parallels between human consciousness and artificial intelligence systems.",
-    progress: 65,
+    progress: 48,
     status: "active",
-    estimatedCompletion: "Late March 2025",
+    estimatedCompletion: "Late May 2025",
   },
   {
     title: "Historical Urban Planning",
@@ -26,6 +28,7 @@ const topics: ResearchTopic[] = [
       "Analysis of ancient city designs and their modern implications. Current focus: Paris.",
     progress: 83,
     status: "research",
+    link: "/series/urban-planning",
     estimatedCompletion: "Early April 2025",
   },
   {
@@ -90,8 +93,11 @@ function ResearchCard({
     <motion.div
       ref={cardRef}
       style={{ y, opacity }}
-      className="bg-white/80 backdrop-blur-sm rounded-lg border shadow-sm p-6 hover:shadow-md transition-shadow"
+      className="group bg-white/80 backdrop-blur-sm rounded-lg border shadow-sm p-6"
     >
+      {topic.link ? (
+        <Link href={topic.link} className="block absolute inset-0 z-10 group-hover:shadow-md transition-shadow rounded-lg" />
+      ) : null}
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-lg">{topic.title}</h3>
         <span
@@ -122,11 +128,33 @@ function ResearchCard({
             className="h-full bg-brand-color rounded-full"
           />
         </div>
-        {topic.estimatedCompletion && (
-          <div className="text-xs opacity-50 pt-2">
-            Est. completion: {topic.estimatedCompletion}
-          </div>
-        )}
+        <div className="flex justify-between items-center pt-2">
+          {topic.estimatedCompletion && (
+            <div className="text-xs opacity-50 pt-2">
+              Est. completion: {topic.estimatedCompletion}
+            </div>
+          )}
+          {topic.link && (
+            <div className="flex items-center gap-1 text-xs text-brand-color pt-2">
+              <Link className="opacity-50 font-underline group-hover:opacity-100" href={topic.link}>View series</Link>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="opacity-50 group-hover:opacity-100 group-hover:translate-x-[3px] transition-all"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </div>
+          )}
+        </div>
       </div>
     </motion.div>
   );
