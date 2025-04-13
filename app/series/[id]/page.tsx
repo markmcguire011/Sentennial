@@ -66,15 +66,21 @@ export default async function SeriesPage({ params }: { params: Params }) {
         <h2 className="text-2xl font-medium opacity-75 text-brand-dark mb-6">
           Articles in this series
         </h2>
-
-        <div className="flex flex-col gap-6">
-          {series.articles.map((article) => (
-            <ArticleButton
+        
+        {series.articles.length > 0 ? (
+          <div className="flex flex-col gap-6">
+            {series.articles.map((article) => (
+              <ArticleButton
               key={`article-${(article as Article).slug}`}
               data={article as Article}
             />
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-xl opacity-75 max-w-3xl">
+            No articles in this series yet.
+          </p>
+        )}
 
         <div className="mt-10">
           <Link
