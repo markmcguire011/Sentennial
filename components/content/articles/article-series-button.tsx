@@ -87,12 +87,22 @@ export default function ArticleSeriesButton({ series }: Props) {
               </h3>
               <span
                 className={`text-xs px-2 py-1 text-center rounded-full flex items-center justify-center ${
-                  status === "ongoing"
+                  status === "active"
                     ? "bg-blue-100 text-blue-800"
-                    : "bg-green-100 text-green-800"
+                    : status === "research"
+                    ? "bg-purple-100 text-purple-800"
+                    : status === "planning"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : "bg-green-100 text-green-800" 
                 }`}
               >
-                {status === "ongoing" ? "Ongoing" : "Completed"}
+                {status === "active"
+                  ? "Ongoing"
+                  : status === "research"
+                  ? "Researching"
+                  : status === "planning"
+                  ? "Planning"
+                  : "Completed"}
               </span>
             </div>
             <div className="flex items-center gap-1 text-xs text-slate-500">

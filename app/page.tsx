@@ -1,4 +1,4 @@
-import { getAll } from "@/lib/api";
+import { getAll, getAllSeries } from "@/lib/api";
 import ArticleButton from "@/components/content/articles/article-button";
 import Random from "@/components/ui/random";
 import MusingButton from "@/components/content/musings/musing-button";
@@ -11,6 +11,7 @@ import CurrentResearch from "@/components/sections/current-research";
 export default function Page() {
   const articles = getAll("articles");
   const musings = getAll("musings");
+  const series = getAllSeries();
   const recentArticles = articles.slice(0, 4);
   const recentMusings = musings.slice(0, 4);
 
@@ -86,7 +87,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <CurrentResearch />
+      <CurrentResearch series={series} />
     </div>
   );
 }
