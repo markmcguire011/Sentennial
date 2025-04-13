@@ -2,7 +2,7 @@ import { getSeriesById } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
-import ArticleButton from "@/components/content/article-button";
+import ArticleButton from "@/components/content/articles/article-button";
 import { Article } from "@/interfaces/article";
 
 type Params = Promise<{ id: string }>;
@@ -36,7 +36,10 @@ export default async function SeriesPage({ params }: { params: Params }) {
                 : "Completed Series"}
             </span>
             <span className="text-slate-500 text-sm">
-              Last updated: {formatDate(series.lastUpdated)}
+              Last updated:{" "}
+              <span className="font-mono">
+                {formatDate(series.lastUpdated)}
+              </span>
             </span>
             <span className="text-slate-500 text-sm flex items-center gap-1">
               <svg
@@ -72,7 +75,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
             />
           ))}
         </div>
-        
+
         <div className="mt-10">
           <Link
             href="/articles"
