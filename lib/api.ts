@@ -115,11 +115,13 @@ export function getAllSeries(): ArticleSeries[] {
 
       // Get the full article data for each article in the series
       const articles = seriesData.articleSlugs
-        .map((slug: string) => {
-          const article = getArticleBySlug(slug);
-          return article as Article;
-        })
-        .filter(Boolean);
+        ? seriesData.articleSlugs
+            .map((slug: string) => {
+              const article = getArticleBySlug(slug);
+              return article as Article;
+            })
+            .filter(Boolean)
+        : [];
 
       // Calculate total read time if not provided
       const totalReadTime =
@@ -165,11 +167,13 @@ export function getSeriesById(id: string): ArticleSeries | null {
 
   // Get the full article data for each article in the series
   const articles = seriesData.articleSlugs
-    .map((slug: string) => {
-      const article = getArticleBySlug(slug);
-      return article as Article;
-    })
-    .filter(Boolean);
+    ? seriesData.articleSlugs
+        .map((slug: string) => {
+          const article = getArticleBySlug(slug);
+          return article as Article;
+        })
+        .filter(Boolean)
+    : [];
 
   // Calculate total read time if not provided
   const totalReadTime =
