@@ -203,7 +203,7 @@ export default function Articles({ articles, series = [] }: Props) {
           className={clsx(
             "py-3 px-6 font-medium text-lg transition-colors border-b-2",
             activeTab === "articles"
-              ? "border-brand-color"
+              ? "border-red"
               : "border-transparent text-slate-500 hover:text-slate-800"
           )}
         >
@@ -214,7 +214,7 @@ export default function Articles({ articles, series = [] }: Props) {
           className={clsx(
             "py-3 px-6 font-medium text-lg transition-colors border-b-2",
             activeTab === "series"
-              ? "border-brand-color"
+              ? "border-red"
               : "border-transparent text-slate-500 hover:text-slate-800"
           )}
         >
