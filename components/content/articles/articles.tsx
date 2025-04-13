@@ -201,10 +201,10 @@ export default function Articles({ articles, series = [] }: Props) {
         <button
           onClick={() => handleTabChange("articles")}
           className={clsx(
-            "py-3 px-6 font-medium text-lg transition-colors border-b-2 border-transparent",
+            "py-3 px-6 font-medium text-lg transition-colors border-b-2",
             activeTab === "articles"
               ? "border-brand-color"
-              : "text-slate-500 hover:text-slate-800"
+              : "border-transparent text-slate-500 hover:text-slate-800"
           )}
         >
           Individual
@@ -212,10 +212,10 @@ export default function Articles({ articles, series = [] }: Props) {
         <button
           onClick={() => handleTabChange("series")}
           className={clsx(
-            "py-3 px-6 font-medium text-lg transition-colors border-b-2 border-transparent",
+            "py-3 px-6 font-medium text-lg transition-colors border-b-2",
             activeTab === "series"
               ? "border-brand-color"
-              : "text-slate-500 hover:text-slate-800"
+              : "border-transparent text-slate-500 hover:text-slate-800"
           )}
         >
           Series
