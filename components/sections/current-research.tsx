@@ -76,12 +76,10 @@ function ResearchCard({
         <h3 className="font-semibold text-lg">{series.title}</h3>
         <span
           className={`text-xs px-2 py-1 rounded-full ${
-            series.status === "active"
-              ? "bg-green-100 text-green-800"
+            series.status === "ongoing"
+              ? "bg-blue-100 text-blue-800"
               : series.status === "planning"
               ? "bg-yellow-100 text-yellow-800"
-              : series.status === "research"
-              ? "bg-blue-100 text-blue-800"
               : "bg-purple-100 text-purple-800"
           }`}
         >

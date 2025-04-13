@@ -26,7 +26,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
           <div className="flex items-center gap-3">
             <span
               className={`px-3 py-1 rounded-full text-sm font-medium ${
-                series.status === "active"
+                series.status === "ongoing"
                   ? "bg-blue-100 text-blue-800"
                   : series.status === "research"
                   ? "bg-purple-100 text-purple-800"
@@ -35,7 +35,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
                   : "bg-green-100 text-green-800"
               }`}
             >
-              {series.status === "active"
+              {series.status === "ongoing"
                 ? "Ongoing Series"
                 : series.status === "research"
                 ? "Researching Series"
@@ -87,7 +87,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
         ) : (
           <div className="flex flex-col items-center justify-center py-12 px-6 bg-white/80 backdrop-blur-sm rounded-lg border shadow-sm">
             <div className="flex items-center justify-center mb-4">
-              {series.status === "active" && (
+              {series.status === "ongoing" && (
                 <>
                   <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2" />
                   <span className="text-sm font-mono uppercase tracking-wider text-slate-500">
@@ -122,7 +122,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
             </div>
 
             <p className="text-xl text-center opacity-75 max-w-2xl text-brand-dark mb-2">
-              {series.status === "active"
+              {series.status === "ongoing"
                 ? "Articles are being written..."
                 : series.status === "research"
                 ? "Research in progress..."
@@ -132,7 +132,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
             </p>
 
             <p className="text-sm text-center text-slate-500 max-w-lg">
-              {series.status === "active" && (
+              {series.status === "ongoing" && (
                 <>
                   The first articles in this series are currently being written.
                   {series.estimatedCompletion && (
@@ -184,7 +184,7 @@ export default async function SeriesPage({ params }: { params: Params }) {
                 <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full ${
-                      series.status === "active"
+                      series.status === "ongoing"
                         ? "bg-blue-500"
                         : series.status === "research"
                         ? "bg-purple-500"

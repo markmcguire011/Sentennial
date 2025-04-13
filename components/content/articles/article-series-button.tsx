@@ -87,7 +87,7 @@ export default function ArticleSeriesButton({ series }: Props) {
               </h3>
               <span
                 className={`text-xs px-2 py-1 text-center rounded-full flex items-center justify-center ${
-                  status === "active"
+                  status === "ongoing"
                     ? "bg-blue-100 text-blue-800"
                     : status === "research"
                     ? "bg-purple-100 text-purple-800"
@@ -96,7 +96,7 @@ export default function ArticleSeriesButton({ series }: Props) {
                     : "bg-green-100 text-green-800" 
                 }`}
               >
-                {status === "active"
+                {status === "ongoing"
                   ? "Ongoing"
                   : status === "research"
                   ? "Researching"
