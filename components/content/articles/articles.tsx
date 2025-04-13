@@ -5,12 +5,13 @@ import clsx from "clsx";
 import { useState, useEffect } from "react";
 import { Article } from "@/interfaces/article";
 import { ArticleSeries } from "@/interfaces/article-series";
-import ArticleButton from "@/components/content/article-button";
-import ArticleSeriesButton from "@/components/content/article-series-button";
+import ArticleButton from "@/components/content/articles/article-button";
+import ArticleSeriesButton from "@/components/content/articles/article-series-button";
 import { usePathname, useSearchParams } from "next/navigation";
 import RandomDiscovery from "@/components/ui/random-discovery";
 import Random from "@/components/ui/random";
 import PaginationArrow from "@/components/ui/pagination-arrow";
+import RandomDiscoveryMobile from "@/components/ui/random-discovery-mobile";
 
 type Props = {
   articles: Article[];
@@ -289,7 +290,16 @@ export default function Articles({ articles, series = [] }: Props) {
               {selectedCategory ? `in ${selectedCategory}` : ""}
             </div>
           )}
-          {paginatedContent.length < 2 && <RandomDiscovery />}
+          {paginatedContent.length < 2 && (
+            <>
+              <div className="hidden md:block">
+                <RandomDiscovery />
+              </div>
+              <div className="block md:hidden">
+                <RandomDiscoveryMobile />
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="flex justify-between pb-10">

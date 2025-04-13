@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
-import MusingButton from "@/components/content/musing-button";
+import MusingButton from "@/components/content/musings/musing-button";
 import RandomDiscovery from "@/components/ui/random-discovery";
 import Random from "@/components/ui/random";
 import PaginationArrow from "@/components/ui/pagination-arrow";

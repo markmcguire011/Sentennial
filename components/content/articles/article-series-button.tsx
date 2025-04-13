@@ -72,27 +72,17 @@ export default function ArticleSeriesButton({ series }: Props) {
   return (
     <Link href={`/series/${id}`} className="block">
       <div
-        className="group flex flex-col md:flex-row gap-4 py-4 px-8 rounded-lg border border-slate-200 hover:shadow-md bg-white"
+        className="group flex flex-col py-4 px-4 sm:px-8 rounded-lg border border-slate-200 hover:shadow-md bg-white"
         style={
           {
             "--hover-color": categoryColor,
           } as React.CSSProperties
         }
       >
-        {/* <div
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-600 group-hover:text-[var(--hover-color)] transition-colors mr-4"
-            style={{
-              color: "var(--hover-color)",
-              opacity: 0.7,
-            }}
-          >
-            {categoryIcon}
-          </div> */}
-
         <div className="flex flex-col flex-grow">
-          <div className="flex items-start justify-between">
-            <div className="flex gap-4">
-              <h3 className="text-xl text-slate-800 group-hover:text-[var(--hover-color)] group-hover:opacity-80 group-hover:underline">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-0">
+            <div className="flex flex-wrap gap-2 sm:gap-4 items-center">
+              <h3 className="text-lg sm:text-xl text-slate-800 group-hover:text-[var(--hover-color)] group-hover:opacity-80 group-hover:underline">
                 {title}
               </h3>
               <span
@@ -128,9 +118,11 @@ export default function ArticleSeriesButton({ series }: Props) {
             {description}
           </p>
 
-          <div className="mt-auto pt-3 flex items-center justify-between text-xs text-slate-500">
-            <div className="flex font-mono items-center gap-4">
-              <span>Updated: {formatDate(lastUpdated)}</span>
+          <div className="mt-auto pt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xs text-slate-500">
+            <div className="flex flex-col sm:flex-row font-mono items-start sm:items-center gap-2 sm:gap-4">
+              <span className="hidden sm:block">
+                Updated: {formatDate(lastUpdated)}
+              </span>
               <span className="flex items-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +140,7 @@ export default function ArticleSeriesButton({ series }: Props) {
               </span>
             </div>
 
-            <div className="flex -space-x-2">
+            <div className="hidden sm:flex -space-x-2 ml-auto sm:ml-0">
               {articles.slice(0, 3).map((article, index) => (
                 <div
                   key={article.slug}
