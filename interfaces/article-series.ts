@@ -6,6 +6,9 @@ export interface ArticleSeries {
   description: string;
   articles: Article[];
   totalReadTime?: number;
-  status: "ongoing" | "completed";
+  status: "planning" | "research" | "active" | "completed";
   lastUpdated: string;
+  estimatedCompletion?: string;
+  link?: string;
+  progress?: number;
 }

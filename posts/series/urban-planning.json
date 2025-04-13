@@ -2,8 +2,11 @@
     "title": "Historical Urban Planning",
     "description": "A series of articles about the history of urban planning.",
     "articleSlugs": [
-      "haussmanization"
+      
     ],
-    "status": "ongoing",
+    "progress": 83,
+    "status": "active",
+    "estimatedCompletion": "Early April 2025",
+    "link": "/series/urban-planning",
     "lastUpdated": "2025-04-07T12:00:00Z"
   }
