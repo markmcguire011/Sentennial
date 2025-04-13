@@ -19,7 +19,7 @@ const topics: ResearchTopic[] = [
     description:
       "Exploring the parallels between human consciousness and artificial intelligence systems.",
     progress: 48,
-    status: "active",
+    status: "research",
     estimatedCompletion: "Late May 2025",
   },
   {
@@ -27,7 +27,7 @@ const topics: ResearchTopic[] = [
     description:
       "Analysis of ancient city designs and their modern implications. Current focus: Paris.",
     progress: 83,
-    status: "research",
+    status: "active",
     link: "/series/urban-planning",
     estimatedCompletion: "Early April 2025",
   },
