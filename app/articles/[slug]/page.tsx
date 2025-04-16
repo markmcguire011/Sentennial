@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
   }
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <>
       <div className="flex flex-col px-[calc(8vw)] max-w-[1200px] py-[calc(4vh)] mx-auto text-black">
         <ScrollProgress />
         {seriesBadgeInfo && (
@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
           </h1>
         </div>
         <div className="flex">
-          <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
+          <div className="bg-slate-200 h-[5px] w-4/5 rounded" />
         </div>
         <div className="flex md:flex-row flex-col md:items-center justify-items-start gap-4 py-2">
           <div className="flex items-center gap-4 text-slate-500">
@@ -95,7 +95,9 @@ export default async function ArticlePage({ params }: { params: Params }) {
             ))}
           </div>
         </div>
-        <div className={markdownStyles["markdown"]}>{content}</div>
+        <Suspense fallback={<LoadingSpinner />}>
+          <div className={markdownStyles["markdown"]}>{content}</div>
+        </Suspense>
       </div>
 
       <div className="px-[calc(8vw)] pb-20">
@@ -141,7 +143,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
           )}
         </div>
       </div>
-    </Suspense>
+    </>
   );
 }
 
