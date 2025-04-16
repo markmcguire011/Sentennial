@@ -2,16 +2,16 @@
 title: "Everything is a System"
 date: "August 19, 2024"
 comp_date: 2024-08-20T04:52:24.464Z
-excerpt: ""
+excerpt: "From the smallest particles to the vast universe, everything exists as interconnected systems. This reflection explores how understanding systems can help us find our place in the world and achieve mastery in whatever brings us joy."
 ---
 
 ## The Great Russian Doll of the World
 
 I remember way back in middle school, in a science class, I learned of the concept of a 'closed system'. Something where matter couldn't get in or out, and you would be studying one specific interaction or reaction.
-But in reality, is anything really a closed system, no. I learned quickly after in my high school chemistry and physics classes that actually, energy is just *lost* to the environment all the time. Sure it's not very much, but it refutes the idea of real, pure, closed systems.
+But in reality, is anything really a closed system, no. I learned quickly after in my high school chemistry and physics classes that actually, energy is just _lost_ to the environment all the time. Sure it's not very much, but it refutes the idea of real, pure, closed systems.
 
-First of all, that's crazy. We have houses, buildings, boxes, all these containers and separators, and in reality, these things aren't the steadfast barriers we imagine them to be. A truly closed system just *does not
-exist*.
+First of all, that's crazy. We have houses, buildings, boxes, all these containers and separators, and in reality, these things aren't the steadfast barriers we imagine them to be. A truly closed system just _does not
+exist_.
 
 We have systems, upon systems, upon systems all interacting in extremely intricate ways all the time, all around use, but in reality, it's just **one big thing**. Yep, the Universe[^1].
 
@@ -19,7 +19,7 @@ And honestly, that can be comforting in a "we're all connected" type philosophy,
 
 ## Humans!
 
-I have so much love and affection for my fellow man, I really do, but what I love even more, the systems that humans create! Now *obviously* we have some pretty great natural systems that form the basis of life as we know it,
+I have so much love and affection for my fellow man, I really do, but what I love even more, the systems that humans create! Now _obviously_ we have some pretty great natural systems that form the basis of life as we know it,
 but isn't it amazing how much humanity has built upon this foundation?
 
 There is just an enormous amount of stuff, and specifically, systems, that we have created. It's mind boggling as well to think that any one person may never understand the full breadth, depth, and power of these creations. Markets,

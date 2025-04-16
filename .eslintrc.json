@@ -6,6 +6,7 @@
   ],
   "rules": {
     "react/no-unescaped-entities": "error",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "warn"
   }
 }

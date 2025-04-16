@@ -2,6 +2,7 @@
 title: "The Real 1%"
 date: "August 18, 2024"
 comp_date: 2024-08-19T05:02:44.737Z
+excerpt: "The power of getting just 1% better every day can transform your life through compounding improvement. This reflection explores balancing long-term vision with daily actions, and how taking control of our daily choices is the key to both achievement and happiness."
 ---
 
 ## On Getting Better

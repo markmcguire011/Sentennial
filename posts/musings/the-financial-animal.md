@@ -2,6 +2,7 @@
 title: "The Financial Animal"
 date: "February 27, 2025"
 comp_date: 2025-02-27T01:39:16.264Z
+excerpt: "Our human psychology hasn't evolved at the same pace as our financial systems. This reflection explores how the impersonalization of modern finance creates a disconnect between our emotional nature and the increasingly abstract financial decisions we make."
 ---
 
 ## Money and the Brain
@@ -16,8 +17,8 @@ This disconnect can lead to risk-seeking behavior, as the emotional significance
 
 At our core though, we are emotional beings, and our alienation from the everyday decision creates huge flares of feeling that manifest themselves in panics and periods of intense FOMO (fear of missing out). The accessibility of the modern market only works to facilitate these panics, as impulsive, emotionally driven decisions can be converted into real financial consequences within milliseconds with the click of a buy or sell.
 
-We have a lot to learn, but all the complexities brought about by our modern world has created a truly exciting time to be alive. I would rather grapple with these intellectually challenging issues, than have to be in Ushar’s shoes, contemplating whether the Gods will provide during the next rainfall.
+We have a lot to learn, but all the complexities brought about by our modern world has created a truly exciting time to be alive. I would rather grapple with these intellectually challenging issues, than have to be in Ushar's shoes, contemplating whether the Gods will provide during the next rainfall.
 
 ---
 
-[^01]: Another amazing book which I highly recommend is the late Daniel Khanneman’s _Thinking Fast and Slow_, the veritable holy grail on how our human brains really work.
+[^01]: Another amazing book which I highly recommend is the late Daniel Khanneman's _Thinking Fast and Slow_, the veritable holy grail on how our human brains really work.

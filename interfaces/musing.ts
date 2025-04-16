@@ -1,7 +1,8 @@
 export type Musing = {
-    slug: string;
-    title: string;
-    date: string;
-    comp_date: Date;
-    content: string;
-  };
+  slug: string;
+  title: string;
+  date: string;
+  comp_date: Date;
+  content: string;
+  excerpt?: string;
+};
