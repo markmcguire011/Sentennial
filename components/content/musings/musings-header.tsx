@@ -66,7 +66,18 @@ export default function MusingsHeader({ featuredMusing }: Props) {
 
                   <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
                     <span className="text-sm bg-[#9dc8db]/20 text-[#9dc8db]/80 py-1 px-3 rounded-full font-mono">
-                      {featuredMusing.date}
+                      <span className="md:inline hidden">
+                        {featuredMusing.date}
+                      </span>
+                      <span className="md:hidden inline">
+                        {new Date(featuredMusing.comp_date)
+                          .toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                            year: "2-digit",
+                          })
+                          .replace(/\//g, ".")}
+                      </span>
                     </span>
                     <span className="text-brand-color font-medium group-hover:translate-x-1 transition-transform duration-200 flex items-center">
                       Read more
