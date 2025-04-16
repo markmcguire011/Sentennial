@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 export default function Category({ name }: { name: string }) {
   const colorList = {
     psychology: "#9dc8db",
@@ -19,8 +21,15 @@ export default function Category({ name }: { name: string }) {
 
   return (
     <h1
-      style={{ backgroundColor: bg }}
-      className={`text-l text-black opacity-40 font-normal rounded-full px-3 py-1`}
+      style={{ backgroundColor: bg, opacity: 0.5 }}
+      className={clsx(
+        "text-l font-normal rounded-full px-3 py-1",
+        bg === "#9dc8db" && "text-blue-500",
+        bg === "#ddaee4" && "text-purple-500",
+        bg === "#f1adaf" && "text-red-500",
+        bg === "#ffda89" && "text-yellow-500",
+        bg === "#9ad4bc" && "text-green-500"
+      )}
     >
       {name}
     </h1>
