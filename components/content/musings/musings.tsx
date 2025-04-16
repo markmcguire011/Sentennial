@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Musing } from "@/interfaces/musing";
-import MusingButton from "@/components/content/musings/musing-button";
-import RandomDiscovery from "@/components/ui/random-discovery";
-import Random from "@/components/ui/random";
-import PaginationArrow from "@/components/ui/pagination-arrow";
+
+import MusingsHeader from "@/components/content/musings/musings-header";
+import MusingsContent from "@/components/content/musings/musings-content";
+import Pagination from "@/components/ui/pagination";
 
 type Props = {
   musings: Musing[];
@@ -18,8 +17,9 @@ export default function Musings({ musings }: Props) {
   const currentPage = Number(searchParams.get("page")) || 1;
 
   const musingsPerPage = 4;
-
   const numPages = Math.ceil(musings.length / musingsPerPage);
+
+  const featuredMusing = musings.find((musing) => musing.excerpt) || musings[0];
 
   const startIndex = (currentPage - 1) * musingsPerPage;
   const paginatedMusings = musings.slice(
@@ -35,63 +35,19 @@ export default function Musings({ musings }: Props) {
 
   return (
     <div className="flex flex-col max-w-[1200px] px-[calc(8vw)] mx-auto text-black min-h-[calc(100vh-76px)]">
-      <div className="pt-20 pb-10">
-        <div className="flex flex-col md:flex-row h-max-content gap-10 justify-between">
-          <div className="pr-10 max-w-[825px]">
-            <h1 className="text-6xl pb-10 font-bold opacity-75 text-brand-dark">
-              Musings.
-            </h1>
-            <p className="text-xl opacity-75 color-brand-dark pb-6">
-              <b className="font-semibold">
-                Short reflections loosely based on occurences.{" "}
-              </b>
-              These are mostly random thoughts or lines-of-thought that are
-              inspired by the world, by other people, or just boredom.
-            </p>
-          </div>
-          <div>
-            <Image
-              src="/musings/palace_garden.JPG"
-              width={400}
-              height={600}
-              alt="Some very contemplating-looking gardens"
-              className="rounded-md"
-            />
-          </div>
-        </div>
-      </div>
+      <MusingsHeader featuredMusing={featuredMusing} />
+
       <div className="flex items-center justify-center pb-10">
         <div className="bg-slate-200 h-[5px] w-4/5 rounded"></div>
       </div>
-      <div className="flex flex-col gap-10 pb-10 min-h-[600px] relative">
-        <div className="flex justify-between">
-          <h1 className="text-4xl font-bold opacity-75 text-brand-dark">
-            Latest
-          </h1>
-          <Random collection={musings} type="musing" customStyles="w-auto" />
-        </div>
-        <div className="flex flex-col gap-7 flex-grow relative">
-          {paginatedMusings.map((musing) => (
-            <MusingButton
-              key={musing.slug + "-musing"}
-              data={musing as Musing}
-            />
-          ))}
-          {paginatedMusings.length < 3 && <RandomDiscovery />}
-        </div>
-      </div>
-      <div className="flex justify-between pb-10">
-        <PaginationArrow
-          direction="left"
-          href={createPageURL(currentPage - 1)}
-          isDisabled={currentPage <= 1}
-        />
-        <PaginationArrow
-          direction="right"
-          href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= numPages}
-        />
-      </div>
+
+      <MusingsContent musings={paginatedMusings} allMusings={musings} />
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={numPages}
+        createPageURL={createPageURL}
+      />
     </div>
   );
 }
