@@ -34,7 +34,7 @@ export default function MusingsHeader({ featuredMusing }: Props) {
       </div>
 
       {featuredMusing && (
-        <div className="mt-12 bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300">
+        <div className="group mt-12 bg-transparent p-8 rounded-sm shadow-sm hover:shadow-md hover:bg-white/80 transition-all duration-300">
           <div className="flex items-center mb-5">
             <div className="flex items-center relative border border-dashed border-brand-color/75 py-2 px-4 bg-brand-color/10">
               <h2 className="text-lg font-semibold text-brand-dark/75">
@@ -50,7 +50,7 @@ export default function MusingsHeader({ featuredMusing }: Props) {
           </div>
 
           <Link href={`/musings/${featuredMusing.slug}`} className="block">
-            <div className="group transition-all duration-200">
+            <div className="transition-all duration-200">
               <h3 className="text-2xl font-semibold text-brand-dark/75 group-hover:text-brand-color mb-3 transition-all duration-200">
                 {featuredMusing.title}
               </h3>
