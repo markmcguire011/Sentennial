@@ -86,7 +86,7 @@ export default function ArticlesContent({
         ) : (
           <div className="text-center py-10 text-slate-500">
             No {activeTab} found{" "}
-            {selectedCategory ? `in ${selectedCategory}` : ""}
+            {selectedCategory ? `in ${selectedCategory}` : ""}, yet...
           </div>
         )}
         {content.length < 2 && (
