@@ -6,12 +6,22 @@ type Props = {
 };
 
 export default function FeaturedMusing({ musing }: Props) {
+  // Define a CSS variable for border color that can be easily changed
+  const borderColorClass = "border-brand-dark/50"; // This can be changed to any color class
+
   return (
-    <div className="group mt-12 border-[2px] border-brand-dark/80 rounded-sm overflow-hidden hover:shadow-md transition-all duration-300">
+    <div
+      className={`group mt-12 border ${borderColorClass} rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300`}
+    >
       {/* Header section */}
-      <div className="border-b-[2px] border-brand-dark/80 px-8 py-4 flex items-center justify-between">
+      <div
+        className={`border-b ${borderColorClass} px-6 py-4 flex items-center justify-between`}
+      >
         <div className="flex items-center gap-3">
-          <h2 className="text-xl font-bold text-slate-800">{musing.title}</h2>
+          <div className="w-2 h-2 rounded-full bg-brand-color/70"></div>
+          <h2 className="text-xl font-bold text-slate-800 group-hover:text-brand-color transition-colors duration-200">
+            {musing.title}
+          </h2>
         </div>
         <div className="flex items-center gap-2 text-sm text-slate-500 font-mono">
           <svg
@@ -27,7 +37,7 @@ export default function FeaturedMusing({ musing }: Props) {
       </div>
 
       {/* Content section */}
-      <div className="p-8">
+      <div className="p-6">
         <p className="text-lg text-slate-700 leading-relaxed mb-6">
           {musing.excerpt || "Read this featured reflection..."}
         </p>
@@ -57,8 +67,10 @@ export default function FeaturedMusing({ musing }: Props) {
       </div>
 
       {/* Footer section */}
-      <div className="flex border-t-[2px] border-brand-dark/80">
-        <div className="py-3 px-6 border-r-[2px] border-brand-dark/80 font-mono text-sm text-slate-600">
+      <div className={`flex border-t ${borderColorClass} bg-slate-50/50`}>
+        <div
+          className={`py-3 px-6 border-r ${borderColorClass} font-mono text-sm text-slate-600`}
+        >
           {new Date(musing.comp_date).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
@@ -67,7 +79,7 @@ export default function FeaturedMusing({ musing }: Props) {
         </div>
         <div className="py-3 px-6 font-mono text-sm text-slate-600 flex-grow">
           <span className="inline-flex items-center">
-            <span className="w-2 h-2 rounded-full bg-brand-color/70 mr-2"></span>
+            <span className="w-2 h-2 rounded-full bg-architecture mr-2"></span>
             Featured
           </span>
         </div>
