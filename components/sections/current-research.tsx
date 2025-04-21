@@ -17,7 +17,15 @@ export default function CurrentResearch({ series }: Props) {
   });
 
   // Filter to only show series that are in progress (not completed)
-  const activeSeries = series.filter((s) => s.status !== "completed");
+  const activeSeries = series
+    .filter((s) => s.status !== "completed")
+    // Sort by lastUpdated date (most recent first)
+    .sort(
+      (a, b) =>
+        new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime()
+    )
+    // Take only the top 3
+    .slice(0, 3);
 
   return (
     <section className="py-20 mb-20">
@@ -60,6 +68,16 @@ function ResearchCard({
   const y = useTransform(progress, [0, 1], [50 * (index + 1), 0]);
   const opacity = useTransform(progress, [0, 0.2, 1], [0, 1, 1]);
 
+  // Format the last updated date
+  const formattedDate = new Date(series.lastUpdated).toLocaleDateString(
+    "en-US",
+    {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
+
   return (
     <motion.div
       ref={cardRef}
@@ -72,7 +90,7 @@ function ResearchCard({
           className="block absolute inset-0 z-10 group-hover:shadow-md transition-shadow rounded-lg"
         />
       ) : null}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-2">
         <h3 className="font-semibold text-lg">{series.title}</h3>
         <span
           className={`text-xs px-2 py-1 rounded-full ${
@@ -86,6 +104,121 @@ function ResearchCard({
           {series.status}
         </span>
       </div>
+
+      {/* Article count and last updated info */}
+      {series.status === "ongoing" && (
+        <div className="flex items-center gap-3 mb-3 text-xs text-slate-500">
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>
+              {series.articles.length} article
+              {series.articles.length !== 1 ? "s" : ""}
+            </span>
+          </div>
+          <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Updated {formattedDate}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Planning stage indicators */}
+      {series.status === "planning" && (
+        <div className="flex items-center gap-3 mb-3 text-xs text-slate-500">
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Outlining topics</span>
+          </div>
+          <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Started {formattedDate}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Research stage indicators */}
+      {series.status === "research" && (
+        <div className="flex items-center gap-3 mb-3 text-xs text-slate-500">
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Gathering sources</span>
+          </div>
+          <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+          <div className="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3.5 w-3.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Updated {formattedDate}</span>
+          </div>
+        </div>
+      )}
+
       <p className="text-sm opacity-75 mb-4">{series.description}</p>
       <div className="space-y-2">
         <div className="flex justify-between text-xs opacity-75">
