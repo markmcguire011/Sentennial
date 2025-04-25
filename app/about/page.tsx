@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Newsletter from "@/components/sections/newsletter";
+import BookshelfSection from "@/components/content/about/bookshelf-section";
 
 export default function Page() {
   const projectStatuses = [
@@ -20,44 +21,6 @@ export default function Page() {
       status: "paused",
       focus: "New article series on ML Ethics",
       color: "bg-yellow-400",
-    },
-  ];
-
-  const currentlyReading = [
-    {
-      title: "Notes from the Underground",
-      author: "Fyodor Dostoevsky",
-      progress: 65,
-      emoji: "📝",
-      color: "bg-blue-100",
-    },
-    {
-      title: "Citizens: A Chronicle of the French Revolution",
-      author: "Simon Schama",
-      progress: 12,
-      emoji: "🇫🇷",
-      color: "bg-purple-100",
-    },
-  ];
-
-  const readingQueue = [
-    {
-      title: "The Brothers Karamazov",
-      author: "Fyodor Dostoevsky",
-      emoji: "📖",
-      color: "bg-amber-100",
-    },
-    {
-      title: "Gödel, Escher, Bach",
-      author: "Douglas Hofstadter",
-      emoji: "🧩",
-      color: "bg-green-100",
-    },
-    {
-      title: "The Age of AI",
-      author: "Henry Kissinger, Eric Schmidt, Daniel Huttenlocher",
-      emoji: "🧠",
-      color: "bg-blue-100",
     },
   ];
 
@@ -147,86 +110,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* New Reading Section */}
-        <div className="mt-8 md:mt-10 mb-2">
-          <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
-            My Bookshelf
-          </h2>
-          <p className="mt-2 mb-4 text-base md:text-lg opacity-75">
-            I spend a lot of time reading and trying to learn about
-            all the awesome stuff we as humans have created, shaped, and have
-            yet to build. You learn a lot about yourself through the act of
-            reading, so here&apos;s what&apos;s currently on my list:
-          </p>
-        </div>
-
-        {/* Currently Reading */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium opacity-75 text-brand-dark mb-3">
-            Currently Reading
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {currentlyReading.map((book) => (
-              <div
-                key={book.title}
-                className="bg-white/80 backdrop-blur-sm shadow-sm rounded-lg p-4 border flex gap-4"
-              >
-                <div
-                  className={`w-16 h-24 ${book.color} rounded flex-shrink-0 flex items-center justify-center text-3xl`}
-                >
-                  {book.emoji}
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <h4 className="font-medium text-brand-dark">{book.title}</h4>
-                  <p className="text-sm text-brand-dark opacity-75">
-                    by {book.author}
-                  </p>
-                  <div className="mt-auto pt-2">
-                    <div className="flex justify-between text-xs opacity-75 mb-1">
-                      <span>Progress</span>
-                      <span>{book.progress}%</span>
-                    </div>
-                    <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-brand-color rounded-full"
-                        style={{ width: `${book.progress}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Reading Queue */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium opacity-75 text-brand-dark mb-3">
-            Reading Queue
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {readingQueue.map((book) => (
-              <div
-                key={book.title}
-                className="bg-white/80 backdrop-blur-sm shadow-sm rounded-lg p-3 border flex gap-3"
-              >
-                <div
-                  className={`w-12 h-16 ${book.color} rounded flex-shrink-0 flex items-center justify-center text-xl`}
-                >
-                  {book.emoji}
-                </div>
-                <div>
-                  <h4 className="font-medium text-sm text-brand-dark">
-                    {book.title}
-                  </h4>
-                  <p className="text-xs text-brand-dark opacity-75">
-                    by {book.author}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <BookshelfSection />
 
         <div className="mt-8 md:mt-10 mb-2">
           <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
@@ -325,7 +209,6 @@ export default function Page() {
           (These are all from a recent trip to NYC)
         </p>
 
-        {/* Newsletter Section */}
         <Newsletter />
       </div>
     </div>
