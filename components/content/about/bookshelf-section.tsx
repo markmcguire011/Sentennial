@@ -56,6 +56,13 @@ export default function BookshelfSection() {
       emoji: "🚀",
       color: "bg-green-100",
     },
+    {
+      title: "The Art of Fielding",
+      author: "Chad Harbach",
+      emoji: "🏌️‍♂️",
+      color: "bg-red-100",
+    },
+    
   ];
 
   return (
