@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Newsletter from "@/components/sections/newsletter";
 import BookshelfSection from "@/components/content/about/bookshelf-section";
+import ResearchSection from "@/components/content/about/research-section";
 
 export default function Page() {
   const projectStatuses = [
@@ -111,6 +112,7 @@ export default function Page() {
         </div>
 
         <BookshelfSection />
+        <ResearchSection />
 
         <div className="mt-8 md:mt-10 mb-2">
           <h2 className="text-xl md:text-2xl font-semibold opacity-75 text-brand-dark">
