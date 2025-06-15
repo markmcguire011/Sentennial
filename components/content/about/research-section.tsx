@@ -44,7 +44,7 @@ export default function ResearchSection() {
           Research & Articles
         </h2>
         <p className="mt-2 mb-4 text-base md:text-lg opacity-75">
-          Here are some research papers and articles I'm currently reading or
+          Here are some research papers and articles I&apos;m currently reading or
           planning to read:
         </p>
       </div>
