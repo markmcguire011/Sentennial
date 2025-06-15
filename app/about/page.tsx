@@ -32,19 +32,18 @@ export default function Page() {
           About.
         </h1>
         <p className="text-base md:text-lg text-brand-dark">
-          Hey I&apos;m Mark! This is a personal project/blog where I record
+          Hey I&apos;m Mark! This is a personal project/blog where I share
           thoughts and stories about various topics. You already knew that, but
-          something you didn&apos;t know, the name of this project. It&apos;s a
-          combination of{" "}
+          here&apos;s something you might not know: the name of this project
+          combines{" "}
           <strong className="opacity-100 font-semibold text-brand-color">
             Sentient
           </strong>{" "}
           and{" "}
           <strong className="font-semibold text-brand-dark">Centennial</strong>.
-          Sentience: I think is just a super intriguing topic, mysterious but
-          also deeply personal. Centennial: Relates to time, history,
-          experience, and celebration. It blends a lot of relevant themes and I
-          thought it sounded cool.
+          Sentience fascinates me as a mysterious yet deeply personal topic.
+          Centennial relates to time, history, experience, and celebration. The
+          blend captures relevant themes and I thought it sounded cool.
         </p>
 
         <div className="mt-8 md:mt-10 mb-2">
@@ -86,27 +85,21 @@ export default function Page() {
           </h2>
           <div className="mt-2 text-base md:text-lg color-brand-dark space-y-4">
             <p>
-              Currently, I&apos;m studying Cognitive Science and Computer Science at USC.
-              I&apos;m super passionate about CS, as well as history and
-              philosophy, which are also huge interests of mine.
+              Currently, I&apos;m studying Cognitive Science and Computer
+              Science at USC. I&apos;m passionate about computer science,
+              particularly ML/AI, and enjoy the process of learning how things
+              work and creating through technology.
             </p>
             <p>
-              In the field of computer science, ML/AI really interests me the
-              most. But more generally, I just enjoy the struggle to learn how
-              things work, and the act of problem solving and creation through
-              technology.
+              I&apos;m also super interested in history and philosophy,
+              especially the connections between them. Within these fields, I
+              find ethics, philosophy of mind, the French Revolution, and the
+              Enlightenment particularly fascinating.
             </p>
             <p>
-              History and philosophy are also huge interests of mine, and I
-              get a special feeling from untangling the connections between
-              them. Within these two, ethics and the philosophy of mind are
-              probably the most interesting, as well as the French Revolution
-              and the Enlightenment.
-            </p>
-            <p>
-              Apart from that, I stay pretty active. I love basketball, running,
-              swimming, and going to the gym. I also really love cities, space,
-              and the human spirit.
+              Beyond the books, I love staying active through basketball,
+              running, swimming, and lifting. I also love cities, space, and the
+              human spirit.
             </p>
           </div>
         </div>
