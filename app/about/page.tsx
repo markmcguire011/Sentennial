@@ -86,7 +86,7 @@ export default function Page() {
           </h2>
           <div className="mt-2 text-base md:text-lg color-brand-dark space-y-4">
             <p>
-              Currently, I&apos;m studying computer science at Cal Poly SLO.
+              Currently, I&apos;m studying Cognitive Science and Computer Science at USC.
               I&apos;m super passionate about CS, as well as history and
               philosophy, which are also huge interests of mine.
             </p>
@@ -97,7 +97,7 @@ export default function Page() {
               technology.
             </p>
             <p>
-              History and philosophy are arguably bigger interests though, and I
+              History and philosophy are also huge interests of mine, and I
               get a special feeling from untangling the connections between
               them. Within these two, ethics and the philosophy of mind are
               probably the most interesting, as well as the French Revolution
@@ -207,9 +207,6 @@ export default function Page() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
-        <p className="text-center py-4 md:py-5 text-brand-dark text-base md:text-lg">
-          (These are all from a recent trip to NYC)
-        </p>
 
         <Newsletter />
       </div>
